@@ -20,5 +20,21 @@ public class RessourceManager {
 		}
 		return l;
 	}
+
+	
+	// getters & setters 
+	
+	public List<IRessource> getListRessource() {
+		return listRessource;
+	}
+
+	public void setListRessource(List<IRessource> listRessource) {
+		this.listRessource = listRessource;
+	}
+	
+	public void addRessource (IRessource r)
+	{
+		listRessource.add(r);
+	}
 	
 }

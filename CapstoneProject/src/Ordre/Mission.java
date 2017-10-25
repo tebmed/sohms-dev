@@ -23,10 +23,30 @@ public class Mission implements IOrdre {
 	
 	@Override
 	public List<String> getInstructons(String start, String end) {
-		//ressourceManager.getAvailableRessources();
+		ressourceManager.getAvailableRessources();
 		//TODO choose one ressource
 		return produit.getSubInstruction(start,end);
 		
 	}
+	
+	
+	
+	// getters & setters
+	
+	public RessourceManager getRessourceManager() {
+		return ressourceManager;
+	}
+	public void setRessourceManager(RessourceManager ressourceManager) {
+		this.ressourceManager = ressourceManager;
+	}
+	public IProduit getProduit() {
+		return produit;
+	}
+	public void setProduit(IProduit produit) {
+		this.produit = produit;
+	}
+	
+	
+	
 
 }
