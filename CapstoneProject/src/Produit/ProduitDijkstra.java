@@ -15,7 +15,7 @@ public class ProduitDijkstra implements IProduit{
 	@Override
 	public List<String> getSubInstruction(String start, String end) {
 		// TODO Auto-generated method stub
-		return null;
+		return applyDijkstra(start, end);
 	}
 	
 	private List<String> applyDijkstra(String start, String end)

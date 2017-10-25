@@ -8,7 +8,7 @@ public class RessourceManager {
 	
 	public RessourceManager()
 	{
-		listRessource = null;
+		listRessource = new ArrayList<IRessource>();
 	}
 	
 	public List<IRessource> getAvailableRessources()

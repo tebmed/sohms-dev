@@ -17,6 +17,9 @@ public class OrdreManager {
 		
 		// start of test?
 		m.helloWorld();
+		for(String s : m.getInstructons("deb", "fin")) {
+			System.out.println(s);
+		}
 	}
 
 }
