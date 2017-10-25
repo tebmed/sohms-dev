@@ -1,5 +1,5 @@
 package Ressource;
 
-public class IRessource {
-
+public interface IRessource {
+	public boolean isAvailable();
 }
