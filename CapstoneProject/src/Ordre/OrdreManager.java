@@ -1,9 +1,10 @@
 package Ordre;
 
+import org.json.*;
+
 import Produit.IProduit;
 import Produit.ProduitDijkstra;
-import Ressource.AGV;
-import Ressource.ElectricalTerminal;
+import Ressource.Ressource;
 import Ressource.RessourceManager;
 
 public class OrdreManager {
@@ -13,12 +14,40 @@ public class OrdreManager {
 		// initialisation
 		// --------------
 		RessourceManager ressM = new RessourceManager();
-			// TODO initial loading of ressources with IHM
-			for(int i = 0;i<5;++i)
+			
+		
+		String str = // TODO get this string with the set up of the IHM
+				"{ \"ressources\":[" 
+			+ 	"{ "
+            +		" \"type\": 1, "
+            +		" \"nb\": 3, "
+            +		" \"conf\": \"../..\" "
+            +	"}"
+        	+"] }";
+		
+		JSONObject obj;
+		try {
+			obj = new JSONObject(str);
+			JSONArray ressources = obj.getJSONArray("ressources");
+			for (int i = 0; i < ressources.length(); i++)
 			{
-				ressM.addRessource(new AGV());
-				ressM.addRessource(new ElectricalTerminal());
+				JSONArray ressourceAtt = ressources.getJSONArray(i);
+				for(int j= 0; j<ressourceAtt.length();++j)
+				{
+					//TODO ouverture fichier ressource.getString(2);
+					for(int ii = 0; ii<ressourceAtt.getInt(1); ++ii)
+					{
+						//ressM.addRessource(new Ressource(attributs, id));
+					}
+				}
 			}
+				
+				
+		} catch (JSONException e) {
+			System.out.println("Format du fichier JSON invalide - impossible d'initialiser les ressources");
+			e.printStackTrace();
+		}
+		
 		IProduit p = new ProduitDijkstra("RandomPAthToNowhere");
 		Mission m = new Mission(ressM,p);
 		
