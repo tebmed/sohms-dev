@@ -1,5 +1,7 @@
 package Ordre;
 
+import java.io.FileNotFoundException;
+
 import org.json.*;
 
 import Communication.SoHMSMock;
@@ -15,9 +17,14 @@ public class OrdreManager {
 		// initialisation
 		// --------------
 		RessourceManager ressM = new RessourceManager();
-			
-		SoHMSMock mock = new SoHMSMock();
-		mock.InterfaceMock();
+		
+		// Utilisation du SoHMS
+		/*SoHMSMock mock = new SoHMSMock();
+		try{
+			mock.InterfaceMock();
+		}catch(FileNotFoundException e){
+			System.out.println("File not found");
+		}*/
 		
 		String str = // TODO get this string with the set up of the IHM
 				"{ \"ressources\":[" 
