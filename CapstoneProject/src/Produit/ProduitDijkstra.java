@@ -14,10 +14,9 @@ public class ProduitDijkstra implements IProduit{
 	
 	@Override
 	public List<String> getSubInstruction(String start, String end) {
-		// TODO Auto-generated method stub
 		return applyDijkstra(start, end);
 	}
-	
+	//TODO kdsf
 	private List<String> applyDijkstra(String start, String end)
 	{
 		List<String> l = new ArrayList<String>();

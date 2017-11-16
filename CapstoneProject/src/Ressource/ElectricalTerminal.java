@@ -2,9 +2,15 @@ package Ressource;
 
 public class ElectricalTerminal implements IRessource {
 	
-	private boolean available = false;
+	private boolean available;
 	
-	public void setAvailable(boolean b) {available = b;}
+	public ElectricalTerminal() {
+		available = false;
+	}
+	
+	public void setAvailable(boolean b) {
+		available = b;
+	}
 	
 	@Override
 	public boolean isAvailable() {
@@ -23,7 +29,6 @@ public class ElectricalTerminal implements IRessource {
 
 	@Override
 	public boolean execute(String instruction) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
