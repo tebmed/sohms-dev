@@ -16,9 +16,14 @@ public class ProduitDijkstra implements IProduit{
 	public List<String> getSubInstruction(String start, String end) {
 		return applyDijkstra(start, end);
 	}
-	//TODO kdsf
+	
 	private List<String> applyDijkstra(String start, String end)
 	{
+		Parser p = new Parser();
+		
+		p.parse();
+		p.toString();
+		
 		List<String> l = new ArrayList<String>();
 		
 		// TODO implemente dijkstra
@@ -26,9 +31,9 @@ public class ProduitDijkstra implements IProduit{
 			// extract path
 			// apply algo on it
 			// Remove this following line: 
-				l.add("A to B");
-				l.add("B to C");
-				l.add("C to D"); // end remove
+				//l.add("A to B");
+				//l.add("B to C");
+				//l.add("C to D"); // end remove
 		
 		return l;
 	}
