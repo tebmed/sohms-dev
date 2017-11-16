@@ -2,6 +2,7 @@ package Ordre;
 
 import org.json.*;
 
+import Communication.SoHMSMock;
 import Produit.IProduit;
 import Produit.ProduitDijkstra;
 import Ressource.Ressource;
@@ -15,6 +16,8 @@ public class OrdreManager {
 		// --------------
 		RessourceManager ressM = new RessourceManager();
 			
+		SoHMSMock mock = new SoHMSMock();
+		mock.InterfaceMock();
 		
 		String str = // TODO get this string with the set up of the IHM
 				"{ \"ressources\":[" 
