@@ -1,60 +1,76 @@
 package Communication;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.io.PrintWriter;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ServeurSocket {
+import org.java_websocket.WebSocket;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
 
-	Socket socketArena;
-	Socket socketIHM;
-	ServerSocket socketserver;
+public class ServeurSocket extends WebSocketServer{
+
 	
+    private static int TCP_PORT = 8003;
+    private List<WebSocket> socketsIHM;
+    
+
 	public ServeurSocket() throws IOException
 	{
-		socketArena = null;
-		socketIHM = null;
-		socketserver = new ServerSocket(2009);
+        super(new InetSocketAddress(TCP_PORT));
+        socketsIHM = new ArrayList<WebSocket>();		
 	}
 	
-	public Socket getSocketArena()
+	public WebSocket getSocketIHM()
 	{
-		return socketArena;
-	}
-	
-	public Socket getSocketIHM()
-	{
-		return socketIHM;
+		if(socketsIHM.isEmpty())
+			return null;
+		else	
+			return socketsIHM.get(0);
 	}
 	
 	
-	public static void main(String[] zero) 
-	{
-		
-		
-		
+	@Override
+    public void onOpen(WebSocket conn, ClientHandshake handshake) {
+        socketsIHM.add(conn);
+        System.out.println("New connection from " + conn.getRemoteSocketAddress().getAddress().getHostAddress());
+    }
 
+    @Override
+    public void onClose(WebSocket conn, int code, String reason, boolean remote) {
+        socketsIHM.remove(conn);
+        System.out.println("Closed connection to " + conn.getRemoteSocketAddress().getAddress().getHostAddress());
+    }
+
+    @Override
+    public void onMessage(WebSocket conn, String message) {
+        System.out.println("Message from client: " + message);
 		try {
-		System.out.println("");
-		
-//			socketduserveur = socketserver.accept(); 
-//			OutputStream out = socketduserveur.getOutputStream();
-//			String s = "testStringServerSocket";
-//			
-//			for(int i = 0 ; i< s.length() ; ++i)
-//			{
-//				out.write(s.charAt(i));
-//			}
-//			System.out.println("Un zéro s'est connecté !");
-//		        socketserver.close();
-//		        socketduserveur.close();
-//
-//		}catch (IOException e) {
-//			e.printStackTrace();
-		}
-		finally {
+			File log = new File("logsIHM.txt");
+			PrintWriter out = new PrintWriter(new FileWriter(log, true));
 			
+			out.write(message + '\n');
+			
+			out.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	}
+
+    }
+
+    @Override
+    public void onError(WebSocket conn, Exception ex) {
+        ex.printStackTrace();
+        if (conn != null) {
+        	socketsIHM.remove(conn);
+            // do some thing if required
+        }
+        System.out.println("ERROR from " + conn.getRemoteSocketAddress().getAddress().getHostAddress());
+    }
 
 }
