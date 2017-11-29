@@ -1,7 +1,10 @@
 package Ordre;
 
+import java.io.FileNotFoundException;
+
 import org.json.*;
 
+import Communication.SoHMSMock;
 import Produit.IProduit;
 import Produit.ProduitDijkstra;
 import Ressource.Ressource;
@@ -14,14 +17,21 @@ public class OrdreManager {
 		// initialisation
 		// --------------
 		RessourceManager ressM = new RessourceManager();
-			
+		
+		// Utilisation du SoHMS
+		/*SoHMSMock mock = new SoHMSMock();
+		try{
+			mock.InterfaceMock();
+		}catch(FileNotFoundException e){
+			System.out.println("File not found");
+		}*/
 		
 		String str = // TODO get this string with the set up of the IHM
 				"{ \"ressources\":[" 
 			+ 	"{ "
             +		" \"type\": 1, "
             +		" \"nb\": 3, "
-            +		" \"conf\": \"../..\" "
+            +		" \"conf\": \"../..\", "
             +	"}"
         	+"] }";
 		
@@ -31,14 +41,17 @@ public class OrdreManager {
 			JSONArray ressources = obj.getJSONArray("ressources");
 			for (int i = 0; i < ressources.length(); i++)
 			{
-				JSONArray ressourceAtt = ressources.getJSONArray(i);
-				for(int j= 0; j<ressourceAtt.length();++j)
+				System.out.println(ressources);
+				JSONObject ressourceAtt = ressources.getJSONObject(i);
+				System.out.println("ressourceAtt + " + ressourceAtt);
+				for(int j= 0; j<ressourceAtt.getInt("nb");++j)
 				{
+					System.out.println("OrdreManager -> JSONParse -> ressourceAtt.getInt(\"nb\"): hellooooo");
 					//TODO ouverture fichier ressource.getString(2);
-					for(int ii = 0; ii<ressourceAtt.getInt(1); ++ii)
+					/*for(int ii = 0; ii<ressourceAtt.getInt(1); ++ii)
 					{
 						//ressM.addRessource(new Ressource(attributs, id));
-					}
+					}*/
 				}
 			}
 				
