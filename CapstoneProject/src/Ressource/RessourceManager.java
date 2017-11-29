@@ -4,25 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RessourceManager {
-	List<Ressource> listRessource;
+	ArrayList<Ressource> availableRes;
 	
 	public RessourceManager()
 	{
-		listRessource = new ArrayList<Ressource>();
-	}
-	
-	/**
-	 * retroune les ressource disponibles
-	 * @return la liste des ressources disponibles
-	 */
-	public List<Ressource> getAvailableRessources()
-	{
-		List<Ressource> l = new ArrayList<Ressource>();
-		for(Ressource ressource : listRessource)
-		{
-			if (ressource.isAvailable()) l.add(ressource);
-		}
-		return l;
+		availableRes = new ArrayList<Ressource>();
 	}
 	
 	/**
@@ -30,30 +16,62 @@ public class RessourceManager {
 	 * @param actions les actions voulues
 	 * @return la liste des ressources qui sont capable d'effectuer la listes d'actions
 	 */
-	public List<Ressource> getAbleToRessource(List<String> actions)
+	public List<Ressource> getAbleToRessource(String service)
 	{
 		List<Ressource> l = new ArrayList<Ressource>();
-		for(Ressource ressource : listRessource)
+		for(Ressource ressource : availableRes)
 		{
-			if (ressource.getAttributs().contains(actions)) l.add(ressource);
+			//Si la ressource est capable de réaliser le service 
+			l.add(ressource);
 		}
 		return l;
 	}
+	
+	/**
+	 * Envoi la ressource se recharger si elle est à court de batterie
+	 * @param res la ressource qui doit aller se recharger
+	 */
+	public void toPowerOutlet(Ressource res) {
+		
+	}
+	
+	/**
+	 * Retourne les ressources qui sont capables de faire le service demandé
+	 * @return la liste de ressources disponibles
+	 */
+	public ArrayList<Ressource> requestService() {
+		
+		//TODO Lister les ressources qui sont capables de réaliser le service demandé
+		
+		return availableRes;
+	}
+	
+	/**
+	 * Réalise le service demandé
+	 */
+	public void doService(int idRessource) {
+		
+	}
+	
+	/**
+	 * Signale une ressource en panne
+	 * @param time la durée de la panne de la ressource
+	 */
+	public void outOfOrder(int time) {
+		
+	}
 
+	/**
+	 * Signale la fin d'une panne
+	 */
+	public void endOfOutOfOrder() {
+		
+	}
 	
 	// getters & setters 
 	
 	public List<Ressource> getListRessource() {
-		return listRessource;
-	}
-
-	public void setListRessource(List<Ressource> listRessource) {
-		this.listRessource = listRessource;
-	}
-	
-	public void addRessource (Ressource r)
-	{
-		listRessource.add(r);
+		return availableRes;
 	}
 	
 }

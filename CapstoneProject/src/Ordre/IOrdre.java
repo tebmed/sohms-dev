@@ -7,5 +7,5 @@ public interface IOrdre {
 		System.out.println("HelloWorld");
 	}
 	
-	public List<String> getInstructons(String start, String end);
+	public List<String> getInstructions(String start, String end);
 }

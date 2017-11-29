@@ -20,24 +20,14 @@ public class Ressource {
 	 */
 	public boolean isAvailable() {
 		return false;
-	}	
-		
-	/** Fonction qui verifie si une ressource est capable d'effectuer  une certaine action
-	 * @param action l'action a effectuer
-	 * @return vrai si la ressource est capable d'effectuer l'action passée en parametre , faux sinon
-	 */
-	public boolean can(String action) {
-		return false;
 	}
 	
-	/** Demande à la ressource d'executer une instruction
-	 * @param instruction l'instruction a executer
-	 * @return vrai si la ressource peut executer l'instruction, faux sinon
+	/**
+	 * Mets Ã  jour le planning de la ressource
 	 */
-	public boolean execute(String instruction) {
-		return false;
+	public void majPlanning() {
+		
 	}
-
 	
 	// getter && setter
 	
@@ -61,5 +51,7 @@ public class Ressource {
 		this.available = available;
 	}
 	
-	
+	public int getBattery() {
+		return 0;
+	}
 }

@@ -1,10 +1,11 @@
 package Ordre;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import Communication.SoHMSMock;
 import Produit.IProduit;
 import Produit.ProduitDijkstra;
 import Ressource.Ressource;
@@ -13,7 +14,6 @@ import Ressource.RessourceManager;
 public class OrdreManager {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// initialisation
 		// --------------
 		RessourceManager ressM = new RessourceManager();
@@ -62,25 +62,42 @@ public class OrdreManager {
 		}
 		
 		IProduit p = new ProduitDijkstra("RandomPAthToNowhere");
-		Mission m = new Mission(ressM,p);
+	}
+	
+	/**
+	 * Création d'un nouvel ordre
+	 * @param jsonFile le fichier de configuration du système
+	 */
+	public void newOrder(File jsonFile) {
 		
-		// start of test?
-		m.helloWorld();
-		for(String s : m.getInstructons("deb", "fin")) {
-			System.out.println(s);
-		}
+	}
+	
+	/**
+	 * Valide le contrat
+	 */
+	public void contractValidation() {
 		
-		// TODO list of all the order
-		// IHM.giveALLOrder()
-		// foreach -> getSubInstruction
-		// 		foreach subinstruction -> settimer to next ending instruction
-										// is path still usable?
+	}
+	
+	/**
+	 * Annule le contrat en cours
+	 */
+	public void avoidContract() {
 		
+	}
+	
+	/**
+	 * Annule les contrats en cours
+	 */
+	public void avoidContracts() {
 		
+	}
+	
+	/**
+	 * Réorganise les ordres en fonction de la panne de la ressource
+	 */
+	public void reorganizationContract() {
 		
-		// TODO
-		// Make a runtime who refresh the execution time of instructions each time an instruction end
-		// Make a resume of this result
 	}
 
 }
