@@ -1,7 +1,6 @@
 package Produit;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProduitManager {
 	
@@ -16,6 +15,6 @@ public class ProduitManager {
 	 * @return la liste des services possibles
 	 */
 	public ArrayList<String> askNextService(){
-		return servicesList;
+		return servicesList;	
 	}
 }

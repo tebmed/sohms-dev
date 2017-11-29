@@ -1,14 +1,15 @@
 package Ordre;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Communication.SoHMSMock;
 import Produit.IProduit;
 import Produit.ProduitDijkstra;
-import Ressource.Ressource;
 import Ressource.RessourceManager;
 
 public class OrdreManager {
@@ -19,12 +20,12 @@ public class OrdreManager {
 		RessourceManager ressM = new RessourceManager();
 		
 		// Utilisation du SoHMS
-		/*SoHMSMock mock = new SoHMSMock();
+		SoHMSMock mock = new SoHMSMock();
 		try{
 			mock.InterfaceMock();
 		}catch(FileNotFoundException e){
 			System.out.println("File not found");
-		}*/
+		}
 		
 		String str = // TODO get this string with the set up of the IHM
 				"{ \"ressources\":[" 
@@ -46,7 +47,6 @@ public class OrdreManager {
 				System.out.println("ressourceAtt + " + ressourceAtt);
 				for(int j= 0; j<ressourceAtt.getInt("nb");++j)
 				{
-					System.out.println("OrdreManager -> JSONParse -> ressourceAtt.getInt(\"nb\"): hellooooo");
 					//TODO ouverture fichier ressource.getString(2);
 					/*for(int ii = 0; ii<ressourceAtt.getInt(1); ++ii)
 					{
@@ -62,6 +62,7 @@ public class OrdreManager {
 		}
 		
 		IProduit p = new ProduitDijkstra("RandomPAthToNowhere");
+
 	}
 	
 	/**
