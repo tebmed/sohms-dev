@@ -1,20 +1,35 @@
 package Produit;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProduitManager {
 	
-	private ArrayList<String> servicesList;
+	private List<Produit> produitsList;
+	private List<Produit> chaineProduction;
 	
 	public ProduitManager() {
-		servicesList = new ArrayList<String>();
+		produitsList = new ArrayList<Produit>();
+		chaineProduction = new ArrayList<Produit>();
 	}
 	
-	/**
-	 * Demande les prochains services qui peuvent être réalisés pour le produit
-	 * @return la liste des services possibles
-	 */
-	public ArrayList<String> askNextService(){
-		return servicesList;	
+	public Produit getProduitAt(int i) {
+		return produitsList.get(i);
+	}	
+	
+	public void addProduit(Produit p) {
+		produitsList.add(p);
+	}
+
+	public List<Produit> getChaineProduction() {
+		return chaineProduction;
+	}
+	
+	public void printProduits() {
+		for(Produit p : produitsList) {
+			System.out.println(p.getId());
+			p.printAllServices();
+		}
+		
 	}
 }

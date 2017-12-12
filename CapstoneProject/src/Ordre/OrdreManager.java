@@ -2,6 +2,8 @@ package Ordre;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +16,21 @@ import Ressource.RessourceManager;
 
 public class OrdreManager {
 
+	private List<Ordre> ordersList;
+	
+	public OrdreManager() {
+		ordersList = new ArrayList<Ordre>();
+	}
+	
+	public void addOrdre(Ordre o) {
+		ordersList.add(o);
+	}
+	
+	public void printOrders() {
+		for(Ordre o : ordersList)
+			System.out.println(o.getId() + ",");
+	}
+	
 	public static void main(String[] args) {
 		// initialisation
 		// --------------
