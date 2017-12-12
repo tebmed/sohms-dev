@@ -4,7 +4,7 @@
             "id": 1,
             "nb": 1,
             "services":[
-                1
+                1, 4
             ]
         },
         {
@@ -36,6 +36,11 @@
         {
             "id": 3,
             "name":"souder",
+            "path": "random/souder1.java"
+        },
+        {
+            "id": 4,
+            "name":"peindre",
             "path": "random/souder1.java"
         }
     ],

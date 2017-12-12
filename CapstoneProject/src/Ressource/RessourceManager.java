@@ -3,8 +3,11 @@ package Ressource;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 public class RessourceManager {
 	private List<Ressource> availableRes;
+	private JSONObject layout;
 	
 	public RessourceManager()
 	{
@@ -27,8 +30,17 @@ public class RessourceManager {
 		return availableRes;
 	}
 	
-	public void addRessource(int id) {
-		availableRes.add(new Ressource(id));
+	public void addRessource(int id,List<Integer> listService) {
+		availableRes.add(new Ressource(id,listService));
 	}
 	
+	public void setLayout(JSONObject layout)
+	{
+		this.layout = layout;
+	}
+	
+	public JSONObject getLayout()
+	{
+		return this.layout;
+	}
 }

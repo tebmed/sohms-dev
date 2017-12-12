@@ -54,7 +54,7 @@ public class InitialisationSysteme {
 			JSONObject service = (JSONObject) services.get(i);
 			
 			sm.addPathToService(service.getInt("id"), service.getString("path"));
-			
+			sm.addNameAssociateTo(service.getInt("id"), service.getString("name"));
 			
 		}
 		
@@ -67,13 +67,21 @@ public class InitialisationSysteme {
 		JSONObject obj;
 
 		obj = new JSONObject(fileContent);
+		rm.setLayout(obj.getJSONObject("layoutSpec"));
+		
 		JSONArray ressources = obj.getJSONArray("ressources");
 
 		for(int i = 0 ; i < ressources.length() ; ++ i) {
 			JSONObject ressource = (JSONObject) ressources.get(i);
 			
 			for(int j = 0 ; j < ressource.getInt("nb") ; ++j) {
-				rm.addRessource(ressource.getInt("id"));
+				List<Integer> listServices = new ArrayList<Integer>();
+				JSONArray services = ressource.getJSONArray("services");
+				for(int k = 0;k<services.length();++k)
+				{
+					listServices.add(services.getInt(k));
+				}
+				rm.addRessource(ressource.getInt("id"),listServices);
 			}
 		}
 		
@@ -95,11 +103,11 @@ public class InitialisationSysteme {
 			JSONArray allServices = produit.getJSONArray("services");
 			
 			for(int j = 0 ; j < allServices.length() ; ++j) {
-				List serviceList = new ArrayList<Integer>();
+				List<Integer> serviceList = new ArrayList<Integer>();
 				JSONArray subArray = (JSONArray)allServices.get(j);
 				
 				for(int k = 0 ; k < subArray.length() ; ++k) {
-					serviceList.add(subArray.get(k));
+					serviceList.add((int) subArray.get(k));
 				}
 				
 				p.addServicesList(serviceList);
@@ -136,20 +144,25 @@ public class InitialisationSysteme {
 			//System.out.println(fileContent);
 			
 			try {
+				System.out.print("Initialisation services : ");
 				ServiceManager sm = initialiserServices(fileContent);
+				System.out.println("finie");
+				System.out.print("Initialisation ressources : ");
 				RessourceManager rm = initialiserRessources(fileContent);
+				System.out.println("finie");
+				System.out.print("Initialisation produits : ");
 				ProduitManager pm = initialiserProducts(fileContent);
+				System.out.println("finie");
+				System.out.print("Initialisation ordres : ");
 				OrdreManager om = initialiserOrdres(fileContent);
-				// init avec ableTo
+				System.out.println("finie");
 				
-				System.out.println("ServiceManager :");
-				System.out.println(sm.getPathAssociatedTo());
-				System.out.println("RessourceManager");
-				System.out.println(rm.getListRessource());
-				System.out.println("ProduitManager");
-				pm.printProduits();
-				System.out.println("OrdreManager");
-				om.printOrders();
+				System.out.print("Initialisation annuaire de service : ");
+				sm.initialiserAnnuaire(rm);
+				System.out.println("finie");
+				
+				System.out.println("Annuaire");
+				sm.printAnnuaire();
 				
 			} catch (JSONException e) {
 				System.out.println("Format du fichier JSON invalide");
