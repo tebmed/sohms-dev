@@ -2,8 +2,12 @@ package application;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +15,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Communication.ListenerArena;
+import Communication.ServeurSocket;
 import Ordre.Ordre;
 import Ordre.OrdreManager;
 import Produit.Produit;
@@ -135,7 +141,26 @@ public class InitialisationSysteme {
 	}
 	
 	public static void main(String[] args) {
+		
+		// creer socket vers arena
+		int port = 1202;
+		String arenaAddresse = "127.0.0.1";
 
+		ServeurSocket servSocket;
+		
+		//creer serveur socket pour connection depuis ihm
+		try {
+			servSocket = new ServeurSocket();
+			servSocket.start();
+			
+			InetAddress arenaAddr = InetAddress.getByName(arenaAddresse);
+			Socket socketArena = new Socket(arenaAddr, port);
+			
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		
 		
 		String file = "ps1.json";
 		String fileContent = readFileJSON(file); // TODO : lire chaine depuis IHM
@@ -163,6 +188,9 @@ public class InitialisationSysteme {
 				
 				System.out.println("Annuaire");
 				sm.printAnnuaire();
+				
+				
+				
 				
 			} catch (JSONException e) {
 				System.out.println("Format du fichier JSON invalide");
