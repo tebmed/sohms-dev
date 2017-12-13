@@ -45,3 +45,5 @@ local.properties
 .scala_dependencies
 .worksheet
 instructions.txt
+
+.buildpath
