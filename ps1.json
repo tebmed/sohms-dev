@@ -26,22 +26,26 @@
         {
             "id": 1,
             "name":"deplacement",
-            "path": "random/deplacement1.java"
+            "path": "random/deplacement1.java",
+            "duration": 1
         },
         {
             "id": 2,
             "name":"peindre",
-            "path": "random/peindre1.java"
+            "path": "random/peindre1.java",
+            "duration": 1
         },
         {
             "id": 3,
             "name":"souder",
-            "path": "random/souder1.java"
+            "path": "random/souder1.java",
+            "duration": 1
         },
         {
             "id": 4,
             "name":"peindre",
-            "path": "random/souder1.java"
+            "path": "random/souder1.java",
+            "duration": 1
         }
     ],
     "perturbations": [
