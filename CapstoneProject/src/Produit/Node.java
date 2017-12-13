@@ -1,30 +1,26 @@
 package Produit;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Node {
-	private String id;
-	private ArrayList<String> voisins;
+	private int id;
+	private String type;
 	
-	public Node(String idNode, ArrayList<String> vois) {
+	public Node(int idNode, String t) {
 		id = idNode;
-		voisins = vois;
+		type = t;
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public ArrayList<String> getVoisins(){
-		return voisins;
-	}
-	
-	public void addVoisin(String newVoisin) {
-		voisins.add(newVoisin);
+	public String getType() {
+		return type;
 	}
 
 	@Override
 	public String toString() {
-		return "Node [id=" + id + ", voisins=" + voisins + "]";
+		return "Node [id=" + id + ", type=" + type + "]";
 	}
 }
