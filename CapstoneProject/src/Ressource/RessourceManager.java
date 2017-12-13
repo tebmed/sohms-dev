@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import Produit.Service;
+
 public class RessourceManager {
 	private List<Ressource> availableRes;
 	private JSONObject layout;
@@ -30,7 +32,7 @@ public class RessourceManager {
 		return availableRes;
 	}
 	
-	public void addRessource(int id,List<Integer> listService) {
+	public void addRessource(int id,List<Service> listService) {
 		availableRes.add(new Ressource(id,listService));
 	}
 	
@@ -42,5 +44,14 @@ public class RessourceManager {
 	public JSONObject getLayout()
 	{
 		return this.layout;
+	}
+	
+	public String toString() {
+		String s = "";
+		
+		for(Ressource res : availableRes)
+			s += res.toString();
+			
+		return s + "\n";
 	}
 }
