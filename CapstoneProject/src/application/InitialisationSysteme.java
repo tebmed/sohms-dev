@@ -137,7 +137,7 @@ public class InitialisationSysteme {
 	public static void main(String[] args) {
 
 		
-		String file = "ps1.json";
+		String file = "data/ps1.json";
 		String fileContent = readFileJSON(file); // TODO : lire chaine depuis IHM
 		
 		if(fileContent != "") {

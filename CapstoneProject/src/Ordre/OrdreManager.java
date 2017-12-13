@@ -78,7 +78,7 @@ public class OrdreManager {
 			e.printStackTrace();
 		}
 		
-		IProduit p = new ProduitDijkstra("RandomPAthToNowhere");
+		//IProduit p = new ProduitDijkstra("RandomPAthToNowhere");
 
 	}
 	

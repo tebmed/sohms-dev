@@ -1,88 +1,63 @@
 package Produit;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Parser {
 
-	private static final String FILENAME = "data/Layout1.txt";
-	private List<Node> listeNoeuds;
-	private ArrayList<String> listeVoisins;
-	private boolean present;
+	private HashMap<Node, List<Segment>> listeNoeuds;
+	private List<Segment> listeVoisins;
+	private int idSource;
 	
 	public Parser() {
-		listeNoeuds = new ArrayList<Node>();
-		present = false;
-	}
-
-	public void parse() {
-
-		BufferedReader br = null;
-		FileReader fr = null;
-		String sCurrentLine;
-		String[] layoutParts;
-
-		try {
-			fr = new FileReader(FILENAME);
-			br = new BufferedReader(fr);
-
-			while ((sCurrentLine = br.readLine()) != null) {
-				//Exclusion des lignes vides
-				if(sCurrentLine.length() != 0) {
-					//Exclusion des lignes de commentaires
-					if(sCurrentLine.charAt(0) != '#') { 
-
-						layoutParts = sCurrentLine.split(";");
-						boolean present = false;
-						listeVoisins = new ArrayList<String>();
-						
-						for(Node n: listeNoeuds) {
-							//Vérification de la présence de noeuds déjà analysés
-							if(layoutParts[0].compareTo(n.getId()) == 0) {
-								n.addVoisin(layoutParts[1]);
-								present = true;
-							}
-						}
-						
-						//Ajout des npeuds non analysés
-						if(!present) {
-							listeVoisins.add(layoutParts[1]);
-							listeNoeuds.add(new Node(layoutParts[0], listeVoisins));
-						}
-						
-						present = false;								
-						Arrays.fill(layoutParts, null);
-					}
-				}
-			}
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		} finally {
-
-			try {
-				if (br != null) br.close();
-				if (fr != null) fr.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
+		listeNoeuds = new HashMap<Node, List<Segment>>();
 	}
 	
-	public String toString() {
-		//Affichage de la version graph de layout.txt
-			for(Node n: listeNoeuds) {
-				System.out.println();
-				System.out.println("Noeud : " + n.getId());
-				System.out.println("Voisin(s)" + n.getVoisins().toString());
-			}
+	public HashMap<Node, List<Segment>> parse(JSONObject obj) throws JSONException {
+
+		ArrayList<Segment> tmpListeSegment;
+		Node tmpNode = null;
+		//Listage des nodes
+		JSONArray nodes = obj.getJSONArray("nodes");
 		
-		return "done";
+		for(int i = 0 ; i < nodes.length() ; ++i) {
+			JSONObject node = (JSONObject) nodes.get(i);
+			
+				
+			//Typage du node
+			if(node.getInt("ressources") != 0) {
+				tmpNode = new Node(node.getInt("id"), "ressource");
+			}
+			else {
+				tmpNode = new Node(node.getInt("id"), "croisement");
+			}
+			
+			listeVoisins = new ArrayList<Segment>();
+			
+			listeNoeuds.put(tmpNode, listeVoisins);
+		}
+		
+		//Listage et création des voisins via les segments
+		JSONArray arcs = obj.getJSONArray("arcs");
+		
+		for(int i = 0 ; i < arcs.length() ; ++i) {
+			JSONObject arc = (JSONObject) arcs.get(i);
+			
+			idSource = arc.getInt("from");
+			
+			//get la liste de segment pour le node associé dans listeNoeuds
+			tmpListeSegment = (ArrayList<Segment>) listeNoeuds.get(idSource);
+			
+			//Ajout d'un nouveau segment pour définir un nouveau voisin
+			tmpListeSegment.add(new Segment(arc.getInt("from"), arc.getInt("to"), arc.getInt("size")));
+		}
+		
+		System.out.println(listeNoeuds);
+		return listeNoeuds;
 	}
 }
