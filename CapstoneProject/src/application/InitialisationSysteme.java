@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import communication.ComArena;
 import communication.ServeurSocket;
 import ordre.Ordre;
 import ordre.OrdreManager;
@@ -241,8 +242,7 @@ public class InitialisationSysteme {
 	public static void main(String[] args) {
 		
 		// creer socket vers arena
-		int port = 1202;
-		String arenaAddresse = "127.0.0.1";
+		
 
 
 		ServeurSocket servSocket;
@@ -252,9 +252,9 @@ public class InitialisationSysteme {
 			servSocket = new ServeurSocket();
 			servSocket.start();
 			
-			InetAddress arenaAddr = InetAddress.getByName(arenaAddresse);
-			Socket socketArena = new Socket(arenaAddr, port);
-			
+			ComArena comArena = new ComArena();
+			comArena.deplAgv(1, 6);
+						
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
