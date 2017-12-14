@@ -1,4 +1,4 @@
-package Produit;
+package produit;
 
 public class Service {
 
@@ -24,12 +24,16 @@ public class Service {
 	
 	public int getDuration() {
 		return this.duration;
-	}
-	
-	
+	}	
 	
 	public String getPath() {
 		return this.path;
 	}
+
+	@Override
+	public String toString() {
+		return "Service [id=" + id + ", name=" + name + ", duration=" + duration + ", path=" + path + "]";
+	}
+	
 	
 }

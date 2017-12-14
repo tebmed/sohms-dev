@@ -1,4 +1,4 @@
-package Ordre;
+package ordre;
 
 public class Ordre {
 
@@ -10,7 +10,7 @@ public class Ordre {
 		this.nb = nb;
 	}
 	
-	int getId() {
+	public int getId() {
 		return id;
 	}
 	

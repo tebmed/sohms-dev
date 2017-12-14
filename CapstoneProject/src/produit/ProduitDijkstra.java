@@ -1,4 +1,4 @@
-package Produit;
+package produit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,13 +7,17 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import Communication.ListenerArena;
+import communication.ListenerArena;
 
 public class ProduitDijkstra{
 
 	private HashMap<Node, List<Segment>> graphe;
 	private HashMap<ArrayList<Integer>, Integer> possiblePaths;
 	
+	public HashMap<ArrayList<Integer>, Integer> getPossiblePaths() {
+		return possiblePaths;
+	}
+
 	public ProduitDijkstra()
 	{
 		graphe = new HashMap<Node, List<Segment>>();

@@ -1,4 +1,4 @@
-package Communication;
+package communication;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,6 +10,8 @@ import java.util.List;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+
+import application.InitialisationSysteme;
 
 public class ServeurSocket extends WebSocketServer{
 
@@ -62,6 +64,8 @@ public class ServeurSocket extends WebSocketServer{
         System.out.println("Message from client: " + message);
         int index = this.socketsIHM.indexOf(conn);
         this.messages.add(index, message);
+        
+        InitialisationSysteme.initialiserSysteme(message);
         
 //		try {
 //			File log = new File("logsIHM.txt");

@@ -1,16 +1,12 @@
-package Ressource;
+package ressource;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.*;
 import java.util.AbstractMap.SimpleEntry;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
 
-import Produit.Node;
-import Produit.Service;
-
-import Produit.Service;
+import produit.Node;
+import produit.Service;
 
 public class Ressource {
 	

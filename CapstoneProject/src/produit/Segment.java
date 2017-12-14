@@ -1,4 +1,4 @@
-package Produit;
+package produit;
 
 public class Segment {
 

@@ -1,12 +1,12 @@
-package Produit;
+package produit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import Ressource.Ressource;
-import Ressource.RessourceManager;
+import ressource.Ressource;
+import ressource.RessourceManager;
 
 public class ServiceManager {
 
@@ -55,4 +55,25 @@ public class ServiceManager {
 	public void printAnnuaire() {
 		System.out.println(annuaire);
 	}
+
+	public List<List<Service>> transformServicesIdToString(List<List<Integer>> nextServicesId) {
+		List<List<Service>> servicesString = new ArrayList<List<Service>>();
+		
+		for(int i = 0; i < nextServicesId.size() ; ++i) {
+			for(int j = 0 ; j < nextServicesId.get(i).size() ; ++j) {
+				List<Service> services = new ArrayList<Service>();
+				for(int k = 0; k < servicesList.size() ; ++k) {
+					if(nextServicesId.get(i).get(j) == servicesList.get(k).getId()) {
+						services.add(servicesList.get(k));
+						break;
+					}
+				}
+				servicesString.add(services);
+			}
+		}
+		
+		return servicesString;
+	}
+
+
 }

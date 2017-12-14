@@ -18,7 +18,7 @@
             "id": 3,
             "nb": 1,
             "services":[
-                3
+                3, 1
             ]
         }
     ],
@@ -44,7 +44,7 @@
         {
             "id": 4,
             "name":"peindre",
-            "path": "random/souder1.java",
+            "path": "random/peindre2.java",
             "duration": 1
         }
     ],
@@ -59,26 +59,15 @@
             "id":1 ,
             "nb" :1
         },
-        {
-            "id":2 ,
-            "nb" :15
-        }
+
     ],
     "products": [
         {
             "id":1 ,
             "description": "faire un joli produit necessitant un deplacement",
             "services":[
-                [2],
-                [1]
-            ]
-        },
-        {
-            "id":2 ,
-            "description": "faire un joliiiiiiiiiiiiiiiiii produit necessitant un deplacement",
-            "services":[
-                [2,1,3,2],
-                [1]
+                [1],
+                [2]
             ]
         }
     ],

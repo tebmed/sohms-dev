@@ -1,4 +1,4 @@
-package Produit;
+package produit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,10 +30,11 @@ public class Parser {
 			
 				
 			//Typage du node
-			if(node.getInt("ressources") != 0) {
-				tmpNode = new Node(node.getInt("id"), "ressource");
-			}
-			else {
+			try {
+					node.getInt("ressource");
+					tmpNode = new Node(node.getInt("id"), "ressource");
+				
+			}catch(NullPointerException | JSONException e) {
 				tmpNode = new Node(node.getInt("id"), "croisement");
 			}
 			
@@ -54,10 +55,12 @@ public class Parser {
 			tmpListeSegment = (ArrayList<Segment>) listeNoeuds.get(idSource);
 			
 			//Ajout d'un nouveau segment pour définir un nouveau voisin
-			tmpListeSegment.add(new Segment(arc.getInt("from"), arc.getInt("to"), arc.getInt("size")));
+			//tmpListeSegment.add(new Segment(arc.getInt("from"), arc.getInt("to"), arc.getInt("size")));
 		}
 		
-		System.out.println(listeNoeuds);
+		//System.out.println(listeNoeuds);
 		return listeNoeuds;
 	}
+	
+	
 }
