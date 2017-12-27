@@ -1,8 +1,5 @@
 package communication;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +7,8 @@ import java.util.List;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import application.InitialisationSysteme;
 
@@ -65,7 +64,11 @@ public class ServeurSocket extends WebSocketServer{
         int index = this.socketsIHM.indexOf(conn);
         this.messages.add(index, message);
         
-        InitialisationSysteme.initialiserSysteme(message);
+        if(message.startsWith("init")) {
+        	String subMessage = message.substring(6, message.length()-1);
+
+        	InitialisationSysteme.initialiserSysteme(subMessage);
+        }
         
 //		try {
 //			File log = new File("logsIHM.txt");

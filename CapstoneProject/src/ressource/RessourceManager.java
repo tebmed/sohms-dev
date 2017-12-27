@@ -1,10 +1,12 @@
 package ressource;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import produit.Node;
 import produit.Parser;
+import produit.ProduitDijkstra;
 import produit.Service;
 
 public class RessourceManager {
@@ -40,6 +42,53 @@ public class RessourceManager {
 	
 	public void reserveRessource(Ressource ressource) {
 		
+	}
+	
+	public Ressource findTransport(Node nodeToReach) {
+		
+		/*Ressource transport = null;
+		int lowestValue = Integer.MAX_VALUE;
+		
+		for(Ressource ressource : availableRes) {
+			List<Service> services = ressource.getListeService();
+			for(Service s : services) {
+				if(s.getName().equals("deplacement")) {
+					int minValue = Integer.MAX_VALUE;
+					ProduitDijkstra dijkstra = new ProduitDijkstra();
+					dijkstra.applyDijkstra(ressource.getNode().getId(), nodeToReach.getId(), new ArrayList<Integer>() , 1);
+					
+					ArrayList<Integer> values = (ArrayList<Integer>) dijkstra.getPossiblePaths().values();
+					
+					if(values != null) {
+						 minValue = values.get(0);
+						for(Integer value : values) {
+							if(value < minValue)
+								minValue = value;
+						}
+					}
+					
+					if(minValue < lowestValue) {
+						lowestValue = minValue;
+						transport = ressource;
+					}					
+				}
+			}
+		}
+		
+		System.out.println("Lowest value : " + lowestValue);
+		
+		return transport;*/
+		
+		// Temporairement on prend la première ressource pouvait déplacer (Dijkstra ne fonctionnant pas)
+		for(Ressource ressource : availableRes) {
+			List<Service> services = ressource.getListeService();
+			for(Service s : services) {
+				if(s.getName().equals("deplacement"))
+					return ressource;
+			}
+		}
+		
+		return null;
 	}
 	
 	// getters & setters 

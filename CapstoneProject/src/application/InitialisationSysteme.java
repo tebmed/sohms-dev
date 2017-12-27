@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,12 +48,10 @@ public class InitialisationSysteme {
 		return chaine;
 	}
 
-	public static ServiceManager initialiserServices(String fileContent) throws JSONException {
+	public static ServiceManager initialiserServices(JSONObject obj) throws JSONException {
 
 		ServiceManager sm = new ServiceManager();
-		JSONObject obj;
 
-		obj = new JSONObject(fileContent);
 		JSONArray services = obj.getJSONArray("services");
 
 		for (int i = 0; i < services.length(); ++i) {
@@ -68,12 +64,9 @@ public class InitialisationSysteme {
 		return sm;
 	}
 
-	public static RessourceManager initialiserRessources(String fileContent, ServiceManager sm) throws JSONException {
+	public static RessourceManager initialiserRessources(JSONObject obj, ServiceManager sm) throws JSONException {
 
 		RessourceManager rm = new RessourceManager();
-		JSONObject obj;
-
-		obj = new JSONObject(fileContent);
 		
 		Parser layout = new Parser();
 		layout.parse(obj.getJSONObject("layoutSpec"));
@@ -99,32 +92,31 @@ public class InitialisationSysteme {
 				rm.addRessource(ressource.getInt("id"), listServices);
 			}
 			
-			// Initialisation de la position des ressources
-			JSONArray nodes = obj.getJSONObject("layoutSpec").getJSONArray("nodes");
 			
-			for (int k = 0 ; k < nodes.length() ; ++k) {
-				JSONObject node = (JSONObject) nodes.get(k);
-				for(Ressource ressourceItem : rm.getListRessource()) {
-					try {
-						if(node.getInt("ressource") == ressourceItem.getId())
-							ressourceItem.setNode(new Node(node.getInt("id"), "ressource"));
-						
-					}catch (NullPointerException | JSONException e) { }
-
-				}
-					
-			}
 		}
+		
+		// Initialisation de la position des ressources
+		JSONArray nodes = obj.getJSONObject("layoutSpec").getJSONArray("nodes");
 
+		for (int k = 0 ; k < nodes.length() ; ++k) {
+			JSONObject node = (JSONObject) nodes.get(k);
+			for(Ressource ressourceItem : rm.getListRessource()) {
+				try {
+					if(node.getInt("ressource") == ressourceItem.getId())
+						ressourceItem.setNode(new Node(node.getInt("id"), "ressource"));
+
+				}catch (NullPointerException | JSONException e) { }
+
+			}
+				
+		}
 		return rm;
 	}
 
-	public static ProduitManager initialiserProducts(String fileContent) throws JSONException {
+	public static ProduitManager initialiserProducts(JSONObject obj) throws JSONException {
 
 		ProduitManager pm = new ProduitManager();
-		JSONObject obj;
 
-		obj = new JSONObject(fileContent);
 		JSONArray produits = obj.getJSONArray("products");
 
 		for (int i = 0; i < produits.length(); ++i) {
@@ -149,10 +141,9 @@ public class InitialisationSysteme {
 		return pm;
 	}
 
-	public static OrdreManager initialiserOrdres(String fileContent, ProduitManager pm) throws JSONException {
+	public static OrdreManager initialiserOrdres(JSONObject obj, ProduitManager pm) throws JSONException {
 
 		OrdreManager om = new OrdreManager();
-		JSONObject obj = new JSONObject(fileContent);
 		JSONArray produits = obj.getJSONArray("orders");
 
 		for (int i = 0; i < produits.length(); ++i) {
@@ -171,19 +162,20 @@ public class InitialisationSysteme {
 		
 		if (fileContent != "") {
 			// System.out.println(fileContent);
-
 			try {
+				JSONObject obj  = new JSONObject(fileContent);
+
 				System.out.print("Initialisation services : ");
-				ServiceManager sm = initialiserServices(fileContent);
+				ServiceManager sm = initialiserServices(obj);
 				System.out.println("finie");
 				System.out.print("Initialisation ressources : ");
-				RessourceManager rm = initialiserRessources(fileContent, sm);
+				RessourceManager rm = initialiserRessources(obj, sm);
 				System.out.println("finie");
 				System.out.print("Initialisation produits : ");
-				ProduitManager pm = initialiserProducts(fileContent);
+				ProduitManager pm = initialiserProducts(obj);
 				System.out.println("finie");
 				System.out.print("Initialisation ordres : ");
-				OrdreManager om = initialiserOrdres(fileContent, pm);
+				OrdreManager om = initialiserOrdres(obj, pm);
 				System.out.println("finie");
 
 				System.out.print("Initialisation annuaire de service : ");
@@ -193,7 +185,6 @@ public class InitialisationSysteme {
 //				System.out.println("Annuaire");
 //				sm.printAnnuaire();
 				
-//				System.out.println();
 				
 				System.out.println("Nombre d'ordres : " + om.getOrdersList().size());
 				System.out.println("Nombre de ressources : " + rm.getListRessource().size());
@@ -211,22 +202,28 @@ public class InitialisationSysteme {
 							
 							// Fonction choisissant la ressource la plus adaptée pour effectuer le service
 							Ressource chosenRessource = capableRessources.get(0); // Error s'il n'y a rien dans capableResources
-							chosenRessource.executeInstruction(service, 0);
-							
+														
 							// Recherche s'il y a besoin d'un transport pour atteindre la ressource
 							// Dans le cas du premier service solicité, on initialise le noeud précédent à celui de la ressource choisie
 							if(previousNode == null) {
 								previousNode = chosenRessource.getNode();
 							}else {
-								if(previousNode != chosenRessource.getNode()) {
-									// Dans un premier temps, on utilise les algo d'Arena pour les calculs de distance
+								if(previousNode != chosenRessource.getNode()) {									
+									// Recherche d'un transport
+									Ressource transport = rm.findTransport(previousNode);
 									
-									//TODO: Envoi des instructions "move" du noeud previousNode vers chosenRessource.getNode()
-									// dans le scénario on sait que le premier service est "déplacement"
+									if(transport != null) {
+										System.out.println(previousNode); // Effectuer déplacement de l'agv (transport.getNode() vers previousNode
+										
+										System.out.println(chosenRessource.getNode()); // Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()
+										
+									}
+									
+									previousNode = chosenRessource.getNode();
 								}
 							}
-								
-							
+					
+							chosenRessource.executeInstruction(service, 0);
 						}
 					}
 
@@ -243,21 +240,23 @@ public class InitialisationSysteme {
 		
 		// creer socket vers arena
 		
-
+		String fileContent = readFileJSON("ps1.json");
+		
+		initialiserSysteme(fileContent);
 
 		ServeurSocket servSocket;
 		
 		//creer serveur socket pour connection depuis ihm
-		try {
+		/*try {
 			servSocket = new ServeurSocket();
 			servSocket.start();
 			
-			ComArena comArena = new ComArena();
-			comArena.deplAgv(1, 6);
+			//ComArena comArena = new ComArena();
+			//comArena.deplAgv(1, 6);
 						
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
+		}*/
 		
 
 	}
