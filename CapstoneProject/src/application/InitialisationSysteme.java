@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import communication.ComArena;
+import communication.ListenerArena;
 import communication.ServeurSocket;
 import ordre.Ordre;
 import ordre.OrdreManager;
@@ -26,6 +30,11 @@ import ressource.Ressource;
 import ressource.RessourceManager;
 
 public class InitialisationSysteme {
+
+	// Informations de connexion pour le socket Arena
+	private final static int port = 1202;
+	private final static String arenaAddresse = "127.0.0.1";	
+	private static Socket socketArena;
 
 	public static String readFileJSON(String file) {
 
@@ -213,10 +222,24 @@ public class InitialisationSysteme {
 									Ressource transport = rm.findTransport(previousNode);
 									
 									if(transport != null) {
-										System.out.println(previousNode); // Effectuer déplacement de l'agv (transport.getNode() vers previousNode
+										
+										System.out.println(previousNode); // Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode
+										try {
+											OutputStream out = socketArena.getOutputStream();
+											String instruction = "moveYourAss";
+											for(char c : instruction.toCharArray()) {
+												out.write(c);
+											}
+											out.write('\n');
+											
+											//TODO: Réception message depuis Arena pour continuer
+											
+										} catch (IOException e) {
+											e.printStackTrace();
+										}
+										
 										
 										System.out.println(chosenRessource.getNode()); // Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()
-										
 									}
 									
 									previousNode = chosenRessource.getNode();
@@ -242,6 +265,16 @@ public class InitialisationSysteme {
 		
 		String fileContent = readFileJSON("ps1.json");
 		
+		InetAddress arenaAddr;
+		try {
+			arenaAddr = InetAddress.getByName(arenaAddresse);
+			socketArena = new Socket(arenaAddr, port);
+			new Thread(new ListenerArena(socketArena)).start();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		initialiserSysteme(fileContent);
 
 		ServeurSocket servSocket;
@@ -257,7 +290,7 @@ public class InitialisationSysteme {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}*/
-		
+			
 
 	}
 
