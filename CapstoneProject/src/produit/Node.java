@@ -1,6 +1,4 @@
-package Produit;
-
-import java.util.HashMap;
+package produit;
 
 public class Node {
 	private int id;
@@ -22,5 +20,10 @@ public class Node {
 	@Override
 	public String toString() {
 		return "Node [id=" + id + ", type=" + type + "]";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return ((Node)obj).id == this.id;
 	}
 }

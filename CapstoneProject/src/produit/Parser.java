@@ -1,4 +1,4 @@
-package Produit;
+package produit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,36 +10,40 @@ import org.json.JSONObject;
 
 public class Parser {
 
-	private HashMap<Node, List<Segment>> listeNoeuds;
+	private HashMap<Integer, List<Segment>> graphe;
+	private List<Node> listeNoeuds; 
 	private List<Segment> listeVoisins;
 	private int idSource;
 	
 	public Parser() {
-		listeNoeuds = new HashMap<Node, List<Segment>>();
+		graphe = new HashMap<Integer, List<Segment>>();
+		listeNoeuds = new ArrayList<Node>();
 	}
 	
-	public HashMap<Node, List<Segment>> parse(JSONObject obj) throws JSONException {
+	public HashMap<Integer, List<Segment>> parse(JSONObject obj) throws JSONException {
 
 		ArrayList<Segment> tmpListeSegment;
 		Node tmpNode = null;
+		
 		//Listage des nodes
 		JSONArray nodes = obj.getJSONArray("nodes");
 		
 		for(int i = 0 ; i < nodes.length() ; ++i) {
 			JSONObject node = (JSONObject) nodes.get(i);
 			
-				
 			//Typage du node
-			if(node.getInt("ressources") != 0) {
+			try {
+				node.getInt("ressource");
 				tmpNode = new Node(node.getInt("id"), "ressource");
-			}
-			else {
+				
+			}catch(NullPointerException | JSONException e) {
 				tmpNode = new Node(node.getInt("id"), "croisement");
 			}
 			
 			listeVoisins = new ArrayList<Segment>();
-			
-			listeNoeuds.put(tmpNode, listeVoisins);
+
+			graphe.put(node.getInt("id"), listeVoisins);
+			listeNoeuds.add(tmpNode);
 		}
 		
 		//Listage et création des voisins via les segments
@@ -51,13 +55,16 @@ public class Parser {
 			idSource = arc.getInt("from");
 			
 			//get la liste de segment pour le node associé dans listeNoeuds
-			tmpListeSegment = (ArrayList<Segment>) listeNoeuds.get(idSource);
+			tmpListeSegment = (ArrayList<Segment>) graphe.get(idSource);
+			
+			if(tmpListeSegment == null) tmpListeSegment = new ArrayList<Segment>();
 			
 			//Ajout d'un nouveau segment pour définir un nouveau voisin
 			tmpListeSegment.add(new Segment(arc.getInt("from"), arc.getInt("to"), arc.getInt("size")));
+			
+			graphe.replace(idSource, tmpListeSegment);
 		}
-		
-		System.out.println(listeNoeuds);
-		return listeNoeuds;
+
+		return graphe;
 	}
 }

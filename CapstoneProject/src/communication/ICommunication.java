@@ -1,4 +1,4 @@
-package Communication;
+package communication;
 
 public interface ICommunication {
 

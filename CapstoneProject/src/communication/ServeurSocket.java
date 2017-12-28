@@ -1,8 +1,5 @@
-package Communication;
-import java.io.File;
-import java.io.FileWriter;
+package communication;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +7,10 @@ import java.util.List;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import application.InitialisationSysteme;
 
 public class ServeurSocket extends WebSocketServer{
 
@@ -17,19 +18,31 @@ public class ServeurSocket extends WebSocketServer{
     private static int TCP_PORT = 8003;
     private List<WebSocket> socketsIHM;
     
+    private List<String> messages;
+    
 
 	public ServeurSocket() throws IOException
 	{
         super(new InetSocketAddress(TCP_PORT));
-        socketsIHM = new ArrayList<WebSocket>();		
+        socketsIHM = new ArrayList<WebSocket>();
+        messages = new ArrayList<String>();
 	}
 	
+	@Deprecated
 	public WebSocket getSocketIHM()
 	{
 		if(socketsIHM.isEmpty())
 			return null;
 		else	
 			return socketsIHM.get(0);
+	}
+	
+	public void send(String data) {
+		this.send(data, 0);
+	}
+	
+	public void send(String data, int socketIndex) {
+		this.socketsIHM.get(0).send(data);
 	}
 	
 	
@@ -48,18 +61,26 @@ public class ServeurSocket extends WebSocketServer{
     @Override
     public void onMessage(WebSocket conn, String message) {
         System.out.println("Message from client: " + message);
-		try {
-			File log = new File("logsIHM.txt");
-			PrintWriter out = new PrintWriter(new FileWriter(log, true));
+        int index = this.socketsIHM.indexOf(conn);
+        this.messages.add(index, message);
+        
+        if(message.startsWith("init")) {
+        	String subMessage = message.substring(6, message.length()-1);
+
+        	InitialisationSysteme.initialiserSysteme(subMessage);
+        }
+        
+//		try {
+//			File log = new File("logsIHM.txt");
+//			PrintWriter out = new PrintWriter(new FileWriter(log, true));
 			
-			out.write(message + '\n');
+//			out.write(message + '\n');
 			
-			out.close();
+//			out.close();
 			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
     }
 

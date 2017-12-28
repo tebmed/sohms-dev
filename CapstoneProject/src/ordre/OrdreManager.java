@@ -1,6 +1,5 @@
-package Ordre;
+package ordre;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import Communication.SoHMSMock;
-import Produit.IProduit;
-import Produit.ProduitDijkstra;
-import Ressource.RessourceManager;
+import communication.SoHMSMock;
+import ressource.RessourceManager;
 
 public class OrdreManager {
 
@@ -26,10 +23,15 @@ public class OrdreManager {
 		ordersList.add(o);
 	}
 	
+	public List<Ordre> getOrdersList(){
+		return ordersList;
+	}
+	
 	public void printOrders() {
 		for(Ordre o : ordersList)
 			System.out.println(o.getId() + ",");
 	}
+	
 	
 	public static void main(String[] args) {
 		// initialisation
@@ -82,40 +84,4 @@ public class OrdreManager {
 
 	}
 	
-	/**
-	 * Création d'un nouvel ordre
-	 * @param jsonFile le fichier de configuration du système
-	 */
-	public void newOrder(File jsonFile) {
-		
-	}
-	
-	/**
-	 * Valide le contrat
-	 */
-	public void contractValidation() {
-		
-	}
-	
-	/**
-	 * Annule le contrat en cours
-	 */
-	public void avoidContract() {
-		
-	}
-	
-	/**
-	 * Annule les contrats en cours
-	 */
-	public void avoidContracts() {
-		
-	}
-	
-	/**
-	 * Réorganise les ordres en fonction de la panne de la ressource
-	 */
-	public void reorganizationContract() {
-		
-	}
-
 }
