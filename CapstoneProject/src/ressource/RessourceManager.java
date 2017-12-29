@@ -46,10 +46,10 @@ public class RessourceManager {
 	
 	public Ressource findTransport(Node nodeToReach) {
 		
-		/*Ressource transport = null;
+		Ressource transport = null;
 		int lowestValue = Integer.MAX_VALUE;
 		
-		for(Ressource ressource : availableRes) {
+		/*for(Ressource ressource : availableRes) {
 			List<Service> services = ressource.getListeService();
 			for(Service s : services) {
 				if(s.getName().equals("deplacement")) {

@@ -14,10 +14,6 @@ public class ProduitDijkstra{
 
 	private HashMap<Integer, List<Segment>> graphe;
 	private HashMap<ArrayList<Integer>, Integer> possiblePaths;
-	
-	public HashMap<ArrayList<Integer>, Integer> getPossiblePaths() {
-		return possiblePaths;
-	}
 
 	public ProduitDijkstra()
 	{
@@ -28,7 +24,7 @@ public class ProduitDijkstra{
 	public void parseJSON(JSONObject obj) throws JSONException {
 		Parser p = new Parser();
 		
-		graphe = p.parse(obj);
+		this.graphe = p.parse(obj);
 	}
 	
 	/**
@@ -39,7 +35,8 @@ public class ProduitDijkstra{
 	 * @param cout le cout du chemin
 	 */
 	public void applyDijkstra(int start, int end, ArrayList<Integer> possiblePath, int cout)
-	{			
+	{		
+		System.out.println(this.graphe.toString());
 		//Si il est présent dans la liste possiblePath
 		if(possiblePath.contains(start)) {
 			//On arrete là car on est dans un chemin cyclique
@@ -57,10 +54,18 @@ public class ProduitDijkstra{
 		}
 		else {
 			ArrayList<Segment> tmpListeSegment = (ArrayList<Segment>) graphe.get(start);
-			for(Segment s : tmpListeSegment) {
+			
+			if(tmpListeSegment != null) {
+				System.out.println(tmpListeSegment.toString());
+			}
+			else {
+				System.out.println("ee");
+			}
+			
+			/*for(Segment s : tmpListeSegment) {
 				cout += s.getCout();
 				applyDijkstra(s.getNodeTo(), end, possiblePath, cout);
-			}
+			}*/
 		}
 		
 		
@@ -84,5 +89,9 @@ public class ProduitDijkstra{
 		}
 		
 		return path;
+	}
+	
+	public HashMap<ArrayList<Integer>, Integer> getPossiblePaths() {
+		return possiblePaths;
 	}
 }

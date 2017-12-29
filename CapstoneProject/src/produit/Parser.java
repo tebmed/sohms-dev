@@ -12,8 +12,6 @@ public class Parser {
 
 	private HashMap<Integer, List<Segment>> graphe;
 	private List<Node> listeNoeuds; 
-	private List<Segment> listeVoisins;
-	private int idSource;
 	
 	public Parser() {
 		graphe = new HashMap<Integer, List<Segment>>();
@@ -22,6 +20,9 @@ public class Parser {
 	
 	public HashMap<Integer, List<Segment>> parse(JSONObject obj) throws JSONException {
 
+		List<Segment> listeVoisins;
+		int idSource;
+		int idDest;
 		ArrayList<Segment> tmpListeSegment;
 		Node tmpNode = null;
 		
@@ -62,9 +63,36 @@ public class Parser {
 			//Ajout d'un nouveau segment pour définir un nouveau voisin
 			tmpListeSegment.add(new Segment(arc.getInt("from"), arc.getInt("to"), arc.getInt("size")));
 			
-			graphe.replace(idSource, tmpListeSegment);
+			//Création du double sens
+			idDest = arc.getInt("to");
+			
+			//get la liste de segment pour le node associé dans listeNoeuds
+			tmpListeSegment = (ArrayList<Segment>) graphe.get(idDest);
+			
+			if(tmpListeSegment == null) tmpListeSegment = new ArrayList<Segment>();
+			
+			//Ajout d'un nouveau segment pour définir un nouveau voisin
+			tmpListeSegment.add(new Segment(arc.getInt("to"), arc.getInt("from"), arc.getInt("size")));
+			
+			graphe.replace(idDest, tmpListeSegment);
 		}
-
+		
 		return graphe;
+	}
+
+	public HashMap<Integer, List<Segment>> getGraphe() {
+		return graphe;
+	}
+
+	public void setGraphe(HashMap<Integer, List<Segment>> graphe) {
+		this.graphe = graphe;
+	}
+
+	public List<Node> getListeNoeuds() {
+		return listeNoeuds;
+	}
+
+	public void setListeNoeuds(List<Node> listeNoeuds) {
+		this.listeNoeuds = listeNoeuds;
 	}
 }
