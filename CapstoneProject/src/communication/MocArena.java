@@ -26,6 +26,7 @@ public class MocArena {
 				message = reader.readLine();
 				writer.println("OK:" + message);
 				writer.println("START:" + message);
+				Thread.sleep(5000);
 				writer.println("END:" + message);
 			}
 		} catch (IOException e) {

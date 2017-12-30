@@ -44,7 +44,6 @@ public class ComArena {
 	public ComArena() {
 		try {
 			this.socketArena = new Socket(InetAddress.getByName(arenaAddresse), port);
-		
 			this.in = new BufferedReader(new InputStreamReader(socketArena.getInputStream()));
 			this.out = new PrintStream(socketArena.getOutputStream());
 		} catch (IOException e) {
@@ -152,6 +151,10 @@ public class ComArena {
 		.append(stationId);
 
 		this.sendMessage(sb.toString());
+	}
+	
+	public BufferedReader getIn() {
+		return this.in;
 	}
 
 }
