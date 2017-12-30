@@ -96,19 +96,19 @@
     "services": [
         {
             "id": 1,
-            "name":"deplacement",
+            "name":"deplacement"
         },
         {
             "id": 2,
-            "name":"peindre",
+            "name":"peindre"
         },
         {
             "id": 3,
-            "name":"souder",
+            "name":"souder"
         },
         {
             "id": 4,
-            "name":"peindre",
+            "name":"peindre"
         }
     ],
     "perturbations": [
@@ -119,10 +119,14 @@
     ],
     "orders": [
         {
-            "id":1 ,
-            "nb" :1
-        },
-
+            "id": 1,
+            "products": [
+                {
+                    "id": 1,
+                    "nb": 1
+                }
+            ]
+        }
     ],
     "products": [
         {
