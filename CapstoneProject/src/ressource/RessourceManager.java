@@ -1,12 +1,11 @@
 package ressource;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import produit.Node;
 import produit.Parser;
-import produit.ProduitDijkstra;
 import produit.Service;
 
 public class RessourceManager {
@@ -28,8 +27,8 @@ public class RessourceManager {
 		List<Ressource> ablesTo = new ArrayList<Ressource>();
 				
 		for(Ressource ressource : availableRes) {
-			List<Service> services = ressource.getListeService();
-			for(Service s : services) {
+			Map<Service, Integer> services = ressource.getListeService();
+			for(Service s : services.keySet()) {
 				if(s.getName() == service) {
 					ablesTo.add(ressource);
 					break;
@@ -81,8 +80,8 @@ public class RessourceManager {
 		
 		// Temporairement on prend la première ressource pouvait déplacer (Dijkstra ne fonctionnant pas)
 		for(Ressource ressource : availableRes) {
-			List<Service> services = ressource.getListeService();
-			for(Service s : services) {
+			Map<Service,Integer> services = ressource.getListeService();
+			for(Service s : services.keySet()) {
 				if(s.getName().equals("deplacement"))
 					return ressource;
 			}
@@ -97,8 +96,8 @@ public class RessourceManager {
 		return availableRes;
 	}
 	
-	public void addRessource(int id, List<Service> listService) {
-		availableRes.add(new Ressource(id, listService));
+	public void addRessource(int id, String name, Map<Service, Integer> listService) {
+		availableRes.add(new Ressource(id, name, listService));
 	}
 	
 	public void setLayout(Parser layout)

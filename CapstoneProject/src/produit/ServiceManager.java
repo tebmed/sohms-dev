@@ -44,12 +44,9 @@ public class ServiceManager {
 	public void initialiserAnnuaire(RessourceManager rm) {
 
 		for(Ressource r : rm.getListRessource())
-		{
-			for(Service service : r.getListeService())
-			{
+			for(Service service : r.getListeService().keySet())
 				addRessourceToService(service.getName(),r);
-			}
-		}
+		
 	}
 	
 	public void printAnnuaire() {

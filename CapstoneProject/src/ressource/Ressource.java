@@ -3,6 +3,7 @@ package ressource;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import produit.Node;
@@ -11,12 +12,14 @@ import produit.Service;
 public class Ressource {
 	
 	private int id;
+	private String name;
 	private Node node;
-	private List<Service> services;
+	private Map<Service, Integer> services;
 	private List<Instruction> instructionsPlanned;
 	
-	public Ressource(int id, List<Service> services) {
+	public Ressource(int id, String name, Map<Service, Integer> services) {
 		this.id = id;
+		this.name = name;
 		this.services = services;
 		this.instructionsPlanned = new ArrayList<Instruction>();
 	}
@@ -25,15 +28,19 @@ public class Ressource {
 		return id;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public void setNode(Node node) {
 		this.node = node;
 	}
 
-	public List<Service> getListeService() {
+	public Map<Service, Integer> getListeService() {
 		return this.services;
 	}
 
-	public void setListeService(List<Service> services) {
+	public void setListeService(Map<Service, Integer> services) {
 		this.services = services;
 	}
 	
@@ -50,12 +57,9 @@ public class Ressource {
 	}
 	
 	public Integer getExecutionTime(String serviceName) {
-		for(Service service : services) {
-			if (service.getName().equals(serviceName)) {
-				return service.getDuration();
-			}
-		}
-		return null;
+		Service service = this.getServiceByName(serviceName);
+
+		return services.get(service);
 	}
 	
 	public List<Entry<Integer,Integer>> availability(String serviceName, int start, int end) {
@@ -69,10 +73,10 @@ public class Ressource {
 			if (instruction.start < min) {
 				min = instruction.end;
 			} else {
-				if (instruction.start > min + service.getDuration()) {
-					int max = instruction.start-service.getDuration();
+				if (instruction.start > min + services.get(service)) {
+					int max = instruction.start-services.get(service);
 					intervals.add(new SimpleEntry<Integer,Integer>(min,max));
-					min = max+service.getDuration();
+					min = max+services.get(service);
 				}
 			}
 		}
@@ -82,11 +86,11 @@ public class Ressource {
 	
 	public void executeInstruction(Service service, int start) {
 		
-		this.instructionsPlanned.add(new Instruction(service, start, start+service.getDuration()));
+		this.instructionsPlanned.add(new Instruction(service, start, start+services.get(service)));
 	}
 	
 	private Service getServiceByName(String serviceName) {
-		for (Service service : services) {
+		for (Service service : services.keySet()) {
 			if (service.getName() == serviceName) {
 				return service;
 			}

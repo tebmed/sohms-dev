@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,8 +61,7 @@ public class InitialisationSysteme {
 		for (int i = 0; i < services.length(); ++i) {
 			JSONObject service = (JSONObject) services.get(i);
 
-			sm.addService(new Service(service.getInt("id"), service.getString("name"), service.getInt("duration"),
-					service.getString("path")));
+			sm.addService(new Service(service.getInt("id"), service.getString("name")));
 		}
 
 		return sm;
@@ -80,18 +81,18 @@ public class InitialisationSysteme {
 			JSONObject ressource = (JSONObject) ressources.get(i);
 
 			for (int j = 0; j < ressource.getInt("nb"); ++j) {
-				List<Service> listServices = new ArrayList<Service>();
+				Map<Service, Integer> listServices = new HashMap<Service, Integer>();
 				JSONArray services = ressource.getJSONArray("services");
 				for (int k = 0; k < services.length(); ++k) {
+					JSONObject serviceAtIndex = (JSONObject) services.get(k);
 					for (Service service : sm.getServicesList()) {
-						if (service.getId() == services.getInt(k)) {
-							listServices.add(service);
+						if (service.getId() == serviceAtIndex.getInt("id")) {
+							listServices.put(service, serviceAtIndex.getInt("duration"));
 							break;
 						}
 					}
-
 				}
-				rm.addRessource(ressource.getInt("id"), listServices);
+				rm.addRessource(ressource.getInt("id"), ressource.getString("name"), listServices);
 			}
 			
 			
@@ -105,7 +106,7 @@ public class InitialisationSysteme {
 			for(Ressource ressourceItem : rm.getListRessource()) {
 				try {
 					if(node.getInt("ressource") == ressourceItem.getId())
-						ressourceItem.setNode(new Node(node.getInt("id"), "ressource"));
+						ressourceItem.setNode(new Node(node.getInt("id"), node.getString("name"), "ressource"));
 
 				}catch (NullPointerException | JSONException e) { }
 
@@ -218,7 +219,7 @@ public class InitialisationSysteme {
 										System.out.println(previousNode);										
 										try {
 											// Envoi de l'instruction à Arena (à adapter pour l'envoi de la vraie instruction)
-											comArena.deplAgv(transport.getId(), previousNode.getId());
+											comArena.deplAgv(transport.getName(), previousNode.getId());
 											
 											//Réception message depuis Arena pour continuer
 											String message;
@@ -230,7 +231,7 @@ public class InitialisationSysteme {
 											// Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()	
 											System.out.println(chosenRessource.getNode()); 											
 											
-											comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
+											comArena.deplAgv(transport.getName(), chosenRessource.getNode().getId());
 											
 											//Réception message depuis Arena pour continuer
 											do {

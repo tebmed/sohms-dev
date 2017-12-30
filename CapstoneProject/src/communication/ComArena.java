@@ -55,7 +55,7 @@ public class ComArena {
 		this.out.println(message);
 	}
 	
-	public void charge(int stationId) {
+	public void charge(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(CHARGE).append(DELIM)
@@ -64,7 +64,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void decharge(int stationId) {
+	public void decharge(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(DECHARGE).append(DELIM)
@@ -73,7 +73,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void deplAgv(int agvId, int destId) {
+	public void deplAgv(String agvId, int destId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(AGV).append(DELIM)
 		.append(DEPL).append(DELIM)
@@ -83,7 +83,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void axis(int stationId) {
+	public void axis(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)
@@ -93,7 +93,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void iComp(int stationId) {
+	public void iComp(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)
@@ -103,7 +103,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void rComp(int stationId) {
+	public void rComp(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)
@@ -113,7 +113,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void lComp(int stationId) {
+	public void lComp(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)
@@ -123,7 +123,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void screw(int stationId) {
+	public void screw(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)
@@ -133,7 +133,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void plateLoad(int stationId) {
+	public void plateLoad(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)
@@ -143,7 +143,7 @@ public class ComArena {
 		this.sendMessage(sb.toString());
 	}
 	
-	public void plateUnLoad(int stationId) {
+	public void plateUnLoad(String stationId) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(STA).append(DELIM)
 		.append(ACTION).append(DELIM)

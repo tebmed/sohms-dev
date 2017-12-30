@@ -35,7 +35,7 @@ public class Parser {
 			//Typage du node
 			try {
 				node.getInt("ressource");
-				tmpNode = new Node(node.getInt("id"), "ressource");
+				tmpNode = new Node(node.getInt("id"), node.getString("name"), "ressource");
 				
 			}catch(NullPointerException | JSONException e) {
 				tmpNode = new Node(node.getInt("id"), "croisement");
