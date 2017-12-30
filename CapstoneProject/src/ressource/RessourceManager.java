@@ -48,47 +48,53 @@ public class RessourceManager {
 		
 		Ressource transport = null;
 		int lowestValue = Integer.MAX_VALUE;
+		ArrayList<Integer> chemin = new ArrayList<Integer>();
 		
-		/*for(Ressource ressource : availableRes) {
+		
+		for(Ressource ressource : availableRes) {
 			List<Service> services = ressource.getListeService();
 			for(Service s : services) {
 				if(s.getName().equals("deplacement")) {
 					int minValue = Integer.MAX_VALUE;
-					ProduitDijkstra dijkstra = new ProduitDijkstra();
-					dijkstra.applyDijkstra(ressource.getNode().getId(), nodeToReach.getId(), new ArrayList<Integer>() , 1);
-					
-					ArrayList<Integer> values = (ArrayList<Integer>) dijkstra.getPossiblePaths().values();
-					
-					if(values != null) {
-						 minValue = values.get(0);
-						for(Integer value : values) {
-							if(value < minValue)
-								minValue = value;
-						}
+					ProduitDijkstra dijkstra = new ProduitDijkstra(this.getLayout().getGraphe());
+					chemin = dijkstra.applyDijkstra(ressource.getNode().getId(), nodeToReach.getId());
+
+					if(chemin != null) {
+						System.out.println("ressourceManager : " + chemin.toString());
 					}
-					
-					if(minValue < lowestValue) {
-						lowestValue = minValue;
-						transport = ressource;
-					}					
+//					
+//					ArrayList<Integer> values = (ArrayList<Integer>) dijkstra.getPossiblePaths().values();
+//					
+//					if(values != null) {
+//						 minValue = values.get(0);
+//						for(Integer value : values) {
+//							if(value < minValue)
+//								minValue = value;
+//						}
+//					}
+//					
+//					if(minValue < lowestValue) {
+//						lowestValue = minValue;
+//						transport = ressource;
+//					}					
 				}
 			}
 		}
 		
-		System.out.println("Lowest value : " + lowestValue);
+//		System.out.println("Lowest value : " + lowestValue);
 		
-		return transport;*/
+		return transport;
 		
 		// Temporairement on prend la première ressource pouvait déplacer (Dijkstra ne fonctionnant pas)
-		for(Ressource ressource : availableRes) {
-			List<Service> services = ressource.getListeService();
-			for(Service s : services) {
-				if(s.getName().equals("deplacement"))
-					return ressource;
-			}
-		}
+//		for(Ressource ressource : availableRes) {
+//			List<Service> services = ressource.getListeService();
+//			for(Service s : services) {
+//				if(s.getName().equals("deplacement"))
+//					return ressource;
+//			}
+//		}
 		
-		return null;
+//		return null;
 	}
 	
 	// getters & setters 

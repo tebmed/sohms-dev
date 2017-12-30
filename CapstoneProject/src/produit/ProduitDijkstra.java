@@ -3,95 +3,127 @@ package produit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import communication.ListenerArena;
 
 public class ProduitDijkstra{
 
 	private HashMap<Integer, List<Segment>> graphe;
-	private HashMap<ArrayList<Integer>, Integer> possiblePaths;
+	private ArrayList<Chemin> possiblePaths;
+	private ArrayList<Chemin> tmpPaths;
+	private ArrayList<Chemin> paths;
 
-	public ProduitDijkstra()
+	public ProduitDijkstra(HashMap<Integer, List<Segment>> g)
 	{
-		graphe = new HashMap<Integer, List<Segment>>();
-		possiblePaths = new HashMap<ArrayList<Integer>, Integer>();
-	}
-	
-	public void parseJSON(JSONObject obj) throws JSONException {
-		Parser p = new Parser();
-		
-		this.graphe = p.parse(obj);
+		graphe = g;
+		possiblePaths = new ArrayList<Chemin>();
+		tmpPaths = new ArrayList<Chemin>();
+		paths = new ArrayList<Chemin>();
 	}
 	
 	/**
-	 * Détermine tous les chemins possibles pour aller du point start et point end
+	 * Détermine tous les chemins possibles pour aller du point start au point end
 	 * @param start l'id du noeud de départ
 	 * @param end l'id du noeud de fin
 	 * @param possiblePath La liste de segment qui détermine le chemin
 	 * @param cout le cout du chemin
 	 */
-	public void applyDijkstra(int start, int end, ArrayList<Integer> possiblePath, int cout)
-	{		
-		System.out.println(this.graphe.toString());
-		//Si il est présent dans la liste possiblePath
-		if(possiblePath.contains(start)) {
-			//On arrete là car on est dans un chemin cyclique
-			System.out.println("Chemin cyclique");
+	public ArrayList<Integer> applyDijkstra(int start, int end){
+		if(possiblePaths.size() == 0) {
+			ArrayList<Integer> init = new ArrayList<Integer>();
+			init.add(start);
+			Chemin initChemin = new Chemin(0, init);
+			possiblePaths.add(initChemin);
 		}
-		else {
-			//On l'ajoute a la liste "possiblePath"
-			possiblePath.add(start);
-		}
-		
-		//Si le "start" == "end"
-		if(start == end) {
-			//On ajoute la liste "possiblePath" à la liste de liste "possiblepaths"
-			possiblePaths.put(possiblePath, cout);
-		}
-		else {
-			ArrayList<Segment> tmpListeSegment = (ArrayList<Segment>) graphe.get(start);
-			
-			if(tmpListeSegment != null) {
-				System.out.println(tmpListeSegment.toString());
-			}
-			else {
-				System.out.println("ee");
-			}
-			
-			/*for(Segment s : tmpListeSegment) {
-				cout += s.getCout();
-				applyDijkstra(s.getNodeTo(), end, possiblePath, cout);
-			}*/
-		}
-		
-		
-	}
 
-	public ArrayList<Integer> bestPath(){
-		
-		int cout = 10000;
-		ArrayList<Integer> path = null;
-		ArrayList<Integer> cle;
-		int valeur;
-		
-		for(Entry<ArrayList<Integer>, Integer> entry : possiblePaths.entrySet()) {
-			cle = entry.getKey();
-		    valeur = entry.getValue();
-		    
-		    if(valeur <= cout) {
-		    	cout = valeur;
-		    	path = cle;
-		    }
+//		Pour chaque chemin possible
+		for(Chemin chemin : possiblePaths) {
+			int lastNode = chemin.getPath().get(chemin.getPath().size() - 1);
+
+//			Cas pour un seul voisin
+			if(graphe.get(lastNode).size() == 1) {
+//				si le voisin n'est pas dans la liste
+				int tmpVoisin = graphe.get(lastNode).get(0).getNodeTo();
+				
+				if(!chemin.getPath().contains(tmpVoisin)) {
+					if(tmpVoisin == end) {
+						chemin.getPath().add(tmpVoisin);
+						chemin.setValue(chemin.getValue() + graphe.get(lastNode).get(0).getCout());
+						paths.add(chemin);
+					}
+					else {
+						chemin.getPath().add(tmpVoisin);
+						tmpPaths.add(chemin);
+					}
+				}
+			}
+//			Cas pour plusieurs voisins
+			else {
+				
+				Chemin tmpC;
+				
+				for(Segment s : graphe.get(lastNode)) {
+					int tmpVoisin = s.getNodeTo();
+					
+					if(!chemin.getPath().contains(tmpVoisin)) {
+						if(tmpVoisin == end) {
+							chemin.getPath().add(tmpVoisin);
+							chemin.setValue(chemin.getValue() + s.getCout());
+
+							tmpC = new Chemin(chemin.getValue(), (ArrayList<Integer>) chemin.getPath());
+							
+							paths.add(tmpC);
+							chemin.getPath().remove(chemin.getPath().size() - 1);
+							chemin.setValue(chemin.getValue() - s.getCout());
+						}
+						else {
+							chemin.getPath().add(tmpVoisin);
+							
+							chemin.setValue(chemin.getValue() + s.getCout());
+
+							tmpC = new Chemin(chemin.getValue(), (ArrayList<Integer>) chemin.getPath());
+							tmpPaths.add(tmpC);
+							
+							chemin.getPath().remove(chemin.getPath().size() - 1);
+							chemin.setValue(chemin.getValue() - s.getCout());
+						}
+					}
+				}
+			}
 		}
 		
-		return path;
+		if(tmpPaths.size() == 0) {
+			ArrayList<Integer> finalPath = bestPath();
+			return finalPath;
+		}
+		else {
+			possiblePaths.clear();
+			possiblePaths = new ArrayList<Chemin>(tmpPaths);
+			tmpPaths.clear();
+			
+			return applyDijkstra(start, end);
+		}
 	}
 	
-	public HashMap<ArrayList<Integer>, Integer> getPossiblePaths() {
-		return possiblePaths;
+	/**
+	 * Détermine le meilleur chemin dans ceux qui ont été trouvés dans applyDijkstra
+	 * @return le chemin avec le cout le moins élevé
+	 */
+	public ArrayList<Integer> bestPath() {
+		int cout = Integer.MAX_VALUE;
+		ArrayList<Integer> finalPath = new ArrayList<Integer>();
+		
+		for(Chemin chemin : paths) {
+			if(chemin.getValue() < cout) {
+				cout = chemin.getValue();
+				finalPath = (ArrayList<Integer>) chemin.getPath();
+			}
+		}
+		return finalPath;
+	}
+
+	public HashMap<Integer, List<Segment>> getPossiblePaths() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

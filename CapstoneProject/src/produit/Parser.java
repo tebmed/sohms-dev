@@ -22,7 +22,7 @@ public class Parser {
 
 		List<Segment> listeVoisins;
 		int idSource;
-		int idDest;
+//		int idDest;
 		ArrayList<Segment> tmpListeSegment;
 		Node tmpNode = null;
 		
@@ -63,20 +63,24 @@ public class Parser {
 			//Ajout d'un nouveau segment pour définir un nouveau voisin
 			tmpListeSegment.add(new Segment(arc.getInt("from"), arc.getInt("to"), arc.getInt("size")));
 			
-			//Création du double sens
-			idDest = arc.getInt("to");
+			graphe.replace(idSource, tmpListeSegment);
 			
-			//get la liste de segment pour le node associé dans listeNoeuds
-			tmpListeSegment = (ArrayList<Segment>) graphe.get(idDest);
-			
-			if(tmpListeSegment == null) tmpListeSegment = new ArrayList<Segment>();
-			
-			//Ajout d'un nouveau segment pour définir un nouveau voisin
-			tmpListeSegment.add(new Segment(arc.getInt("to"), arc.getInt("from"), arc.getInt("size")));
-			
-			graphe.replace(idDest, tmpListeSegment);
+			/*Partie à décommenter si cas d'un graphe non orienté*/
+//			//Création du double sens
+//			idDest = arc.getInt("to");
+//			
+//			//get la liste de segment pour le node associé dans listeNoeuds
+//			tmpListeSegment = (ArrayList<Segment>) graphe.get(idDest);
+//			
+//			if(tmpListeSegment == null) tmpListeSegment = new ArrayList<Segment>();
+//			
+//			//Ajout d'un nouveau segment pour définir un nouveau voisin
+//			tmpListeSegment.add(new Segment(arc.getInt("to"), arc.getInt("from"), arc.getInt("size")));
+//			
+//			graphe.replace(idDest, tmpListeSegment);
+			/*Fin commentaire*/
 		}
-		
+
 		return graphe;
 	}
 
@@ -84,15 +88,7 @@ public class Parser {
 		return graphe;
 	}
 
-	public void setGraphe(HashMap<Integer, List<Segment>> graphe) {
-		this.graphe = graphe;
-	}
-
 	public List<Node> getListeNoeuds() {
 		return listeNoeuds;
-	}
-
-	public void setListeNoeuds(List<Node> listeNoeuds) {
-		this.listeNoeuds = listeNoeuds;
 	}
 }
