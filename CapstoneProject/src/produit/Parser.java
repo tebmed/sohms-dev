@@ -91,4 +91,25 @@ public class Parser {
 	public List<Node> getListeNoeuds() {
 		return listeNoeuds;
 	}
+	
+	public void updateCost(int noeudA, int noeudB, int cout) {
+		List<Segment> tmpList = graphe.get(noeudA);
+		
+		for(Segment s : tmpList) {
+			if(s.getNodeTo() == noeudB) {
+				s.setCout(cout);
+			}
+		}
+		
+		/*Partie à décommenter si cas d'un graphe non orienté*/
+//		tmpList.clear();
+//		tmpList = graphe.get(noeudB);
+//		
+//		for(Segment s : tmpList) {
+//			if(s.getNodeTo() == noeudA) {
+//				s.setCout(cout);
+//			}
+//		}
+		/*Fin commentaire*/
+	}
 }
