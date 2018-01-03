@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import communication.ComArena;
+import communication.ListenerArena;
 import communication.ServeurSocket;
 import ordre.Ordre;
 import ordre.OrdreManager;
@@ -30,6 +34,7 @@ import ressource.RessourceManager;
 
 public class InitialisationSysteme {
 	
+
 	private static ComArena comArena;
 	
 	public static String readFileJSON(String file) {
@@ -221,6 +226,7 @@ public class InitialisationSysteme {
 								}else {
 									if(previousNode != chosenRessource.getNode()) {									
 										// Recherche d'un transport
+										System.out.println("Find transport");
 										Ressource transport = rm.findTransport(previousNode);
 										
 										if(transport != null) { 
@@ -257,7 +263,7 @@ public class InitialisationSysteme {
 										previousNode = chosenRessource.getNode();
 									}
 								}
-
+								// TODO: envoi instruction à Arena pour réaliser le service
 								chosenRessource.executeInstruction(service, 0);
 							}
 
@@ -275,6 +281,7 @@ public class InitialisationSysteme {
 	public static void main(String[] args) {
 		
 		//String fileContent = readFileJSON("ps1.json");
+
 		ServeurSocket servSocket;
 		
 		try {

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import produit.Node;
 import produit.Parser;
+import produit.ProduitDijkstra;
 import produit.Service;
 
 public class RessourceManager {
@@ -46,48 +47,30 @@ public class RessourceManager {
 	public Ressource findTransport(Node nodeToReach) {
 		
 		Ressource transport = null;
-		int lowestValue = Integer.MAX_VALUE;
+		int minValue = Integer.MAX_VALUE;
+		ArrayList<Integer> chemin = new ArrayList<Integer>();
 		
-		/*for(Ressource ressource : availableRes) {
-			List<Service> services = ressource.getListeService();
-			for(Service s : services) {
+		for(Ressource ressource : availableRes) {
+			Map<Service, Integer> services = ressource.getListeService();
+			for(Service s : services.keySet()) {
 				if(s.getName().equals("deplacement")) {
-					int minValue = Integer.MAX_VALUE;
-					ProduitDijkstra dijkstra = new ProduitDijkstra();
-					dijkstra.applyDijkstra(ressource.getNode().getId(), nodeToReach.getId(), new ArrayList<Integer>() , 1);
-					
-					ArrayList<Integer> values = (ArrayList<Integer>) dijkstra.getPossiblePaths().values();
-					
-					if(values != null) {
-						 minValue = values.get(0);
-						for(Integer value : values) {
-							if(value < minValue)
-								minValue = value;
+					ProduitDijkstra dijkstra = new ProduitDijkstra(this.getLayout().getGraphe());
+					chemin = dijkstra.applyDijkstra(ressource.getNode().getId(), nodeToReach.getId());
+
+					if(chemin != null) {
+						if(chemin.size() < minValue) {
+							transport = ressource;
+							minValue = chemin.size();
 						}
+							
 					}
-					
-					if(minValue < lowestValue) {
-						lowestValue = minValue;
-						transport = ressource;
-					}					
 				}
 			}
 		}
 		
-		System.out.println("Lowest value : " + lowestValue);
+		System.out.println("transport : " + transport.getId() + " chemin de taille " + minValue);
+		return transport;
 		
-		return transport;*/
-		
-		// Temporairement on prend la première ressource pouvait déplacer (Dijkstra ne fonctionnant pas)
-		for(Ressource ressource : availableRes) {
-			Map<Service,Integer> services = ressource.getListeService();
-			for(Service s : services.keySet()) {
-				if(s.getName().equals("deplacement"))
-					return ressource;
-			}
-		}
-		
-		return null;
 	}
 	
 	// getters & setters 
