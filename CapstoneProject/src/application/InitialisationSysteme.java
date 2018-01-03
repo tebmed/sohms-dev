@@ -229,7 +229,7 @@ public class InitialisationSysteme {
 											System.out.println(previousNode);										
 											try {
 												// Envoi de l'instruction à Arena (à adapter pour l'envoi de la vraie instruction)
-												comArena.deplAgv(transport.getName(), previousNode.getId());
+												comArena.deplAgv(transport.getId(), previousNode.getId());
 												
 												//Réception message depuis Arena pour continuer
 												String message;
@@ -241,7 +241,7 @@ public class InitialisationSysteme {
 												// Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()	
 												System.out.println(chosenRessource.getNode()); 											
 												
-												comArena.deplAgv(transport.getName(), chosenRessource.getNode().getId());
+												comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
 												
 												//Réception message depuis Arena pour continuer
 												do {

@@ -65,22 +65,11 @@ public class ServeurSocket extends WebSocketServer{
         this.messages.add(index, message);
         
         if(message.startsWith("init")) {
+        	// Enlève le surplus pour un parsing correct
         	String subMessage = message.substring(6, message.length()-1);
         	
         	InitialisationSysteme.initialiserSysteme(subMessage);
         }
-        
-//		try {
-//			File log = new File("logsIHM.txt");
-//			PrintWriter out = new PrintWriter(new FileWriter(log, true));
-			
-//			out.write(message + '\n');
-			
-//			out.close();
-			
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
 
     }
 
