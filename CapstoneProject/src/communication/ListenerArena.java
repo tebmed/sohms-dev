@@ -25,11 +25,13 @@ public class ListenerArena implements Runnable{
 			while(true) {
 				message = reader.readLine();
 
+				
+				
 				File log = new File("logsArena.txt");
 				PrintWriter out = new PrintWriter(new FileWriter(log, true));
 				
 				out.write(message + '\n');
-				out.close();	
+				out.close();
 			}
 			
 		} catch (IOException e) {

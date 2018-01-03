@@ -31,11 +31,9 @@ import ressource.RessourceManager;
 
 public class InitialisationSysteme {
 	
-	// Informations de connexion pour le socket Arena
-	private final static int port = 1202;
-	private final static String arenaAddresse = "127.0.0.1";	
-	private static Socket socketArena;
 
+	private static ComArena comArena;
+	
 	public static String readFileJSON(String file) {
 
 		String chaine = "";
@@ -167,10 +165,7 @@ public class InitialisationSysteme {
 	
 	public static void initialiserSysteme(String fileContent) {
 		
-		//String fileContent = readFileJSON(message);
-		
 		if (fileContent != "") {
-			// System.out.println(fileContent);
 			try {
 				JSONObject obj  = new JSONObject(fileContent);
 
@@ -222,33 +217,40 @@ public class InitialisationSysteme {
 									// Recherche d'un transport
 									Ressource transport = rm.findTransport(previousNode);
 									
-									if(transport != null) {
-										
-										System.out.println(previousNode); // Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode
-										try {
-											OutputStream out = socketArena.getOutputStream();
-											String instruction = "moveYourAss";
-											for(char c : instruction.toCharArray()) {
-												out.write(c);
-											}
-											out.write('\n');
+									if(transport != null) { 
 
-											//TODO: Réception message depuis Arena pour continuer
-										
+										// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode
+										System.out.println(previousNode);										
+										try {
+											// Envoi de l'instruction à Arena (à adapter pour l'envoi de la vraie instruction)
+											comArena.deplAgv(transport.getId(), previousNode.getId());
+											
+											//Réception message depuis Arena pour continuer
+											String message;
+											do {
+												message = comArena.getIn().readLine();
+												System.out.println(message);
+											}while(!message.startsWith("END"));
+											
+											// Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()	
+											System.out.println(chosenRessource.getNode()); 											
+											
+											comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
+											
+											//Réception message depuis Arena pour continuer
+											do {
+												message = comArena.getIn().readLine();
+												System.out.println(message);
+											}while(!message.startsWith("END"));
+											
+											System.out.println("AGV arrivé à destination");
 										} catch (IOException e) {
 											e.printStackTrace();
 										}
-										
-										System.out.println(previousNode); // Effectuer déplacement de l'agv (transport.getNode() vers previousNode
-										
-										System.out.println(chosenRessource.getNode()); // Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()
-										
 									}
-									
 									previousNode = chosenRessource.getNode();
 								}
 							}
-					
 							chosenRessource.executeInstruction(service, 0);
 						}
 					}
@@ -264,36 +266,23 @@ public class InitialisationSysteme {
 
 	public static void main(String[] args) {
 		
-		// creer socket vers arena
-		
-		String fileContent = readFileJSON("data/ps1.json");
-		
-		InetAddress arenaAddr;
-		try {
-			arenaAddr = InetAddress.getByName(arenaAddresse);
-			socketArena = new Socket(arenaAddr, port);
-			new Thread(new ListenerArena(socketArena)).start();
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		initialiserSysteme(fileContent);
-
+		String fileContent = readFileJSON("ps1.json");
 		ServeurSocket servSocket;
 		
-		//creer serveur socket pour connection depuis ihm
-		/*try {
+		try {
+			// Serveur socket IHM
 			servSocket = new ServeurSocket();
-			servSocket.start();
+			//servSocket.start();
 			
-			//ComArena comArena = new ComArena();
-			//comArena.deplAgv(1, 6);
-						
+			// Arena
+			comArena = new ComArena();
+			
+			initialiserSysteme(fileContent);
+			
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}*/
-		
+		}
 
 	}
 
