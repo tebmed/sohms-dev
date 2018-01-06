@@ -7,19 +7,14 @@ import java.util.List;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import application.InitialisationSysteme;
 
 public class ServeurSocket extends WebSocketServer{
 
-	
     private static int TCP_PORT = 8003;
     private List<WebSocket> socketsIHM;
-    
     private List<String> messages;
-    
 
 	public ServeurSocket() throws IOException
 	{

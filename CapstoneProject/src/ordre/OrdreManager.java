@@ -1,14 +1,15 @@
 package ordre;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import communication.SoHMSMock;
+import communication.ComArena;
+import produit.Node;
+import produit.ProduitManager;
+import produit.Service;
+import produit.ServiceManager;
+import ressource.Ressource;
 import ressource.RessourceManager;
 
 public class OrdreManager {
@@ -33,55 +34,71 @@ public class OrdreManager {
 	}
 	
 	
-	public static void main(String[] args) {
-		// initialisation
-		// --------------
-		RessourceManager ressM = new RessourceManager();
+	public void launchOrders(ProduitManager pm, ServiceManager sm, RessourceManager rm, ComArena comArena) {
 		
-		// Utilisation du SoHMS
-		SoHMSMock mock = new SoHMSMock();
-		try{
-			mock.InterfaceMock();
-		}catch(FileNotFoundException e){
-			System.out.println("File not found");
-		}
-		
-		String str = // TODO get this string with the set up of the IHM
-				"{ \"ressources\":[" 
-			+ 	"{ "
-            +		" \"type\": 1, "
-            +		" \"nb\": 3, "
-            +		" \"conf\": \"../..\", "
-            +	"}"
-        	+"] }";
-		
-		JSONObject obj;
-		try {
-			obj = new JSONObject(str);
-			JSONArray ressources = obj.getJSONArray("ressources");
-			for (int i = 0; i < ressources.length(); i++)
-			{
-				System.out.println(ressources);
-				JSONObject ressourceAtt = ressources.getJSONObject(i);
-				System.out.println("ressourceAtt + " + ressourceAtt);
-				for(int j= 0; j<ressourceAtt.getInt("nb");++j)
-				{
-					//TODO ouverture fichier ressource.getString(2);
-					/*for(int ii = 0; ii<ressourceAtt.getInt(1); ++ii)
-					{
-						//ressM.addRessource(new Ressource(attributs, id));
-					}*/
+		for(Ordre ordre : ordersList) {
+			for(Production prod : ordre.getProduits()) {
+				
+				List<List<Integer>> nextServicesId = pm.getNextService(prod.getNb());
+				List<List<Service>> nextServicesString = sm.transformServicesIdToString(nextServicesId);
+				Node previousNode = null;
+				
+				// Pour chaque service à effectuer, récupère les ressources pouvant répondre à l'appel d'offre
+				for(int i = 0 ; i < nextServicesString.size() ; ++i) {
+					for (int j = 0 ; j < nextServicesString.get(i).size() ; ++j) {
+						Service service = nextServicesString.get(i).get(j);
+						List<Ressource> capableRessources = rm.getAbleToRessource(service.getName());
+						
+						// Fonction choisissant la ressource la plus adaptée pour effectuer le service
+						Ressource chosenRessource = capableRessources.get(0); // Error s'il n'y a rien dans capableResources
+													
+						// Recherche s'il y a besoin d'un transport pour atteindre la ressource
+						// Dans le cas du premier service solicité, on initialise le noeud précédent à celui de la ressource choisie
+						if(previousNode == null) {
+							previousNode = chosenRessource.getNode();
+						}else {
+							if(previousNode != chosenRessource.getNode()) {									
+								// Recherche d'un transport
+								Ressource transport = rm.findTransport(previousNode);
+								
+								if(transport != null) { 
+
+									// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode
+									try {
+										// Envoi de l'instruction à Arena (à adapter pour l'envoi de la vraie instruction)
+										comArena.deplAgv(transport.getId(), previousNode.getId());
+										
+										//Réception message depuis Arena pour continuer
+										String message;
+										do {
+											message = comArena.getIn().readLine();
+											System.out.println(message);
+										}while(!message.startsWith("END"));
+										
+										// Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()	
+										comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
+										
+										//Réception message depuis Arena pour continuer
+										do {
+											message = comArena.getIn().readLine();
+											System.out.println(message);
+										}while(!message.startsWith("END"));
+										
+										System.out.println("AGV arrivé à destination");
+									} catch (IOException e) {
+										e.printStackTrace();
+									}
+								}
+								previousNode = chosenRessource.getNode();
+							}
+						}
+						// TODO: envoi instruction à Arena pour réaliser le service
+						chosenRessource.executeInstruction(service, 0);
+					}
+
 				}
 			}
-				
-				
-		} catch (JSONException e) {
-			System.out.println("Format du fichier JSON invalide - impossible d'initialiser les ressources");
-			e.printStackTrace();
 		}
-		
-		//IProduit p = new ProduitDijkstra("RandomPAthToNowhere");
-
 	}
 	
 }

@@ -5,9 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +15,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import communication.ComArena;
-import communication.ListenerArena;
 import communication.ServeurSocket;
 import ordre.Ordre;
 import ordre.OrdreManager;
@@ -34,7 +30,6 @@ import ressource.RessourceManager;
 
 public class InitialisationSysteme {
 	
-
 	private static ComArena comArena;
 	
 	public static String readFileJSON(String file) {
@@ -69,7 +64,6 @@ public class InitialisationSysteme {
 
 			sm.addService(new Service(service.getInt("id"), service.getString("name")));
 		}
-
 		return sm;
 	}
 
@@ -100,8 +94,6 @@ public class InitialisationSysteme {
 				}
 				rm.addRessource(ressource.getInt("id"), ressource.getString("name"), listServices);
 			}
-			
-			
 		}
 		
 		// Initialisation de la position des ressources
@@ -115,9 +107,7 @@ public class InitialisationSysteme {
 						ressourceItem.setNode(new Node(node.getInt("id"), node.getString("name"), "ressource"));
 
 				}catch (NullPointerException | JSONException e) { }
-
 			}
-				
 		}
 		return rm;
 	}
@@ -143,10 +133,8 @@ public class InitialisationSysteme {
 				
 				p.addServicesList(serviceList);
 			}
-
 			pm.addProduit(p);
 		}
-
 		return pm;
 	}
 
@@ -165,10 +153,8 @@ public class InitialisationSysteme {
 				ordre.addProduit(new Production(produitAtIndex.getInt("id"), produitAtIndex.getInt("nb")));
 				pm.addProduction(produitAtIndex.getInt("id"), produitAtIndex.getInt("nb"), 10);
 			}
-			
 			om.addOrdre(ordre);
 		}
-
 		return om;
 	}
 	
@@ -195,81 +181,12 @@ public class InitialisationSysteme {
 				sm.initialiserAnnuaire(rm);
 				System.out.println("finie");
 
-//				System.out.println("Annuaire");
-//				sm.printAnnuaire();
-				
-				
 				System.out.println("Nombre d'ordres : " + om.getOrdersList().size());
 				System.out.println("Nombre de ressources : " + rm.getListRessource().size());
 				System.out.println("Nombre de Noeuds : " + rm.getLayout().getListeNoeuds().size());
 
-				for(Ordre ordre : om.getOrdersList()) {
-					for(Production prod : ordre.getProduits()) {
-						
-						List<List<Integer>> nextServicesId = pm.getNextService(prod.getNb());
-						List<List<Service>> nextServicesString = sm.transformServicesIdToString(nextServicesId);
-						Node previousNode = null;
-						
-						// Pour chaque service à effectuer, récupère les ressources pouvant répondre à l'appel d'offre
-						for(int i = 0 ; i < nextServicesString.size() ; ++i) {
-							for (int j = 0 ; j < nextServicesString.get(i).size() ; ++j) {
-								Service service = nextServicesString.get(i).get(j);
-								List<Ressource> capableRessources = rm.getAbleToRessource(service.getName());
-								
-								// Fonction choisissant la ressource la plus adaptée pour effectuer le service
-								Ressource chosenRessource = capableRessources.get(0); // Error s'il n'y a rien dans capableResources
-															
-								// Recherche s'il y a besoin d'un transport pour atteindre la ressource
-								// Dans le cas du premier service solicité, on initialise le noeud précédent à celui de la ressource choisie
-								if(previousNode == null) {
-									previousNode = chosenRessource.getNode();
-								}else {
-									if(previousNode != chosenRessource.getNode()) {									
-										// Recherche d'un transport
-										System.out.println("Find transport");
-										Ressource transport = rm.findTransport(previousNode);
-										
-										if(transport != null) { 
-
-											// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode
-											System.out.println(previousNode);										
-											try {
-												// Envoi de l'instruction à Arena (à adapter pour l'envoi de la vraie instruction)
-												comArena.deplAgv(transport.getId(), previousNode.getId());
-												
-												//Réception message depuis Arena pour continuer
-												String message;
-												do {
-													message = comArena.getIn().readLine();
-													System.out.println(message);
-												}while(!message.startsWith("END"));
-												
-												// Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()	
-												System.out.println(chosenRessource.getNode()); 											
-												
-												comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
-												
-												//Réception message depuis Arena pour continuer
-												do {
-													message = comArena.getIn().readLine();
-													System.out.println(message);
-												}while(!message.startsWith("END"));
-												
-												System.out.println("AGV arrivé à destination");
-											} catch (IOException e) {
-												e.printStackTrace();
-											}
-										}
-										previousNode = chosenRessource.getNode();
-									}
-								}
-								// TODO: envoi instruction à Arena pour réaliser le service
-								chosenRessource.executeInstruction(service, 0);
-							}
-
-						}
-					}
-				}
+				// L'initialisation donne la main à l'OrdreManager
+				om.launchOrders(pm, sm, rm, comArena);
 				
 			} catch (JSONException e) {
 				System.out.println("Format du fichier JSON invalide");
@@ -297,7 +214,6 @@ public class InitialisationSysteme {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
 	}
 
 }

@@ -39,7 +39,6 @@ public class SoHMSMock extends Thread {
 			 serv = new ServeurSocket();
 			 serv.start();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -53,7 +52,6 @@ public class SoHMSMock extends Thread {
 			try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -63,7 +61,6 @@ public class SoHMSMock extends Thread {
 		
 		// Tant que l'utilisateur ne quitte pas l'interface (choix 3)
 		do{
-			//if(serv.getSocketArena().getInputStream().)
 			
 			// Demande à l'utilisateur de faire le choix 1 ou 2
 			do{

@@ -32,7 +32,6 @@ public class ProduitManager {
 		}	
 	}
 	
-	
 	public Produit findProduct(int id) {
 		
 		for(Produit prod : produitsList)
@@ -64,7 +63,6 @@ public class ProduitManager {
 			
 			for(int j = 0; j < services.size() ; ++j)
 				result.add(services.get(j));
-			
 			
 		}
 		

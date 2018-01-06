@@ -13,8 +13,7 @@ public class RessourceManager {
 	private List<Ressource> availableRes;
 	private Parser layout;
 	
-	public RessourceManager()
-	{
+	public RessourceManager(){
 		availableRes = new ArrayList<Ressource>();
 	}
 	
@@ -38,10 +37,6 @@ public class RessourceManager {
 		}
 		
 		return ablesTo;
-	}
-	
-	public void reserveRessource(Ressource ressource) {
-		
 	}
 	
 	public Ressource findTransport(Node nodeToReach) {
@@ -68,9 +63,7 @@ public class RessourceManager {
 			}
 		}
 		
-		System.out.println("transport : " + transport.getId() + " chemin de taille " + minValue);
 		return transport;
-		
 	}
 	
 	// getters & setters 

@@ -3,8 +3,6 @@ package ordre;
 import java.util.ArrayList;
 import java.util.List;
 
-import produit.Produit;
-
 public class Ordre {
 
 	private int id;
