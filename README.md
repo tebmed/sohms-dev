@@ -15,6 +15,6 @@ Exécuter le main de la classe InitialisationSysteme pour démarrer le SoHMS
 
 ### Lancer un scénario
 Depuis l'IHM à l'adresse localhost:8080 dans un navigateur :
-- S'assurer que le SoHMS reconnait la connexion de l'IHM : message dans la console
+- S'assurer que le SoHMS reconnait la connexion de l'IHM : message dans la console du SoHMS
 - Si ce n'est pas le cas, essayer d'actualiser l'IHM (ctrl+r)
 - Choisir/créer un scénario sur l'IHM puis l'envoyer au SOHMS (Run Scenario)
