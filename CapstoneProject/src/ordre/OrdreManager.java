@@ -69,23 +69,29 @@ public class OrdreManager {
 										comArena.deplAgv(transport.getId(), previousNode.getId());
 										
 										//Réception message depuis Arena pour continuer
-										String message;
+										/*String message;
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
-										}while(!message.startsWith("END"));
+										}while(!message.startsWith("END"));*/
+										
+										Thread.sleep(5000);
 										
 										// Une fois que l'agv est arrivé, effectuer le déplacement de l'agv vers chosenRessource.getNode()	
 										comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
 										
 										//Réception message depuis Arena pour continuer
-										do {
+										/*do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
-										}while(!message.startsWith("END"));
-										
+										}while(!message.startsWith("END"));*/
+										Thread.sleep(5000);
+
 										System.out.println("AGV arrivé à destination");
-									} catch (IOException e) {
+//									} catch (IOException e) {
+//										e.printStackTrace();
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 								}
