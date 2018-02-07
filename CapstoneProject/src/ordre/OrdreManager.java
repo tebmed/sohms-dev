@@ -12,7 +12,7 @@ import produit.ServiceManager;
 import ressource.Ressource;
 import ressource.RessourceManager;
 
-public class OrdreManager {
+public class OrdreManager{
 
 	private List<Ordre> ordersList;
 	
@@ -38,7 +38,6 @@ public class OrdreManager {
 		
 		for(Ordre ordre : ordersList) {
 			for(Production prod : ordre.getProduits()) {
-				
 				List<List<Integer>> nextServicesId = pm.getNextService(prod.getNb());
 				List<List<Service>> nextServicesString = sm.transformServicesIdToString(nextServicesId);
 				Node previousNode = null;
@@ -63,7 +62,7 @@ public class OrdreManager {
 								
 								if(transport != null) { 
 
-									// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode
+									// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode)
 									try {
 										// Envoi de l'instruction à Arena (à adapter pour l'envoi de la vraie instruction)
 										comArena.deplAgv(transport.getId(), previousNode.getId());
@@ -95,10 +94,8 @@ public class OrdreManager {
 						// TODO: envoi instruction à Arena pour réaliser le service
 						chosenRessource.executeInstruction(service, 0);
 					}
-
 				}
 			}
 		}
 	}
-	
 }

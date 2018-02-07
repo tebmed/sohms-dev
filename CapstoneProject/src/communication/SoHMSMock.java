@@ -33,10 +33,10 @@ public class SoHMSMock extends Thread {
 		String instruction;
 		boolean validChoice;
 		boolean quit = false;
-		ServeurSocket serv = null;
+		ComGUI serv = null;
 		
 		try {
-			 serv = new ServeurSocket();
+			 serv = new ComGUI();
 			 serv.start();
 		} catch (IOException e) {
 			e.printStackTrace();

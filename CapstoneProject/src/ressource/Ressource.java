@@ -15,13 +15,13 @@ public class Ressource {
 	private String name;
 	private Node node;
 	private Map<Service, Integer> services;
-	private List<Instruction> instructionsPlanned;
+	private List<Instruction> Plannedfinstructions;
 	
 	public Ressource(int id, String name, Map<Service, Integer> services) {
 		this.id = id;
 		this.name = name;
 		this.services = services;
-		this.instructionsPlanned = new ArrayList<Instruction>();
+		this.Plannedfinstructions = new ArrayList<Instruction>();
 	}
 
 	public int getId() {
@@ -69,7 +69,7 @@ public class Ressource {
 		Service service = this.getServiceByName(serviceName);
 		
 		int min = start;
-		for(Instruction instruction : this.instructionsPlanned) {
+		for(Instruction instruction : this.Plannedfinstructions) {
 			if (instruction.start < min) {
 				min = instruction.end;
 			} else {
@@ -86,7 +86,7 @@ public class Ressource {
 	
 	public void executeInstruction(Service service, int start) {
 		
-		this.instructionsPlanned.add(new Instruction(service, start, start+services.get(service)));
+		this.Plannedfinstructions.add(new Instruction(service, start, start+services.get(service)));
 	}
 	
 	private Service getServiceByName(String serviceName) {

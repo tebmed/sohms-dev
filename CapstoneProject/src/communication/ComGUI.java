@@ -10,13 +10,13 @@ import org.java_websocket.server.WebSocketServer;
 
 import application.InitialisationSysteme;
 
-public class ServeurSocket extends WebSocketServer{
+public class ComGUI extends WebSocketServer{
 
     private static int TCP_PORT = 8003;
     private List<WebSocket> socketsIHM;
     private List<String> messages;
 
-	public ServeurSocket() throws IOException
+	public ComGUI() throws IOException
 	{
         super(new InetSocketAddress(TCP_PORT));
         socketsIHM = new ArrayList<WebSocket>();

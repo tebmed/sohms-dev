@@ -12,7 +12,7 @@ public class ComArena {
 	/**
 	 * Port utilise par arena
 	 */
-	private final int port = 1202;
+	private final int port = 1203;
 	
 	/**
 	 * Addresse de la machine faisant tourner arena
@@ -23,7 +23,7 @@ public class ComArena {
 	BufferedReader in;
 	PrintStream out;
 	
-	//constantes utilisees pour construire les messages a transmetre
+	//constantes utilisées pour construire les messages a transmetre
 	
 	private final static String AGV = "AGV";
 	private final static String DEPL = "DEPL";

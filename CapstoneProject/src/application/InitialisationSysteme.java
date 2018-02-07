@@ -1,21 +1,10 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.*;
+import java.util.*;
+import org.json.*;
 import communication.ComArena;
-import communication.ServeurSocket;
+import communication.ComGUI;
 import ordre.Ordre;
 import ordre.OrdreManager;
 import ordre.Production;
@@ -30,9 +19,10 @@ import ressource.RessourceManager;
 
 public class InitialisationSysteme {
 	
-	private static ComArena comArena;
+	private static ComArena comArena; //initialiser la communication avec arena
 	
-	public static String readFileJSON(String file) {
+	//une methode pour lire le fichier json qui represent un scenario défini dans l'ihm
+    public static String readFileJSON(String file) {
 
 		String chaine = "";
 		// lecture du fichier texte
@@ -53,7 +43,11 @@ public class InitialisationSysteme {
 		return chaine;
 	}
 
-	public static ServiceManager initialiserServices(JSONObject obj) throws JSONException {
+    /*Initialiser les services a realiser pour chauque produit :
+     * Intégrer les services définies dans l'ihm au services manager
+     * (le service manager permet de définir les services réalisable au sein de l'atelier)
+     */
+	public static ServiceManager initialiserServices(JSONObject obj) throws JSONException{
 
 		ServiceManager sm = new ServiceManager();
 
@@ -66,7 +60,11 @@ public class InitialisationSysteme {
 		}
 		return sm;
 	}
-
+   
+	/*une fois le services manager initialisé, il est utilisé dans la prochaine étape
+	 * d'initialisation du système : RessourceManager.
+	 */
+		
 	public static RessourceManager initialiserRessources(JSONObject obj, ServiceManager sm) throws JSONException {
 
 		RessourceManager rm = new RessourceManager();
@@ -74,9 +72,14 @@ public class InitialisationSysteme {
 		Parser layout = new Parser();
 		layout.parse(obj.getJSONObject("layoutSpec"));
 		rm.setLayout(layout);
-
+ 
+		//le RM aura connaisance des resources disponibles.
 		JSONArray ressources = obj.getJSONArray("ressources");
 
+		
+		/*Pour chaque ressource, attribuer les services qu'elle sera capable de realiser
+		tel que le scénario l’aura décrit
+		*/
 		for (int i = 0; i < ressources.length(); ++i) {
 			JSONObject ressource = (JSONObject) ressources.get(i);
 
@@ -112,6 +115,7 @@ public class InitialisationSysteme {
 		return rm;
 	}
 
+	//initialisation des produits
 	public static ProduitManager initialiserProducts(JSONObject obj) throws JSONException {
 
 		ProduitManager pm = new ProduitManager();
@@ -197,19 +201,19 @@ public class InitialisationSysteme {
 
 	public static void main(String[] args) {
 		
-		//String fileContent = readFileJSON("ps1.json");
+		String fileContent = readFileJSON("ps1.json");
 
-		ServeurSocket servSocket;
+		ComGUI servSocket;
 		
 		try {
 			// Arena
 			comArena = new ComArena();
 			
 			// Serveur socket IHM
-			servSocket = new ServeurSocket();
+			servSocket = new ComGUI();
 			servSocket.start();
 			
-			//initialiserSysteme(fileContent);
+			initialiserSysteme(fileContent);
 
 		} catch (IOException e1) {
 			e1.printStackTrace();
