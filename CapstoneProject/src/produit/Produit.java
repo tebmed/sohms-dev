@@ -1,4 +1,4 @@
-package produit;
+ package produit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,8 +64,7 @@ public class Produit implements Cloneable{
 			System.out.print("List : " );
 			for(int service : list)
 				System.out.print(service + ",");
-			System.out.println();
+			    System.out.println();
 		}
 	}
-
 }

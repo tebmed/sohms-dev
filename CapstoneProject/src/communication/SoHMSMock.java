@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class SoHMSMock extends Thread {
 
 	// Informations de connexion pour le socket Arena
-	private final static int port = 1202;
+	private final static int port = 1204;
 	private final static String arenaAddresse = "127.0.0.1";
 	
 	Socket socketArena;

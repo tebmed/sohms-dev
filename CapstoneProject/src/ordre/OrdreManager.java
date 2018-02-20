@@ -37,20 +37,27 @@ public class OrdreManager{
 	public void launchOrders(ProduitManager pm, ServiceManager sm, RessourceManager rm, ComArena comArena) {
 		
 		for(Ordre ordre : ordersList) {
+			System.out.println("----------------------------");
+			System.out.println("Ordre number : "+ordre.getId());
 			for(Production prod : ordre.getProduits()) {
 				List<List<Integer>> nextServicesId = pm.getNextService(prod.getNb());
 				List<List<Service>> nextServicesString = sm.transformServicesIdToString(nextServicesId);
 				Node previousNode = null;
 				
-				// Pour chaque service √† effectuer, r√©cup√®re les ressources pouvant r√©pondre √† l'appel d'offre
+				// Pour chaque service ‡† Èffectuer, rÈcupÈrer les ressources pouvant rÈpondre ‡† l'appel d'offre
 				for(int i = 0 ; i < nextServicesString.size() ; ++i) {
 					for (int j = 0 ; j < nextServicesString.get(i).size() ; ++j) {
 						Service service = nextServicesString.get(i).get(j);
-						List<Ressource> capableRessources = rm.getAbleToRessource(service.getName());
+						List<Ressource> capableRessources = rm.getCapableResources(service.getName());
 						
-						// Fonction choisissant la ressource la plus adapt√©e pour effectuer le service
-						Ressource chosenRessource = capableRessources.get(0); // Error s'il n'y a rien dans capableResources
-													
+						// Fonction choisissant la ressource la plus adaptÈe pour effectuer le service
+						if(capableRessources.size()==0) {
+							System.out.println("No ressource is capable te realize the  service : "+ service.getName() );
+							break;
+						}
+						Ressource chosenRessource = capableRessources.get(0); 			
+						System.out.println("Chosen resourceto realize the  service : "+ service.getName()+" is :"+chosenRessource.getName());
+
 						// Recherche s'il y a besoin d'un transport pour atteindre la ressource
 						// Dans le cas du premier service solicit√©, on initialise le noeud pr√©c√©dent √† celui de la ressource choisie
 						if(previousNode == null) {
@@ -59,31 +66,33 @@ public class OrdreManager{
 							if(previousNode != chosenRessource.getNode()) {									
 								// Recherche d'un transport
 								Ressource transport = rm.findTransport(previousNode);
-								
 								if(transport != null) { 
-
-									// Effectuer d√©placement de l'agv vers la ressource (transport.getNode() vers previousNode)
+									// Effectuer dÈplacement de l'agv vers la ressource (transport.getNode() vers previousNode)
 									try {
-										// Envoi de l'instruction √† Arena (√† adapter pour l'envoi de la vraie instruction)
-										comArena.deplAgv(transport.getId(), previousNode.getId());
+										// Envoi de l'instruction ‡† Arena (‡† adapter pour l'envoi de la vraie instruction)
+										int agv_id = transport.getId();
+										//int agv_id1 = transport.getId();
+										System.out.println("Move the AGV [id : "+agv_id+", name : "+transport.getName()+"] to the product");
+										comArena.deplAgv(agv_id, previousNode.getId());
 										
-										//R√©ception message depuis Arena pour continuer
+										//RÈception message depuis Arena pour continuer
 										String message;
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
 										}while(!message.startsWith("END"));
 										
-										// Une fois que l'agv est arriv√©, effectuer le d√©placement de l'agv vers chosenRessource.getNode()	
+										// Une fois que l'agv est arrivÈe, effectuer le d√©placement de l'agv vers chosenRessource.getNode()	
+										System.out.println("Move the AGV with the product to the fabrication's machine");
 										comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
-										
-										//R√©ception message depuis Arena pour continuer
+
+										//RÈception message depuis Arena pour continuer
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
 										}while(!message.startsWith("END"));
 										
-										System.out.println("AGV arriv√© √† destination");
+										System.out.println("AGV arrivÈe ‡†destination");
 									} catch (IOException e) {
 										e.printStackTrace();
 									}

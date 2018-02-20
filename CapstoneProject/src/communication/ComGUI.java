@@ -60,7 +60,7 @@ public class ComGUI extends WebSocketServer{
         this.messages.add(index, message);
         
         if(message.startsWith("init")) {
-        	// EnlÃ¨ve le surplus pour un parsing correct
+        	// Enlève le surplus pour un parsing correct
         	String subMessage = message.substring(6, message.length()-1);
         	
         	InitialisationSysteme.initialiserSysteme(subMessage);

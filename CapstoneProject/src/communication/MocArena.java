@@ -16,7 +16,8 @@ public class MocArena {
 		PrintStream writer;
 
 		try {
-			serv = new ServerSocket(1202);
+			serv = new ServerSocket(5004);
+			System.out.println("Arena Simulation : running done");
 			client = serv.accept();
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
 			writer = new PrintStream(client.getOutputStream());
@@ -34,4 +35,3 @@ public class MocArena {
 		}
 	}
 }
-

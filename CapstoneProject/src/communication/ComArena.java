@@ -12,7 +12,7 @@ public class ComArena {
 	/**
 	 * Port utilise par arena
 	 */
-	private final int port = 1203;
+	private final int port = 5004;
 	
 	/**
 	 * Addresse de la machine faisant tourner arena

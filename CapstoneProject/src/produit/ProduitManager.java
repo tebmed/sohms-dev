@@ -69,4 +69,7 @@ public class ProduitManager {
 		return result;
 	}
 	
+	public  List<Produit> getProductsList(){
+		return this.produitsList;
+	}
 }

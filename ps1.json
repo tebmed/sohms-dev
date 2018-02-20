@@ -29,7 +29,7 @@
                     "duration": 20
                 },
                 {
-                    "id": 6,
+                    "id": 1,
                     "duration": 20
                 }
             ]
@@ -48,7 +48,7 @@
                     "duration": 20
                 },
                 {
-                    "id": 7,
+                    "id": 2,
                     "duration": 20
                 }
             ]
@@ -56,18 +56,10 @@
         {
             "id": 4,
             "nb": 1,
-            "name": "m3",
+            "name": "m4",
             "services": [
                 {
-                    "id": 5,
-                    "duration": 20
-                },
-                {
-                    "id": 6,
-                    "duration": 20
-                },
-                {
-                    "id": 7,
+                    "id": 4,
                     "duration": 20
                 }
             ]
@@ -75,10 +67,10 @@
         {
             "id": 5,
             "nb": 1,
-            "name": "m4",
+            "name": "m5",
             "services": [
                 {
-                    "id": 8,
+                    "id": 1,
                     "duration": 5
                 }
             ]
@@ -86,10 +78,10 @@
         {
             "id": 6,
             "nb": 1,
-            "name": "m5",
+            "name": "m6",
             "services": [
                 {
-                    "id": 9,
+                    "id": 2,
                     "duration": 60
                 }
             ]
@@ -97,46 +89,26 @@
         {
             "id": 7,
             "nb": 1,
-            "name": "m6",
+            "name": "m7",
             "services": []
         }
     ],
     "services": [
         {
             "id": 1,
-            "name": "plateLoading"
+            "name":"deplacement"
         },
         {
             "id": 2,
-            "name": "productUnloading"
+            "name":"peindre"
         },
         {
             "id": 3,
-            "name": "axis"
+            "name":"souder"
         },
         {
             "id": 4,
-            "name": "rComp"
-        },
-        {
-            "id": 5,
-            "name": "iComp"
-        },
-        {
-            "id": 6,
-            "name": "lComp"
-        },
-        {
-            "id": 7,
-            "name": "screwComp"
-        },
-        {
-            "id": 8,
-            "name": "inspection"
-        },
-        {
-            "id": 9,
-            "name": "recovery"
+            "name":"peindre"
         }
     ],
     "perturbations": [
@@ -152,74 +124,21 @@
                 {
                     "id": 1,
                     "nb": 1
-                },
-                {
-                    "id": 2,
-                    "nb": 1
-                },
-                {
-                    "id": 3,
-                    "nb": 1
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "products": [
-                {
-                    "id": 3,
-                    "nb": 1
-                },
-                {
-                    "id": 1,
-                    "nb": 1
-                },
-                {
-                    "id": 2,
-                    "nb": 1
                 }
             ]
         }
     ],
     "products": [
         {
-            "id": 1,
-            "description": "A",
-            "services": [
-                [
-                    2
-                ],
-                [
-                    1
-                ]
-            ]
-        },
-        {
-            "id": 2,
-            "description": "B",
-            "services": [
-                [
-                    2
-                ],
-                [
-                    1
-                ]
-            ]
-        },
-        {
-            "id": 3,
-            "description": "C",
-            "services": [
-                [
-                    2
-                ],
-                [
-                    1
-                ]
+            "id":1 ,
+            "description": "faire un joli produit necessitant un deplacement",
+            "services":[
+                [4],
+                [2]
             ]
         }
     ],
-    "layoutSpec": {
+        "layoutSpec": {
         "nodes": [
             {
                 "id": 1,

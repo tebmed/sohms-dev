@@ -150,7 +150,10 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_aeozkAwLEeiN7_w7bhp42g" name="RessourceManager"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_aeozkAwLEeiN7_w7bhp42g" name="RessourceManager">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_T_r9sAwMEeiN7_w7bhp42g" name="layout" visibility="private" type="_RPP2YAwMEeiN7_w7bhp42g"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1J08cAwOEeiN7_w7bhp42g" name="getCapableResources" visibility="public" concurrency="guarded"/>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_ivbMwAwFEeiN7_w7bhp42g" memberEnd="_ivca4gwFEeiN7_w7bhp42g _ivdB8gwFEeiN7_w7bhp42g">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ivca4AwFEeiN7_w7bhp42g" source="org.eclipse.papyrus">
@@ -159,9 +162,6 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_ivdB8gwFEeiN7_w7bhp42g" name="Plannedinstructions" type="_6Iuq8AwEEeiN7_w7bhp42g" association="_ivbMwAwFEeiN7_w7bhp42g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_C_CSYAwHEeiN7_w7bhp42g" name="Node"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_gr7ZEAwHEeiN7_w7bhp42g" name="Service">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_Mjlf4AwJEeiN7_w7bhp42g" name="Attribute1"/>
-  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_nAB3kAwLEeiN7_w7bhp42g" memberEnd="_nAB3kwwLEeiN7_w7bhp42g _nACeogwLEeiN7_w7bhp42g">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nAB3kQwLEeiN7_w7bhp42g" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nAB3kgwLEeiN7_w7bhp42g" key="nature" value="UML_Nature"/>
@@ -169,6 +169,55 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_nACeogwLEeiN7_w7bhp42g" name="availableResource" type="_qMLusAwEEeiN7_w7bhp42g" association="_nAB3kAwLEeiN7_w7bhp42g">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vwdLYAwLEeiN7_w7bhp42g"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vw4CIAwLEeiN7_w7bhp42g" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_RPP2YAwMEeiN7_w7bhp42g" name="Parser"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_vQtXgAwPEeiN7_w7bhp42g" name="Products Management">
+    <packagedElement xmi:type="uml:Class" xmi:id="_LeltEAwREeiN7_w7bhp42g" name="Product">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8cyFUAwREeiN7_w7bhp42g" name="Id" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_AqQLUAwSEeiN7_w7bhp42g" name="description" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JP9K8AwUEeiN7_w7bhp42g" name="service" type="_gr7ZEAwHEeiN7_w7bhp42g" association="_JO1woAwUEeiN7_w7bhp42g">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LxmoUAwUEeiN7_w7bhp42g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LxpEkAwUEeiN7_w7bhp42g" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_gr7ZEAwHEeiN7_w7bhp42g" name="Service">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Mjlf4AwJEeiN7_w7bhp42g" name="Id" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JPROcAwUEeiN7_w7bhp42g" name="product" type="_LeltEAwREeiN7_w7bhp42g" association="_JO1woAwUEeiN7_w7bhp42g">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JPa_cAwUEeiN7_w7bhp42g"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JPbmgAwUEeiN7_w7bhp42g" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Y80scAwUEeiN7_w7bhp42g" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Xp1EcAwdEeiN7_w7bhp42g" name="servicemanager" type="_xWuLUAwbEeiN7_w7bhp42g" aggregation="composite" association="_XpH50AwdEeiN7_w7bhp42g">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XqJ0kAwdEeiN7_w7bhp42g" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XqKboAwdEeiN7_w7bhp42g" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xWuLUAwbEeiN7_w7bhp42g" name="ServiceManager">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_9HBJkAwbEeiN7_w7bhp42g" name="AddResource2Service(String ser, Resource rsc)"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_UD8_YAwcEeiN7_w7bhp42g" name="InitialiseDirectory"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_JO1woAwUEeiN7_w7bhp42g" memberEnd="_JPROcAwUEeiN7_w7bhp42g _JP9K8AwUEeiN7_w7bhp42g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JPEaIAwUEeiN7_w7bhp42g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JPEaIQwUEeiN7_w7bhp42g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_XpH50AwdEeiN7_w7bhp42g" visibility="protected" memberEnd="_Xp1EcAwdEeiN7_w7bhp42g _XqLCsAwdEeiN7_w7bhp42g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XptvsAwdEeiN7_w7bhp42g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XpuWwAwdEeiN7_w7bhp42g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_XqLCsAwdEeiN7_w7bhp42g" name="service" type="_gr7ZEAwHEeiN7_w7bhp42g" association="_XpH50AwdEeiN7_w7bhp42g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bd-EcAwdEeiN7_w7bhp42g" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bfaO4AwdEeiN7_w7bhp42g" value="*"/>
     </ownedEnd>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_qJ6c4AtLEeiRtaRWnW3rqQ">

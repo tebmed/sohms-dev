@@ -33,14 +33,11 @@ public class InitialisationSysteme {
 			String ligne;
 			while ((ligne = br.readLine()) != null)
 				chaine += ligne + "\n";
-
 			br.close();
-
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
-
-		return chaine;
+	  return chaine;
 	}
 
     /*Initialiser les services a realiser pour chauque produit :
@@ -51,11 +48,16 @@ public class InitialisationSysteme {
 
 		ServiceManager sm = new ServiceManager();
 
+		//Récupérer l'ensemble des services dans le fichier JSON
 		JSONArray services = obj.getJSONArray("services");
 
+		/*
+		 * Pour chaque services récupéré créer un Object Java qui lui correspond et ajouter cet objet 
+	     * a la liste des services du services manager.
+		*/
+	
 		for (int i = 0; i < services.length(); ++i) {
 			JSONObject service = (JSONObject) services.get(i);
-
 			sm.addService(new Service(service.getInt("id"), service.getString("name")));
 		}
 		return sm;
@@ -64,11 +66,17 @@ public class InitialisationSysteme {
 	/*une fois le services manager initialisé, il est utilisé dans la prochaine étape
 	 * d'initialisation du système : RessourceManager.
 	 */
-		
+	
+	/*Pour le ressource manager il a besoin de deux paramètre :
+	 *   1-OBJ "le fichier JSON envoyer par l'IHM " : pour initialiser la position de la ressource
+	 *   2-SM  : Service Manager
+	 */
+	
 	public static RessourceManager initialiserRessources(JSONObject obj, ServiceManager sm) throws JSONException {
 
 		RessourceManager rm = new RessourceManager();
 		
+		//le resource manager va savoir la version objet du layout de l'atelier.
 		Parser layout = new Parser();
 		layout.parse(obj.getJSONObject("layoutSpec"));
 		rm.setLayout(layout);
@@ -81,6 +89,7 @@ public class InitialisationSysteme {
 		tel que le scénario l’aura décrit
 		*/
 		for (int i = 0; i < ressources.length(); ++i) {
+			
 			JSONObject ressource = (JSONObject) ressources.get(i);
 
 			for (int j = 0; j < ressource.getInt("nb"); ++j) {
@@ -88,13 +97,16 @@ public class InitialisationSysteme {
 				JSONArray services = ressource.getJSONArray("services");
 				for (int k = 0; k < services.length(); ++k) {
 					JSONObject serviceAtIndex = (JSONObject) services.get(k);
+					//Parcourir la liste des services existants dans le services manager
 					for (Service service : sm.getServicesList()) {
+						//Verifier si ce service est attribué a une ressource
 						if (service.getId() == serviceAtIndex.getInt("id")) {
 							listServices.put(service, serviceAtIndex.getInt("duration"));
 							break;
 						}
 					}
 				}
+				//creer une nouvelle resource et l'ajouter au resource manager.
 				rm.addRessource(ressource.getInt("id"), ressource.getString("name"), listServices);
 			}
 		}
@@ -103,19 +115,22 @@ public class InitialisationSysteme {
 		JSONArray nodes = obj.getJSONObject("layoutSpec").getJSONArray("nodes");
 
 		for (int k = 0 ; k < nodes.length() ; ++k) {
+			//pour chaque noeud.
 			JSONObject node = (JSONObject) nodes.get(k);
+			//pour chauque ressource dans le resource manager
 			for(Ressource ressourceItem : rm.getListRessource()) {
 				try {
+					//si la resource est assigné a un noeud
 					if(node.getInt("ressource") == ressourceItem.getId())
+						//affecter les noeuds au ressources
 						ressourceItem.setNode(new Node(node.getInt("id"), node.getString("name"), "ressource"));
-
 				}catch (NullPointerException | JSONException e) { }
 			}
 		}
 		return rm;
 	}
 
-	//initialisation des produits
+	//Initialisation des produits
 	public static ProduitManager initialiserProducts(JSONObject obj) throws JSONException {
 
 		ProduitManager pm = new ProduitManager();
@@ -124,33 +139,38 @@ public class InitialisationSysteme {
 
 		for (int i = 0; i < produits.length(); ++i) {
 			JSONObject produit = (JSONObject) produits.get(i);
+			//creer un objet java produit pour chaque produit dans le fichier JSON
 			Produit p = new Produit(produit.getInt("id"), produit.getString("description"));
 
+			//maintenant pour chaque produit initialiser les services qu'il peut realiser.
 			JSONArray allServices = produit.getJSONArray("services");
 
 			for (int j = 0; j < allServices.length(); ++j) {
 				List<Integer> serviceList = new ArrayList<Integer>();
 				JSONArray subArray = (JSONArray) allServices.get(j);
-
 				for (int k = 0; k < subArray.length(); ++k)
 					serviceList.add((int) subArray.get(k));
-				
-				p.addServicesList(serviceList);
+				    p.addServicesList(serviceList);
 			}
+			//ajouter le produit au product manager
 			pm.addProduit(p);
 		}
 		return pm;
 	}
 
+	/*
+	 * Initilisation des ordres
+	 *     @param obj: le fichier contenant le scenario
+	 *     @param pm : il contient l'ensemble des produit ainsi que les services nécéssaires pour sa realisation
+	 */
+	
 	public static OrdreManager initialiserOrdres(JSONObject obj, ProduitManager pm) throws JSONException {
-
+	
 		OrdreManager om = new OrdreManager();
 		JSONArray ordres = obj.getJSONArray("orders");
-
 		for (int i = 0; i < ordres.length(); ++i) {
 			JSONObject ordreAtIndex = (JSONObject) ordres.get(i);
 			Ordre ordre = new Ordre(ordreAtIndex.getInt("id"));
-			
 			JSONArray produits = ordreAtIndex.getJSONArray("products");
 			for(int j = 0 ; j < produits.length() ; ++j) {
 				JSONObject produitAtIndex = (JSONObject) produits.get(j);
@@ -166,8 +186,8 @@ public class InitialisationSysteme {
 		
 		if (fileContent != "") {
 			try {
+				
 				JSONObject obj  = new JSONObject(fileContent);
-
 				System.out.print("Initialisation services : ");
 				ServiceManager sm = initialiserServices(obj);
 				System.out.println("finie");
@@ -187,6 +207,7 @@ public class InitialisationSysteme {
 
 				System.out.println("Nombre d'ordres : " + om.getOrdersList().size());
 				System.out.println("Nombre de ressources : " + rm.getListRessource().size());
+				System.out.println("Nombre de produit : " + pm.getProductsList().size());
 				System.out.println("Nombre de Noeuds : " + rm.getLayout().getListeNoeuds().size());
 
 				// L'initialisation donne la main Ã  l'OrdreManager
@@ -201,20 +222,18 @@ public class InitialisationSysteme {
 
 	public static void main(String[] args) {
 		
-		String fileContent = readFileJSON("ps1.json");
-
+		//String fileContent = readFileJSON("ps1.json");
 		ComGUI servSocket;
 		
 		try {
 			// Arena
 			comArena = new ComArena();
-			
 			// Serveur socket IHM
 			servSocket = new ComGUI();
-			servSocket.start();
+			servSocket.start();	
 			
-			initialiserSysteme(fileContent);
-
+			//Initilise the system without communication with a real GUI
+			//initialiserSysteme(fileContent);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

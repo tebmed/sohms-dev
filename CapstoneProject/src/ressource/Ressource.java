@@ -13,7 +13,8 @@ public class Ressource {
 	
 	private int id;
 	private String name;
-	private Node node;
+	private Node node; 
+	private State state;
 	private Map<Service, Integer> services;
 	private List<Instruction> Plannedfinstructions;
 	
@@ -21,6 +22,7 @@ public class Ressource {
 		this.id = id;
 		this.name = name;
 		this.services = services;
+		this.state = State.AVAILABLE;
 		this.Plannedfinstructions = new ArrayList<Instruction>();
 	}
 

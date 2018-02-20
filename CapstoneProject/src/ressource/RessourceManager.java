@@ -22,7 +22,7 @@ public class RessourceManager {
 	 * @param service le service souhaité
 	 * @return la liste des ressources qui sont capable d'effectuer le service
 	 */
-	public List<Ressource> getAbleToRessource(String service)
+	public List<Ressource> getCapableResources(String service)
 	{
 		List<Ressource> ablesTo = new ArrayList<Ressource>();
 				
