@@ -27,13 +27,15 @@ public class RessourceManager {
 		List<Ressource> ablesTo = new ArrayList<Ressource>();
 				
 		for(Ressource ressource : availableRes) {
-			Map<Service, Integer> services = ressource.getListeService();
-			for(Service s : services.keySet()) {
-				if(s.getName() == service) {
-					ablesTo.add(ressource);
-					break;
-				}
-			}
+			 if(ressource.getState() == State.AVAILABLE) {
+				 Map<Service, Integer> services = ressource.getListeService();
+					for(Service s : services.keySet()) {
+						if(s.getName() == service) {
+							ablesTo.add(ressource);
+							break;
+						}
+					}
+			 }
 		}
 		
 		return ablesTo;
@@ -74,6 +76,14 @@ public class RessourceManager {
 	
 	public void addRessource(int id, String name, Map<Service, Integer> listService) {
 		availableRes.add(new Ressource(id, name, listService));
+	}
+	
+	public void setState(int id) {
+		for(Ressource ressource : availableRes) {
+			if(ressource.getId()==id) {
+				ressource.setState(State.BUSY);
+			}
+		}
 	}
 	
 	public void setLayout(Parser layout)

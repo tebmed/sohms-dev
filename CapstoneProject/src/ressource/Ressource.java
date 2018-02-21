@@ -15,6 +15,8 @@ public class Ressource {
 	private String name;
 	private Node node; 
 	private State state;
+	
+
 	private Map<Service, Integer> services;
 	private List<Instruction> Plannedfinstructions;
 	
@@ -38,6 +40,14 @@ public class Ressource {
 		this.node = node;
 	}
 
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+	
 	public Map<Service, Integer> getListeService() {
 		return this.services;
 	}

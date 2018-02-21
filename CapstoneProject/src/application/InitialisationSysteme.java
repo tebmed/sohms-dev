@@ -211,7 +211,7 @@ public class InitialisationSysteme {
 				System.out.println("Nombre de Noeuds : " + rm.getLayout().getListeNoeuds().size());
 
 				// L'initialisation donne la main à l'OrdreManager
-				om.launchOrders(pm, sm, rm, comArena);
+				om.launchOrders1(pm, sm, rm, comArena);
 				
 			} catch (JSONException e) {
 				System.out.println("Format du fichier JSON invalide");
