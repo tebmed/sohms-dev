@@ -5,18 +5,10 @@ import java.util.*;
 import org.json.*;
 
 import Communication.Arena;
-import communication.ComGUI;
-import ordre.Ordre;
-import ordre.OrdreManager;
-import ordre.Production;
-import produit.Node;
-import produit.Parser;
-import produit.Produit;
-import produit.ProduitManager;
-import produit.Service;
-import produit.ServiceManager;
-import ressource.Ressource;
-import ressource.RessourceManager;
+import Communication.WebGUI;
+import ordre.*;
+import produit.*;
+import ressource.*;
 
 public class InitialisationSysteme {
 	
@@ -224,17 +216,18 @@ public class InitialisationSysteme {
 	public static void main(String[] args) {
 		
 		//String fileContent = readFileJSON("ps1.json");
-		ComGUI servSocket;
 		
 		try {
 			// Arena
 			comArena = new Arena(5004, "127.0.0.1");
 			// Serveur socket IHM
-			servSocket = new ComGUI();
-			servSocket.start();	
-			
-			//Initilise the system without communication with a real GUI
-			//initialiserSysteme(fileContent);
+			WebGUI servSocket = new WebGUI(8003);
+			String fileContent;
+			for(;;) {
+				fileContent = servSocket.getScenario();
+                if(fileContent != "") break;
+			}
+			initialiserSysteme(fileContent);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
