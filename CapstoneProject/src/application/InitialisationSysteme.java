@@ -3,7 +3,8 @@ package application;
 import java.io.*;
 import java.util.*;
 import org.json.*;
-import communication.ComArena;
+
+import Communication.Arena;
 import communication.ComGUI;
 import ordre.Ordre;
 import ordre.OrdreManager;
@@ -19,7 +20,7 @@ import ressource.RessourceManager;
 
 public class InitialisationSysteme {
 	
-	private static ComArena comArena; //initialiser la communication avec arena
+	private static Arena comArena; //initialiser la communication avec arena
 	
 	//une methode pour lire le fichier json qui represent un scenario défini dans l'ihm
     public static String readFileJSON(String file) {
@@ -211,7 +212,7 @@ public class InitialisationSysteme {
 				System.out.println("Nombre de Noeuds : " + rm.getLayout().getListeNoeuds().size());
 
 				// L'initialisation donne la main Ã  l'OrdreManager
-				om.launchOrders1(pm, sm, rm, comArena);
+				om.launchOrders(pm, sm, rm, comArena);
 				
 			} catch (JSONException e) {
 				System.out.println("Format du fichier JSON invalide");
@@ -227,7 +228,7 @@ public class InitialisationSysteme {
 		
 		try {
 			// Arena
-			comArena = new ComArena();
+			comArena = new Arena(5004, "127.0.0.1");
 			// Serveur socket IHM
 			servSocket = new ComGUI();
 			servSocket.start();	

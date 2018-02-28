@@ -4,5 +4,6 @@
 	<classpathentry kind="lib" path="CapstoneProject/org.json.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="java_websocket.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Documents/Stage/sohms-dev/Arena.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
