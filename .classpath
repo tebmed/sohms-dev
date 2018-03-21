@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="CapstoneProject/src"/>
 	<classpathentry kind="lib" path="CapstoneProject/org.json.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/stagiaire-aelos/Documents/StageAGV/sohms-dev/SOHMS.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mohammed/Documents/Stage/sohms-dev/SOHMS.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

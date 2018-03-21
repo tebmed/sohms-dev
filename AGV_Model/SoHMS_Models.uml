@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_Jt9OsC0HEeiVgMm3N2angQ" name="SoHMS_Models">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_KBbkUC0HEeiVgMm3N2angQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_J2dDYC0HEeiVgMm3N2angQ" name="StateMachine1">
+    <region xmi:type="uml:Region" xmi:id="_J4u7UC0HEeiVgMm3N2angQ" name="Region1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_J5MOUC0HEeiVgMm3N2angQ" name="Interaction1"/>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_J5be4C0HEeiVgMm3N2angQ" name="Activity1"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_UYeQoC0HEeiVgMm3N2angQ" name="Workshop">
+    <packagedElement xmi:type="uml:Class" xmi:id="_dvIokC0IEeiVgMm3N2angQ" name="Node">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_n-TyUC0IEeiVgMm3N2angQ" name="id" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vXEIkC0IEeiVgMm3N2angQ" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5j8MQC0IEeiVgMm3N2angQ" name="type" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:FunctionBehavior" xmi:id="_1IKdIC0LEeiVgMm3N2angQ" specification="_rWXoYC0KEeiVgMm3N2angQ">
+        <language>JAVA</language>
+        <body>this.id=id;</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Un6v8C0JEeiVgMm3N2angQ" name="Node" method="_zrEXkC0MEeiVgMm3N2angQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_eP1scC0JEeiVgMm3N2angQ" name="id">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_itKMUC0JEeiVgMm3N2angQ" name="type">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kQwtEC0JEeiVgMm3N2angQ" name="Node" method="_7cE1wC0MEeiVgMm3N2angQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nAQZMC0JEeiVgMm3N2angQ" name="id">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_zDGgAC0JEeiVgMm3N2angQ" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2CwIAC0JEeiVgMm3N2angQ" name="type">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rWXoYC0KEeiVgMm3N2angQ" name="setID" method="_1IKdIC0LEeiVgMm3N2angQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_xJ9-sC0KEeiVgMm3N2angQ" name="id">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2L7AMC0LEeiVgMm3N2angQ" name="setName" method="_a9BwgC0MEeiVgMm3N2angQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_XGjOMC0MEeiVgMm3N2angQ" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_b5buYC0MEeiVgMm3N2angQ" name="setType" method="_kYas4C0MEeiVgMm3N2angQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_gEL3kC0MEeiVgMm3N2angQ" name="type">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_a9BwgC0MEeiVgMm3N2angQ" specification="_2L7AMC0LEeiVgMm3N2angQ">
+      <language>JAVA</language>
+      <body>this.name=name;&#xD;
+</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_kYas4C0MEeiVgMm3N2angQ" specification="_b5buYC0MEeiVgMm3N2angQ">
+      <language>JAVA</language>
+      <body>this.type=type;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_7cE1wC0MEeiVgMm3N2angQ" specification="_kQwtEC0JEeiVgMm3N2angQ">
+      <language>JAVA</language>
+      <body>this.id=id;&#xD;
+this.name=name;&#xD;
+this.type=type;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_XUTg4C0NEeiVgMm3N2angQ" name="Resources">
+      <packagedElement xmi:type="uml:Class" xmi:id="_e-bT8C0NEeiVgMm3N2angQ" name="Resource"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jQIZsC0NEeiVgMm3N2angQ" name="State"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_zrEXkC0MEeiVgMm3N2angQ" specification="_Un6v8C0JEeiVgMm3N2angQ">
+    <language>JAVA</language>
+    <body>this.id=id;&#xD;
+this.type=type;</body>
+  </packagedElement>
+</uml:Model>
