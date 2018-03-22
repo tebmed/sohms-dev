@@ -97,7 +97,6 @@ public class Ressource {
 	}
 	
 	public void executeInstruction(Service service, int start) {
-		
 		this.Plannedfinstructions.add(new Instruction(service, start, start+services.get(service)));
 	}
 	

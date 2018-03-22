@@ -81,7 +81,7 @@ this.name=name;&#xD;
 this.type=type;</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_XUTg4C0NEeiVgMm3N2angQ" name="Resources" visibility="private">
-        <packagedElement xmi:type="uml:Class" xmi:id="_e-bT8C0NEeiVgMm3N2angQ" name="Resource">
+        <packagedElement xmi:type="uml:Class" xmi:id="_e-bT8C0NEeiVgMm3N2angQ" name="Ressource">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_Q0bhIC0SEeiIRoJBEUdNcQ" name="id" visibility="private">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedAttribute>
@@ -104,7 +104,7 @@ this.type=type;</body>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UsTKwC03EeiMKtrwj7yj0A" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UsTKwS03EeiMKtrwj7yj0A" value="1"/>
           </ownedAttribute>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_8NRwwC0uEeiMKtrwj7yj0A" name="Resource" method="_chOuYC0xEeiMKtrwj7yj0A">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_8NRwwC0uEeiMKtrwj7yj0A" name="Ressource" method="_chOuYC0xEeiMKtrwj7yj0A">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_ys570C0wEeiMKtrwj7yj0A" name="id">
               <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
             </ownedParameter>
@@ -129,6 +129,38 @@ this.type=type;</body>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_k2e3MC0zEeiMKtrwj7yj0A" name="getState" method="_A_VYQC00EeiMKtrwj7yj0A">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_1bGgEC0zEeiMKtrwj7yj0A" type="_tjSSQC0SEeiIRoJBEUdNcQ" direction="return"/>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_dB3T0C3BEeiOBYU8B6ko4Q" name="executeInstruction" method="_QSn5sC3EEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_9L8OoC3BEeiOBYU8B6ko4Q" name="service" type="_vJvaQC00EeiMKtrwj7yj0A"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_BiexEC3CEeiOBYU8B6ko4Q" name="start">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_BEfbQC3HEeiOBYU8B6ko4Q" name="getExecutionTime" method="_QgB8MC3HEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_HyUlMC3HEeiOBYU8B6ko4Q" name="serviceName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_jGqqsC3IEeiOBYU8B6ko4Q" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_XZQd0C3HEeiOBYU8B6ko4Q" name="getServiceByName" method="_4A5eYC3HEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_vo2OUC3HEeiOBYU8B6ko4Q" name="serviceName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_MnjZUC3IEeiOBYU8B6ko4Q" type="_vJvaQC00EeiMKtrwj7yj0A" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_36p3AC3IEeiOBYU8B6ko4Q" name="availability" method="_UnvREC3KEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_HmoLMC3KEeiOBYU8B6ko4Q" name="serviceName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_JQPNUC3KEeiOBYU8B6ko4Q" name="start">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_KsiMMC3KEeiOBYU8B6ko4Q" name="end">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_aF7YEC3KEeiOBYU8B6ko4Q" type="_MhCFIC3JEeiOBYU8B6ko4Q" direction="return"/>
+          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Enumeration" xmi:id="_tjSSQC0SEeiIRoJBEUdNcQ" name="State">
           <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Ex5t8C0TEeiIRoJBEUdNcQ" name="Available"/>
@@ -141,9 +173,36 @@ this.type=type;</body>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_Zp2a8C0YEei1pM2vMxclWw" name="end" visibility="private">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_kjLTsC3CEeiOBYU8B6ko4Q" name="service" type="_vJvaQC00EeiMKtrwj7yj0A" association="_kjIQYC3CEeiOBYU8B6ko4Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kjL6wC3CEeiOBYU8B6ko4Q" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kjL6wS3CEeiOBYU8B6ko4Q" value="1"/>
+          </ownedAttribute>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_pwbbsC3CEeiOBYU8B6ko4Q" name="Instruction" method="_hMAHEC3DEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_y-4vUC3CEeiOBYU8B6ko4Q" name="service" type="_vJvaQC00EeiMKtrwj7yj0A"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_1eflUC3CEeiOBYU8B6ko4Q" name="start">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_4AV3AC3CEeiOBYU8B6ko4Q" name="end">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_19LagC3EEeiOBYU8B6ko4Q" name="getService" method="__PrEIC3FEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_9aUhgC3EEeiOBYU8B6ko4Q" type="_vJvaQC00EeiMKtrwj7yj0A" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_3eyXMC3EEeiOBYU8B6ko4Q" name="getStart" method="_JXHqsC3FEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="__suB8C3EEeiOBYU8B6ko4Q" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_4p3DMC3EEeiOBYU8B6ko4Q" name="getEnd" visibility="public" method="_hRmt4C3FEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_bvr9cC3FEeiOBYU8B6ko4Q" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            </ownedParameter>
+          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_MvAscC0pEei1pM2vMxclWw" name="List&lt;Instruction>" visibility="private"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_FOs0UC03EeiMKtrwj7yj0A" name="Map&lt;Service, Integer> "/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MhCFIC3JEeiOBYU8B6ko4Q" name="List&lt;Entry&lt;Integer,Integer>>"/>
         <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_a7vQ4C0pEei1pM2vMxclWw">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a7v38C0pEei1pM2vMxclWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
             <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
@@ -178,7 +237,97 @@ this.type=type;</body>
             </ownedParameter>
           </ownedOperation>
         </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_t3PgQC3nEeiOBYU8B6ko4Q" name="ServiceManager">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_QuQF8i3pEeiOBYU8B6ko4Q" name="directory" type="_FZMusC3oEeiOBYU8B6ko4Q" association="_QuPe4C3pEeiOBYU8B6ko4Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QuQtAC3pEeiOBYU8B6ko4Q" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QuQtAS3pEeiOBYU8B6ko4Q" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_X2hJIi3pEeiOBYU8B6ko4Q" name="servicesList" type="_HxmUAC3pEeiOBYU8B6ko4Q" association="_X2giEC3pEeiOBYU8B6ko4Q">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X2hwMC3pEeiOBYU8B6ko4Q"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X2hwMS3pEeiOBYU8B6ko4Q" value="1"/>
+          </ownedAttribute>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_kE-DAC3pEeiOBYU8B6ko4Q" name="ServiceManager" method="_tHInEC3pEeiOBYU8B6ko4Q"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_QFzJYC3qEeiOBYU8B6ko4Q" name="getAbleTo" method="_kl-o4C3qEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_W3rF0C3qEeiOBYU8B6ko4Q" type="_FZMusC3oEeiOBYU8B6ko4Q" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_pyMPEC3qEeiOBYU8B6ko4Q" name="getServicesList" method="_bntQ4C3rEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_IVq_gC3rEeiOBYU8B6ko4Q" type="_HxmUAC3pEeiOBYU8B6ko4Q" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_d6yt0C3rEeiOBYU8B6ko4Q" name="addService" method="_0KFagC3rEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_lXz5AC3rEeiOBYU8B6ko4Q" name="s" type="_vJvaQC00EeiMKtrwj7yj0A"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_c7nTUC3sEeiOBYU8B6ko4Q" name="addRessourceToService" method="_KNSWgC3tEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_B1pWIC3tEeiOBYU8B6ko4Q" name="serviceName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fy1kcC3tEeiOBYU8B6ko4Q" name="ressource" type="_e-bT8C0NEeiVgMm3N2angQ"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_YiRfEC3tEeiOBYU8B6ko4Q" name="initializeDirectory"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_zQdY8C3tEeiOBYU8B6ko4Q" name="transformServicesIdToString" method="_a8nlIC3uEeiOBYU8B6ko4Q">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_KYaL8C3uEeiOBYU8B6ko4Q" name="nextServicesId" type="_-LEFUC3tEeiOBYU8B6ko4Q"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_VIRA4C3uEeiOBYU8B6ko4Q" type="_mOMAAC3uEeiOBYU8B6ko4Q" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_FZMusC3oEeiOBYU8B6ko4Q" name="Map&lt;String, List&lt;Ressource>>"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_HxmUAC3pEeiOBYU8B6ko4Q" name="List&lt;Service>"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_HyjFUC3gEeiOBYU8B6ko4Q" name="Segment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Og0UIC3gEeiOBYU8B6ko4Q" name="cost" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_k1rLYC3iEeiOBYU8B6ko4Q" name="to" type="_dvIokC0IEeiVgMm3N2angQ" association="_k1p9QC3iEeiOBYU8B6ko4Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k1rycC3iEeiOBYU8B6ko4Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k1rycS3iEeiOBYU8B6ko4Q" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XQ3iki3iEeiOBYU8B6ko4Q" name="from" type="_dvIokC0IEeiVgMm3N2angQ" association="_XQ27gC3iEeiOBYU8B6ko4Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XQ4JoC3iEeiOBYU8B6ko4Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XQ4JoS3iEeiOBYU8B6ko4Q" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ZzXmcC3gEeiOBYU8B6ko4Q" name="Segment" method="_bGGkMC3hEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ExujMC3hEeiOBYU8B6ko4Q" name="from" type="_dvIokC0IEeiVgMm3N2angQ"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_HoeG0C3hEeiOBYU8B6ko4Q" name="to" type="_dvIokC0IEeiVgMm3N2angQ"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_LRrpMC3hEeiOBYU8B6ko4Q" name="cost">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_qr9UMC3gEeiOBYU8B6ko4Q" name="getNodeFrom" method="_ji_Q8C3hEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dYLUgC3hEeiOBYU8B6ko4Q" type="_dvIokC0IEeiVgMm3N2angQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_tT3KkC3gEeiOBYU8B6ko4Q" name="getNodeTo" method="_qP_UcC3hEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_l-BwAC3hEeiOBYU8B6ko4Q" type="_dvIokC0IEeiVgMm3N2angQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_urr5IC3gEeiOBYU8B6ko4Q" name="getCost" method="_4MXIsC3hEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rmcKAC3hEeiOBYU8B6ko4Q" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_--5hkC3jEeiOBYU8B6ko4Q" name="Path">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZLDFYC3kEeiOBYU8B6ko4Q" name="value" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7X9aoi3kEeiOBYU8B6ko4Q" name="hops" type="_szPM8C3kEeiOBYU8B6ko4Q" association="_7X8MgC3kEeiOBYU8B6ko4Q">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7X-BsC3kEeiOBYU8B6ko4Q" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7X-BsS3kEeiOBYU8B6ko4Q" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_zzS54C3lEeiOBYU8B6ko4Q" name="Path" method="_QQuuYC3nEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3XfZYC3lEeiOBYU8B6ko4Q" name="value">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_JWQFAC3mEeiOBYU8B6ko4Q" name="hops" type="_szPM8C3kEeiOBYU8B6ko4Q"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_7OLXEC3lEeiOBYU8B6ko4Q" name="getValue" method="_pNxQMC3mEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gYPZ8C3mEeiOBYU8B6ko4Q" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_9AxWEC3lEeiOBYU8B6ko4Q" name="getHops" method="_vQlHMC3mEeiOBYU8B6ko4Q">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rU8YEC3mEeiOBYU8B6ko4Q" type="_szPM8C3kEeiOBYU8B6ko4Q" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_szPM8C3kEeiOBYU8B6ko4Q" name="List&lt;Integer>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-LEFUC3tEeiOBYU8B6ko4Q" name="List&lt;List&lt;Integer>>"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mOMAAC3uEeiOBYU8B6ko4Q" name="List&lt;List&lt;Service>>"/>
       <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__dOwgC0sEeiMKtrwj7yj0A">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__dP-oC0sEeiMKtrwj7yj0A" source="http://www.eclipse.org/uml2/2.0.0/UML">
           <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/JAVA/1#/"/>
@@ -245,7 +394,7 @@ this.type=type;</body>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hV4p0C0pEei1pM2vMxclWw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hV4p0S0pEei1pM2vMxclWw" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_hV5Q4i0pEei1pM2vMxclWw" name="resource" type="_e-bT8C0NEeiVgMm3N2angQ" association="_hV4CwC0pEei1pM2vMxclWw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hV5Q4i0pEei1pM2vMxclWw" type="_e-bT8C0NEeiVgMm3N2angQ" association="_hV4CwC0pEei1pM2vMxclWw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_chOuYC0xEeiMKtrwj7yj0A" specification="_8NRwwC0uEeiMKtrwj7yj0A">
       <language>JAVA</language>
@@ -267,7 +416,7 @@ this.plannedInstructions=new ArrayList&lt;Instruction>();</body>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vsmsMC0zEeiMKtrwj7yj0A" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vsnTQC0zEeiMKtrwj7yj0A" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_vsohYC0zEeiMKtrwj7yj0A" name="resource" type="_e-bT8C0NEeiVgMm3N2angQ" association="_vsleEC0zEeiMKtrwj7yj0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vsohYC0zEeiMKtrwj7yj0A" type="_e-bT8C0NEeiVgMm3N2angQ" association="_vsleEC0zEeiMKtrwj7yj0A"/>
     </packagedElement>
     <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_9HCRAC0zEeiMKtrwj7yj0A" specification="_jMT0YC0zEeiMKtrwj7yj0A">
       <language>JAVA</language>
@@ -295,7 +444,182 @@ this.name=name;</body>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UsSjsC03EeiMKtrwj7yj0A" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UsSjsS03EeiMKtrwj7yj0A" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_UsTKwi03EeiMKtrwj7yj0A" name="resource" type="_e-bT8C0NEeiVgMm3N2angQ" association="_UsR8oC03EeiMKtrwj7yj0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_UsTKwi03EeiMKtrwj7yj0A" type="_e-bT8C0NEeiVgMm3N2angQ" association="_UsR8oC03EeiMKtrwj7yj0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kjIQYC3CEeiOBYU8B6ko4Q" memberEnd="_kjLTsC3CEeiOBYU8B6ko4Q _kjMh0C3CEeiOBYU8B6ko4Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kjKsoC3CEeiOBYU8B6ko4Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kjKsoS3CEeiOBYU8B6ko4Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kjMh0C3CEeiOBYU8B6ko4Q" type="_TVv_oC0YEei1pM2vMxclWw" association="_kjIQYC3CEeiOBYU8B6ko4Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_hMAHEC3DEeiOBYU8B6ko4Q" specification="_pwbbsC3CEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>this.service=service;
+this.start=start;
+this.end=end;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_QSn5sC3EEeiOBYU8B6ko4Q" specification="_dB3T0C3BEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>		this.plannedInstructions.add(new Instruction(service, start, start+services.get(service)));
+</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_JXHqsC3FEeiOBYU8B6ko4Q" specification="_3eyXMC3EEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.start;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_hRmt4C3FEeiOBYU8B6ko4Q" specification="_4p3DMC3EEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.end;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="__PrEIC3FEeiOBYU8B6ko4Q" specification="_19LagC3EEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.service;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_QgB8MC3HEeiOBYU8B6ko4Q" specification="_BEfbQC3HEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>Service service = this.getServiceByName(serviceName);
+		return services.get(service);</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_4A5eYC3HEeiOBYU8B6ko4Q" specification="_XZQd0C3HEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>for (Service service : services.keySet()) {
+			if (service.getName() == serviceName) {
+				return service;
+			}
+}
+return null;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_UnvREC3KEeiOBYU8B6ko4Q" specification="_36p3AC3IEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>	List&lt;Entry&lt;Integer, Integer>> intervals = new ArrayList&lt;Entry&lt;Integer, Integer>>();
+
+		Service service = this.getServiceByName(serviceName);
+
+		int min = start;
+		for (Instruction instruction : this.plannedInstructions) {
+			if (instruction.getStart() &lt; min) {
+				min = instruction.getEnd();
+			} else {
+				if (instruction.getStart() > min + services.get(service)) {
+					int max = instruction.getStart() - services.get(service);
+					intervals.add(new SimpleEntry&lt;Integer, Integer>(min, max));
+					min = max + services.get(service);
+				}
+			}
+		}
+
+		return intervals;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_bGGkMC3hEeiOBYU8B6ko4Q" specification="_ZzXmcC3gEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>this.from=from;
+this.to=to;
+this.cost=cost;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_ji_Q8C3hEeiOBYU8B6ko4Q" specification="_qr9UMC3gEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.from;
+</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_qP_UcC3hEeiOBYU8B6ko4Q" specification="_tT3KkC3gEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.to;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_4MXIsC3hEeiOBYU8B6ko4Q" specification="_urr5IC3gEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.cost;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_XQ27gC3iEeiOBYU8B6ko4Q" visibility="private" memberEnd="_XQ3iki3iEeiOBYU8B6ko4Q _XQ4Joi3iEeiOBYU8B6ko4Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XQ3ikC3iEeiOBYU8B6ko4Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XQ3ikS3iEeiOBYU8B6ko4Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XQ4Joi3iEeiOBYU8B6ko4Q" type="_HyjFUC3gEeiOBYU8B6ko4Q" association="_XQ27gC3iEeiOBYU8B6ko4Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_k1p9QC3iEeiOBYU8B6ko4Q" memberEnd="_k1rLYC3iEeiOBYU8B6ko4Q _k1ryci3iEeiOBYU8B6ko4Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_k1qkUC3iEeiOBYU8B6ko4Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_k1qkUS3iEeiOBYU8B6ko4Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_k1ryci3iEeiOBYU8B6ko4Q" type="_HyjFUC3gEeiOBYU8B6ko4Q" association="_k1p9QC3iEeiOBYU8B6ko4Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7X8MgC3kEeiOBYU8B6ko4Q" visibility="private" memberEnd="_7X9aoi3kEeiOBYU8B6ko4Q _7X-Bsi3kEeiOBYU8B6ko4Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7X9aoC3kEeiOBYU8B6ko4Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7X9aoS3kEeiOBYU8B6ko4Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7X-Bsi3kEeiOBYU8B6ko4Q" type="_--5hkC3jEeiOBYU8B6ko4Q" association="_7X8MgC3kEeiOBYU8B6ko4Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_pNxQMC3mEeiOBYU8B6ko4Q" specification="_7OLXEC3lEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.value;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_vQlHMC3mEeiOBYU8B6ko4Q" specification="_9AxWEC3lEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return this.hops;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_QQuuYC3nEeiOBYU8B6ko4Q" specification="_zzS54C3lEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>this.value=value;
+this.hops=new ArrayList&lt;Integer>(hops);
+
+	</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QuPe4C3pEeiOBYU8B6ko4Q" memberEnd="_QuQF8i3pEeiOBYU8B6ko4Q _QuQtAi3pEeiOBYU8B6ko4Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QuQF8C3pEeiOBYU8B6ko4Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QuQF8S3pEeiOBYU8B6ko4Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QuQtAi3pEeiOBYU8B6ko4Q" type="_t3PgQC3nEeiOBYU8B6ko4Q" association="_QuPe4C3pEeiOBYU8B6ko4Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_X2giEC3pEeiOBYU8B6ko4Q" memberEnd="_X2hJIi3pEeiOBYU8B6ko4Q _X2hwMi3pEeiOBYU8B6ko4Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X2hJIC3pEeiOBYU8B6ko4Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X2hJIS3pEeiOBYU8B6ko4Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_X2hwMi3pEeiOBYU8B6ko4Q" type="_t3PgQC3nEeiOBYU8B6ko4Q" association="_X2giEC3pEeiOBYU8B6ko4Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_tHInEC3pEeiOBYU8B6ko4Q" specification="_kE-DAC3pEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>directory = new HashMap&lt;String, List&lt;Ressource>>();
+servicesList = new ArrayList&lt;Service>();</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_kl-o4C3qEeiOBYU8B6ko4Q" specification="_QFzJYC3qEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return directory;
+</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_bntQ4C3rEeiOBYU8B6ko4Q" specification="_pyMPEC3qEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>return servicesList;</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_0KFagC3rEeiOBYU8B6ko4Q" specification="_d6yt0C3rEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>this.servicesList.add(s);
+</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_KNSWgC3tEeiOBYU8B6ko4Q" specification="_c7nTUC3sEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>List&lt;Ressource> ressources = directory.get(serviceName);
+		if(ressources == null)
+			ressources = new ArrayList&lt;Ressource>();
+		
+		ressources.add(ressource);
+		directory.put(serviceName, ressources);</body>
+    </packagedElement>
+    <packagedElement xmi:type="uml:FunctionBehavior" xmi:id="_a8nlIC3uEeiOBYU8B6ko4Q" specification="_zQdY8C3tEeiOBYU8B6ko4Q">
+      <language>JAVA</language>
+      <body>List&lt;List&lt;Service>> servicesString = new ArrayList&lt;List&lt;Service>>();
+		
+		for(int i = 0; i &lt; nextServicesId.size() ; ++i) {
+			for(int j = 0 ; j &lt; nextServicesId.get(i).size() ; ++j) {
+				List&lt;Service> services = new ArrayList&lt;Service>();
+				for(int k = 0; k &lt; servicesList.size() ; ++k) {
+					if(nextServicesId.get(i).get(j) == servicesList.get(k).getId()) {
+						services.add(servicesList.get(k));
+						break;
+					}
+				}
+				servicesString.add(services);
+			}
+		}
+		
+		return servicesString;</body>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_oKcjUC0oEei1pM2vMxclWw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oKdKYC0oEei1pM2vMxclWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -317,4 +641,13 @@ this.name=name;</body>
   <standard:Create xmi:id="_q8O00C0wEeiMKtrwj7yj0A" base_BehavioralFeature="_Un6v8C0JEeiVgMm3N2angQ"/>
   <standard:Create xmi:id="_Qj3AoC01EeiMKtrwj7yj0A" base_BehavioralFeature="_ItEqkC01EeiMKtrwj7yj0A"/>
   <PapyrusJava:External xmi:id="_LuhXcC03EeiMKtrwj7yj0A" name="SoHMS_Models.Workshop.Products.Service" base_Classifier="_FOs0UC03EeiMKtrwj7yj0A"/>
+  <standard:Create xmi:id="_r4zdcC3CEeiOBYU8B6ko4Q" base_BehavioralFeature="_pwbbsC3CEeiOBYU8B6ko4Q"/>
+  <PapyrusJava:External xmi:id="_QcenAC3JEeiOBYU8B6ko4Q" name="java.util.Map.Entry" base_Classifier="_MhCFIC3JEeiOBYU8B6ko4Q"/>
+  <standard:Create xmi:id="_h4LxcC3gEeiOBYU8B6ko4Q" base_BehavioralFeature="_ZzXmcC3gEeiOBYU8B6ko4Q"/>
+  <PapyrusJava:External xmi:id="_4qSTcC3kEeiOBYU8B6ko4Q" name="java.util.*" base_Classifier="_szPM8C3kEeiOBYU8B6ko4Q"/>
+  <PapyrusJava:External xmi:id="_L8kVEC3oEeiOBYU8B6ko4Q" name="SoHMS_Models.Workshop.Resources.Ressource" base_Classifier="_FZMusC3oEeiOBYU8B6ko4Q"/>
+  <PapyrusJava:External xmi:id="_KYJfgC3pEeiOBYU8B6ko4Q" name="java.util.*" base_Classifier="_HxmUAC3pEeiOBYU8B6ko4Q"/>
+  <standard:Create xmi:id="_l884UC3pEeiOBYU8B6ko4Q" base_BehavioralFeature="_kE-DAC3pEeiOBYU8B6ko4Q"/>
+  <PapyrusJava:External xmi:id="_AADRAC3uEeiOBYU8B6ko4Q" base_Classifier="_-LEFUC3tEeiOBYU8B6ko4Q"/>
+  <PapyrusJava:External xmi:id="_shP5gC3uEeiOBYU8B6ko4Q" base_Classifier="_mOMAAC3uEeiOBYU8B6ko4Q"/>
 </xmi:XMI>
