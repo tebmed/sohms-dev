@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Communication.Arena;
 import produit.Node;
 import produit.ProduitManager;
 import produit.Service;
 import produit.ServiceManager;
 import ressource.Ressource;
 import ressource.RessourceManager;
+import sohms.communication.WorkshopSimulation;
 
 public class OrdreManager{
 
@@ -33,13 +33,13 @@ public class OrdreManager{
 			System.out.println(o.getId() + ",");
 	}
 	 
-	public void launchOrders1(ProduitManager pm, ServiceManager sm, RessourceManager rm, Arena comArena) {
+	public void launchOrders1(ProduitManager pm, ServiceManager sm, RessourceManager rm, WorkshopSimulation comArena) {
 		 for(Ordre ordre : ordersList) {
 			  new OrderRunner(ordre, pm, sm, rm, comArena).start();
 		 }
 	}
 	
-	public void launchOrders(ProduitManager pm, ServiceManager sm, RessourceManager rm, Arena comArena) {
+	public void launchOrders(ProduitManager pm, ServiceManager sm, RessourceManager rm, WorkshopSimulation comArena) {
 		
 		
 		for(Ordre ordre : ordersList) {
@@ -121,9 +121,9 @@ public class OrdreManager{
 		private ProduitManager pm;
 		private ServiceManager sm;
 		private RessourceManager rm;
-		private Arena comArena;
+		private WorkshopSimulation comArena;
 		
-		public OrderRunner(Ordre order,ProduitManager pm,ServiceManager sm,RessourceManager rm,Arena comArena) {
+		public OrderRunner(Ordre order,ProduitManager pm,ServiceManager sm,RessourceManager rm,WorkshopSimulation comArena) {
 		   this.ordre = order;
 		   this.pm = pm;
 		   this.sm = sm;

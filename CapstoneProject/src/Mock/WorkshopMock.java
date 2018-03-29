@@ -6,7 +6,7 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MocArena {
+public class WorkshopMock{
 
 	public static void main(String[] args) throws InterruptedException {
 		ServerSocket serv;
@@ -16,7 +16,7 @@ public class MocArena {
 		PrintStream writer;
 
 		try {
-			serv = new ServerSocket(5004);
+			serv = new ServerSocket(1212);
 			System.out.println("Arena Simulation : running done");
 			client = serv.accept();
 			reader = new BufferedReader(new InputStreamReader(client.getInputStream()));

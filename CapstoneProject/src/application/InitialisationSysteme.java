@@ -4,16 +4,24 @@ import java.io.*;
 import java.util.*;
 import org.json.*;
 
-import Communication.Arena;
-import Communication.WebGUI;
 import ordre.*;
 import produit.*;
 import ressource.*;
+import sohms.communication.Scenario;
+import sohms.communication.WebGUI;
+import sohms.communication.WorkshopSimulation;
 
-public class InitialisationSysteme {
+public class InitialisationSysteme implements Observer{
 	
-	private static Arena comArena; //initialiser la communication avec arena
+	private  WebGUI servSocket;
+	private static WorkshopSimulation comArena;//initialiser la communication avec arena
 	
+	
+	public InitialisationSysteme(WorkshopSimulation a, WebGUI wg) {
+		// TODO Auto-generated constructor stub
+		this.servSocket = wg;
+		this.comArena = a;
+	}
 	//une methode pour lire le fichier json qui represent un scenario défini dans l'ihm
     public static String readFileJSON(String file) {
 
@@ -213,24 +221,10 @@ public class InitialisationSysteme {
 		}
 	}
 
-	public static void main(String[] args) {
-		
-		//String fileContent = readFileJSON("ps1.json");
-		
-		try {
-			// Arena
-			comArena = new Arena(5004, "127.0.0.1");
-			// Serveur socket IHM
-			WebGUI servSocket = new WebGUI(8003);
-			String fileContent;
-			for(;;) {
-				fileContent = servSocket.getScenario();
-                if(fileContent != "") break;
-			}
-			initialiserSysteme(fileContent);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-	}
 
+	@Override
+	public void update(Observable o, Object arg) {
+		String fileContent= servSocket.getScenario();
+		initialiserSysteme(fileContent);
+	}
 }
