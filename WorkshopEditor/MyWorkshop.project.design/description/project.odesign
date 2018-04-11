@@ -2,15 +2,16 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="project" version="12.0.0.2017041100">
   <ownedViewpoints name="MyViewpoint">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="layout" domainClass="Workshop::Layout" enablePopupBars="true">
+      <metamodel href="../../Workshop/workshopmodel.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="stationNode" domainClass="Workshop::Station">
-          <borderedNodeMappings name="agvNode" semanticCandidatesExpression="feature:eAllContents" domainClass="Workshop::AGV">
+        <nodeMappings name="stationNode" semanticCandidatesExpression="feature:node" domainClass="Workshop::Station">
+          <borderedNodeMappings name="agvNode" semanticCandidatesExpression="feature:ressource" domainClass="Workshop::AGV">
             <style xsi:type="style:WorkspaceImageDescription" labelPosition="node" resizeKind="NSEW" workspacePath="/MyWorkshop.project.design/agv1.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="machineNode" semanticCandidatesExpression="feature:eAllContents" domainClass="Workshop::Machine">
+          <borderedNodeMappings name="machineNode" semanticCandidatesExpression="feature:ressource" domainClass="Workshop::Machine">
             <style xsi:type="style:WorkspaceImageDescription" labelPosition="node" resizeKind="NSEW" workspacePath="/Workshop/machine.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -22,7 +23,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="stationEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']" targetFinderExpression="aql:stationEdge.toN">
+        <edgeMappings name="stationEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']" targetFinderExpression="var:toN">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -30,43 +31,43 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <toolSections name="Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="newStation" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']">
+        <toolSections>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="newStation" label="newStation" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::Station" referenceName="station">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::Station" referenceName="node">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="new agv" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='agvNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="newAGV" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='agvNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::AGV" referenceName="agv"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::AGV" referenceName="ressource"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="new machine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='machineNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="newMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='machineNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::Machine" referenceName="machine"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::Machine" referenceName="ressource"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="new arc" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@edgeMappings[name='stationEdge']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="newArc" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@edgeMappings[name='stationEdge']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Workshop::Arc" referenceName="arc"/>
               </firstModelOperations>
             </initialOperation>
