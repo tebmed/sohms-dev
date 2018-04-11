@@ -1,0 +1,15 @@
+query XML2PN = MM!Layout->allInstances()->asSequence()->
+                        first().generatePN().writeTo('/XML2TINAPN/ws.net');
+
+helper context MM!Layout def: generatePN() : String =
+	 'net generatedPetriNet\n'+
+	 self.node->iterate(station; places : String =''| places + station.generatePlace()+'\n');
+
+helper context MM!Station def : generatePlace() : String =
+	 let nbrJeton : Integer = self.ressource.size() in
+	            'pl '+self.name 
+			    +if(nbrJeton<>0) then
+                  ('('+nbrJeton.toString()+')\n')
+                 else '\n' endif;
+
+
