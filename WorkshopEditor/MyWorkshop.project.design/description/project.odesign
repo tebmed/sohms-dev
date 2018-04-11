@@ -32,7 +32,7 @@
           </style>
         </edgeMappings>
         <toolSections>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="newStation" label="newStation" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="newStation" label="newStation" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']" iconPath="/MyWorkshop.project.design/station.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -43,7 +43,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="newAGV" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='agvNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="newAGV" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='agvNode']" iconPath="/MyWorkshop.project.design/agv*.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -52,7 +52,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="newMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='machineNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="newMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='stationNode']/@borderedNodeMappings[name='machineNode']" iconPath="/MyWorkshop.project.design/machine.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
