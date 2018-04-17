@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_eFcmIEJZEeighfLsauk2Tg" name="Gamboa_Framework">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_PxSnMEJdEeighfLsauk2Tg">
+    <body>DF: il partage les resources et ses services offertes, la layout de l'atelier, le transport et aussi elle publie toutes les connexion possibles (cette classe est trés générique et  ya pas d'interaction a générer)(JAR).
+
+Package : Gestion des resources.
+  Ressource : c'est une classe générique elle declare la structure d'une resource.
+
+Package : Des outils d'execution.
+   Router planner : c'est lui qui va planifier les chemins de transport directes (without loops). (la methode d'extraction de chemins sans boucle est représenté par un digram de séquence).
+   Terminal Sequence: c'est une automate a ètat finis , pas d'interaction avec l'exterieur , on va l'appeler en jointure avec RouterPlanner pour creer  les routes explorés dans un DF, (jusqu'à l'instant je ne
+   sais pas où on vas initialiser  cette autoumate).
+
+
+</body>
+  </ownedComment>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_eI_CUEJZEeighfLsauk2Tg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_iSLFQEJZEeighfLsauk2Tg" name="SoHMS_Framework">
+    <packagedElement xmi:type="uml:Class" xmi:id="_JuQGsEJdEeighfLsauk2Tg" name="DirectoryFacitilator"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_rKOuQEJdEeighfLsauk2Tg" name="RessourceHolon">
+      <packagedElement xmi:type="uml:Class" xmi:id="_v3QeEEJdEeighfLsauk2Tg" name="Transporter"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_4B_D0EJdEeighfLsauk2Tg" name="Resource"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_fvORQEJiEeighfLsauk2Tg" name="Tools">
+      <packagedElement xmi:type="uml:Class" xmi:id="_g-xNkEJiEeighfLsauk2Tg" name="RouterPlanner"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_QKWjQEJkEeighfLsauk2Tg" name="TerminalSquence"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_N0qW4EJnEeighfLsauk2Tg" name="Automaton"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_mL6-AEJZEeighfLsauk2Tg" name="Related_Part_Of manufacturing_workshop">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_1A3ZAEJZEeighfLsauk2Tg" client="_mL6-AEJZEeighfLsauk2Tg" supplier="_iSLFQEJZEeighfLsauk2Tg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_9FL0wEJZEeighfLsauk2Tg" name="Main_Apps">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_Xa5HwEJbEeighfLsauk2Tg">
+      <body>cette classe sert à initialiser le system (initialiser les resourced, associer pour chaque resource un SIl, initialiser le trandport et le layout de l'atelier), partager tous ces information dans le DF et la ncer l'execution du système.</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_O3KzMEJbEeighfLsauk2Tg" name="AppsSoHMS"/>
+  </packagedElement>
+</uml:Model>

@@ -50,13 +50,13 @@ public class OrdreManager{
 				List<List<Service>> nextServicesString = sm.transformServicesIdToString(nextServicesId);
 				Node previousNode = null;
 				
-				// Pour chaque service à  éffectuer, récupérer les ressources pouvant répondre à  l'appel d'offre
+				// Pour chaque service ï¿½ ï¿½ffectuer, rï¿½cupï¿½rer les ressources pouvant rï¿½pondre ï¿½ l'appel d'offre
 				for(int i = 0 ; i < nextServicesString.size() ; ++i) {
 					for (int j = 0 ; j < nextServicesString.get(i).size() ; ++j) {
 						Service service = nextServicesString.get(i).get(j);
 						List<Ressource> capableRessources = rm.getCapableResources(service.getName());
 						
-						// Fonction choisissant la ressource la plus adaptée pour effectuer le service
+						// Fonction choisissant la ressource la plus adaptï¿½e pour effectuer le service
 						if(capableRessources.size()==0) {
 							System.out.println("No ressource is capable te realize the  service : "+ service.getName() );
 							break;
@@ -68,37 +68,37 @@ public class OrdreManager{
 						// Dans le cas du premier service solicitÃ©, on initialise le noeud prÃ©cÃ©dent Ã  celui de la ressource choisie
 						if(previousNode == null) {
 							previousNode = chosenRessource.getNode();
-						}else {
+						}else {+
 							if(previousNode != chosenRessource.getNode()) {									
 								// Recherche d'un transport
 								Ressource transport = rm.findTransport(previousNode);
 								if(transport != null) { 
-									// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode)
+									// Effectuer dï¿½placement de l'agv vers la ressource (transport.getNode() vers previousNode)
 									try {
-										// Envoi de l'instruction à  Arena (à  adapter pour l'envoi de la vraie instruction)
+										// Envoi de l'instruction ï¿½ Arena (ï¿½ adapter pour l'envoi de la vraie instruction)
 										int agv_id = transport.getId();
 										//int agv_id1 = transport.getId();
 										System.out.println("Move the AGV [id : "+agv_id+", name : "+transport.getName()+"] to the product");
 										comArena.deplAgv(agv_id, previousNode.getId());
 										
-										//Réception message depuis Arena pour continuer
+										//Rï¿½ception message depuis Arena pour continuer
 										String message;
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
 										}while(!message.startsWith("END"));
 										
-										// Une fois que l'agv est arrivée, effectuer le dÃ©placement de l'agv vers chosenRessource.getNode()	
+										// Une fois que l'agv est arrivï¿½e, effectuer le dÃ©placement de l'agv vers chosenRessource.getNode()	
 										System.out.println("Move the AGV with the product to the fabrication's machine");
 										comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
 
-										//Réception message depuis Arena pour continuer
+										//Rï¿½ception message depuis Arena pour continuer
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
 										}while(!message.startsWith("END"));
 										
-										System.out.println("AGV arrivée à destination");
+										System.out.println("AGV arrivï¿½e ï¿½destination");
 									} catch (IOException e) {
 										e.printStackTrace();
 									}
@@ -145,14 +145,14 @@ public class OrdreManager{
 				List<List<Service>> nextServicesString = sm.transformServicesIdToString(nextServicesId);
 				Node previousNode = null;
 				
-				// Pour chaque service à  éffectuer, récupérer les ressources pouvant répondre à  l'appel d'offre
+				// Pour chaque service ï¿½ ï¿½ffectuer, rï¿½cupï¿½rer les ressources pouvant rï¿½pondre ï¿½ l'appel d'offre
 				for(int i = 0 ; i < nextServicesString.size() ; ++i) {
 					for (int j = 0 ; j < nextServicesString.get(i).size() ; ++j) {
 						Service service = nextServicesString.get(i).get(j);
 						
 						List<Ressource> capableRessources = rm.getCapableResources(service.getName());
 						
-						// Fonction choisissant la ressource la plus adaptée pour effectuer le service
+						// Fonction choisissant la ressource la plus adaptï¿½e pour effectuer le service
 						if(capableRessources.size()==0) {
 							System.out.println("No ressource is capable te realize the  service : "+ service.getName() );
 							break;
@@ -170,32 +170,32 @@ public class OrdreManager{
 								// Recherche d'un transport
 								Ressource transport = rm.findTransport(previousNode);
 								if(transport != null) { 
-									// Effectuer déplacement de l'agv vers la ressource (transport.getNode() vers previousNode)
+									// Effectuer dï¿½placement de l'agv vers la ressource (transport.getNode() vers previousNode)
 									try {
-										// Envoi de l'instruction à  Arena (à  adapter pour l'envoi de la vraie instruction)
+										// Envoi de l'instruction ï¿½ Arena (ï¿½ adapter pour l'envoi de la vraie instruction)
 										int agv_id = transport.getId();
 										//int agv_id1 = transport.getId();
 										System.out.println("Move the AGV [id : "+agv_id+", name : "+transport.getName()+"] to the product");
 										comArena.deplAgv(agv_id, previousNode.getId());
 										
-										//Réception message depuis Arena pour continuer
+										//Rï¿½ception message depuis Arena pour continuer
 										String message;
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
 										}while(!message.startsWith("END"));
 										
-										// Une fois que l'agv est arrivée, effectuer le dÃ©placement de l'agv vers chosenRessource.getNode()	
+										// Une fois que l'agv est arrivï¿½e, effectuer le dÃ©placement de l'agv vers chosenRessource.getNode()	
 										System.out.println("Move the AGV with the product to the fabrication's machine");
 										comArena.deplAgv(transport.getId(), chosenRessource.getNode().getId());
 
-										//Réception message depuis Arena pour continuer
+										//Rï¿½ception message depuis Arena pour continuer
 										do {
 											message = comArena.getIn().readLine();
 											System.out.println(message);
 										}while(!message.startsWith("END"));
 										
-										System.out.println("AGV arrivée à destination");
+										System.out.println("AGV arrivï¿½e ï¿½destination");
 									} catch (IOException e) {
 										e.printStackTrace();
 									}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_8Ez9ED2cEeinqYALEs4KWw" name="Gamboa_Model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_8Ph_UD2cEeinqYALEs4KWw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_8G-gQD2cEeinqYALEs4KWw" name="StateMachine1">
+    <region xmi:type="uml:Region" xmi:id="_8IBCED2cEeinqYALEs4KWw" name="Region1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_AL_04D2dEeinqYALEs4KWw" name="Libraries">
+    <packagedElement xmi:type="uml:Class" xmi:id="_FMBZMD2dEeinqYALEs4KWw" name="DirectoryFicitilator"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_JBP-UD2dEeinqYALEs4KWw" name="Ressources"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_TRRcoD2dEeinqYALEs4KWw" name="LegoOntology"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_o2SdQD2dEeinqYALEs4KWw" name="LegoTransport"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_UNILcD2eEeinqYALEs4KWw" name="LayoutCloud"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_BHP0kD4_EeipR6iZoEz7Iw" name="SILConnexion"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YHgEID4_EeipR6iZoEz7Iw" name="NotificationReader"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ee71YD5BEeipR6iZoEz7Iw" name="SIL">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_hgY0MD5BEeipR6iZoEz7Iw" name="ressource_SILs"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_MLMtYD5DEeipR6iZoEz7Iw" name="getRHSILByClass"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_oAufQD5CEeipR6iZoEz7Iw" name="RH_SIL"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_2VgzgD5CEeipR6iZoEz7Iw" name="TypesExternes"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_O9T4kD5XEeipR6iZoEz7Iw" name="Resource"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_QnGg4D5XEeipR6iZoEz7Iw" name="Poste">
+    <generalization xmi:type="uml:Generalization" xmi:id="_VQ6m0D5mEeipR6iZoEz7Iw" general="_O9T4kD5XEeipR6iZoEz7Iw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Y2EGYD5XEeipR6iZoEz7Iw" name="Loop_iS_i">
+    <generalization xmi:type="uml:Generalization" xmi:id="_WC6EcD5mEeipR6iZoEz7Iw" general="_O9T4kD5XEeipR6iZoEz7Iw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_z2UnsD5XEeipR6iZoEz7Iw" name="Exchanger_i">
+    <generalization xmi:type="uml:Generalization" xmi:id="_X-N6kD5mEeipR6iZoEz7Iw" general="_O9T4kD5XEeipR6iZoEz7Iw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_28a18D5XEeipR6iZoEz7Iw" name="Feeder_i">
+    <generalization xmi:type="uml:Generalization" xmi:id="_bLERED5mEeipR6iZoEz7Iw" general="_O9T4kD5XEeipR6iZoEz7Iw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_e7JY0D5YEeipR6iZoEz7Iw" name="Main">
+    <generalization xmi:type="uml:Generalization" xmi:id="_ZracMD5mEeipR6iZoEz7Iw" general="_O9T4kD5XEeipR6iZoEz7Iw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_dQRqED5mEeipR6iZoEz7Iw" name="RH">
+    <generalization xmi:type="uml:Generalization" xmi:id="_hY8voD5mEeipR6iZoEz7Iw" general="_O9T4kD5XEeipR6iZoEz7Iw"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_8PaDgD2cEeinqYALEs4KWw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8PbRoD2cEeinqYALEs4KWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+  </profileApplication>
+</uml:Model>
