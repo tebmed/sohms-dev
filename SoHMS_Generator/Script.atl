@@ -1,0 +1,21 @@
+query Script = MM!Model->allInstances()->asSequence()->
+                            first().GenerateClasses().writeTo('/SOHMSGen/main.java');
+
+helper context MM!Model def : GenerateClasses() : String = 
+     let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
+	    
+	     classes->iterate(it; Class_Code: String = ''|  Class_Code + 'public class '+ it.name + '{\n  '+
+	     	     it.GenerateAttributes(it) +
+	     	
+	     	'\n}');
+
+helper context MM!Class def : GenerateAttributes(x:MM!Class) : String = 
+	  let  attributes : MM!Property = x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)) in  
+	      attributes->iterate(it; att: String = ''| '  '+it.name + ';\n');
+	     	
+
+helper context MM!Model def: DisplayElementes() : String = 
+	
+   let  nbrclass : Integer = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)).size() in
+   'Name of Model: ' +self.name + '\n' 
+  +'Nbr de classes: '+ nbrclass+ '\n';	 
