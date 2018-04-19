@@ -2,20 +2,62 @@ query Script = MM!Model->allInstances()->asSequence()->
                             first().GenerateClasses().writeTo('/SOHMSGen/main.java');
 
 helper context MM!Model def : GenerateClasses() : String = 
-     let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
-	    
+   let  classes : MM!Class = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)) in
+	     '//Med Generator \n'+
 	     classes->iterate(it; Class_Code: String = ''|  Class_Code + 'public class '+ it.name + '{\n  '+
-	     	     it.GenerateAttributes(it) +
-	     	
+	     	     it.GenerateAttributes(it) + '\n'
+				+it.GenerateMethods(it) +
 	     	'\n}');
 
+
+
+--A method for generate the attributes of a given class
 helper context MM!Class def : GenerateAttributes(x:MM!Class) : String = 
-	  let  attributes : MM!Property = x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)) in  
-	      attributes->iterate(it; att: String = ''| '  '+it.name + ';\n');
-	     	
+   let  attributes : MM!Property = x.ownedAttribute->select(a | a.oclIsTypeOf(MM!Property)) in  
+	      attributes->iterate(it; att: String = ' '| att + '\n  ' +it.visibility.toString()+'  '+it.type.toString()+'  '+it.name + ';');
+
+--A method for generate the methods of a given class
+helper context MM!Class def : GenerateMethods(x:MM!Class) : String = 
+   let  methods : MM!Operation = x.ownedOperation->select(a | a.oclIsTypeOf(MM!Operation)) in  
+       methods->iterate(it; att: String = ' '|att + '\n  ' +
+       it.visibility.toString()+' '+
+	   if(it.isStatic.toString()='true') then 'static ' else ' ' endif
+	 + if(it.isAbstract.toString()='true') then 'abstract ' else ' ' endif
+	 + if(it.type.toString()<>'OclUndefined') then it.type.toString().substring(11, it.type.toString().size()) else 'void' endif
+	 + '  '+it.name + '(){\n'
+	 +	 it.getBehaviour(it,x)
+	 +'}');	     	
+
+
+helper context MM!Operation def : getBehaviour(m:MM!Operation,x:MM!Class) : String =
+	 let behavior_type : String = m.method.toString() in
+     let behaviour :MM!FunctionBehavior = MM!FunctionBehavior->allInstances()->select(b | b.namespace=x and b.specification=m) in
+	 let interaction :MM!Interaction = MM!Interaction->allInstances()->select(b | b.namespace=x and b.specification=m) in
+	 
+	 --let behaviour :MM!FunctionBehavior = m.method in
+	 --behaviour.body.toString()
+	 --m.method.first().toString()   m_a
+	  
+	  --let a : String = behaviour.first().oclType().toString() in
+	 -- behaviour->iterate(it; aa: String = ' ' | it.body.toString().substring(12,it.body.toString().size()-2))
+	  let message : MM!Message = interaction->select(it | it.oclType() = MM!Message)  in
+	  message->iterate(it; aa: String = ' ' | it.name)
+	 ;
+
+	  
+
+
+
+--A method for generate setters and getters for 
+helper context MM!Class def : GenerateSettersAndGetters(x:MM!Class) : String = '';
+
+
+helper context String def : FormUML2JavaTypes(s:String) : String = '';
 
 helper context MM!Model def: DisplayElementes() : String = 
 	
    let  nbrclass : Integer = self.ownedType->select(c | c.oclIsTypeOf(MM!Class)).size() in
    'Name of Model: ' +self.name + '\n' 
   +'Nbr de classes: '+ nbrclass+ '\n';	 
+
+
