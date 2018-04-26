@@ -33,14 +33,7 @@ Exchanger : c'est un instance qui représente un entité physique (echangeur ent
   <packagedElement xmi:type="uml:Package" xmi:id="_iSLFQEJZEeighfLsauk2Tg" name="SoHMS_Framework">
     <packagedElement xmi:type="uml:Class" xmi:id="_JuQGsEJdEeighfLsauk2Tg" name="DirectoryFacitilator"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_rKOuQEJdEeighfLsauk2Tg" name="RessourceHolon">
-      <packagedElement xmi:type="uml:Class" xmi:id="_v3QeEEJdEeighfLsauk2Tg" name="Transporter"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_4B_D0EJdEeighfLsauk2Tg" name="Resource"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_YiW_sEMXEeidvJmSRUxQdw" name="RouterRH">
-        <generalization xmi:type="uml:Generalization" xmi:id="_qQixUEMaEeidvJmSRUxQdw" general="_hLTEEEMaEeidvJmSRUxQdw"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_dDPpkEMaEeidvJmSRUxQdw" name="BufferedRH">
-        <generalization xmi:type="uml:Generalization" xmi:id="_tSEooEMaEeidvJmSRUxQdw" general="_hLTEEEMaEeidvJmSRUxQdw"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_hLTEEEMaEeidvJmSRUxQdw" name="RH">
         <generalization xmi:type="uml:Generalization" xmi:id="_zRo-YEMaEeidvJmSRUxQdw" general="_4B_D0EJdEeighfLsauk2Tg"/>
       </packagedElement>
@@ -64,6 +57,9 @@ Exchanger : c'est un instance qui représente un entité physique (echangeur ent
     <packagedElement xmi:type="uml:Class" xmi:id="_1OurQEMcEeidvJmSRUxQdw" name="Exchanger2"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_2stFIEMcEeidvJmSRUxQdw" name="Exchanger3"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_ujCZ4EMdEeidvJmSRUxQdw" name="Loop"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_YiW_sEMXEeidvJmSRUxQdw" name="RouterRH"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_dDPpkEMaEeidvJmSRUxQdw" name="BufferedRH"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_v3QeEEJdEeighfLsauk2Tg" name="Transporter"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_9FL0wEJZEeighfLsauk2Tg" name="Main_Apps">
     <ownedComment xmi:type="uml:Comment" xmi:id="_Xa5HwEJbEeighfLsauk2Tg">
