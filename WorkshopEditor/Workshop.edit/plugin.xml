@@ -7,10 +7,10 @@
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated workshopmodel -->
+      <!-- @generated workshop -->
       <factory
-            uri="Workshop"
-            class="Workshop.provider.WorkshopItemProviderAdapterFactory"
+            uri="workshop"
+            class="workshop.provider.WorkshopItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

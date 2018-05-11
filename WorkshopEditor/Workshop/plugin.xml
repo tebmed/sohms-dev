@@ -7,11 +7,11 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated workshopmodel -->
+      <!-- @generated workshop -->
       <package
-            uri="Workshop"
-            class="Workshop.WorkshopPackage"
-            genModel="workshopmodel.genmodel"/>
+            uri="workshop"
+            class="workshop.WorkshopPackage"
+            genModel="model/workshop.genmodel"/>
    </extension>
 
 </plugin>
