@@ -26,58 +26,35 @@
 		<constant value=""/>
 		<constant value="1"/>
 		<constant value="0"/>
-		<constant value="node"/>
+		<constant value="nodes"/>
 		<constant value="2"/>
 		<constant value="J.generatePlace():J"/>
 		<constant value="J.+(J):J"/>
 		<constant value="&#10;"/>
-		<constant value="5:3-5:28"/>
-		<constant value="6:48-6:50"/>
-		<constant value="6:3-6:7"/>
-		<constant value="6:3-6:12"/>
-		<constant value="6:52-6:58"/>
-		<constant value="6:61-6:68"/>
-		<constant value="6:61-6:84"/>
-		<constant value="6:52-6:84"/>
-		<constant value="6:85-6:89"/>
-		<constant value="6:52-6:89"/>
-		<constant value="6:3-6:90"/>
-		<constant value="5:3-6:90"/>
+		<constant value="10:3-10:28"/>
+		<constant value="11:49-11:51"/>
+		<constant value="11:3-11:7"/>
+		<constant value="11:3-11:13"/>
+		<constant value="11:53-11:59"/>
+		<constant value="11:62-11:69"/>
+		<constant value="11:62-11:85"/>
+		<constant value="11:53-11:85"/>
+		<constant value="11:86-11:90"/>
+		<constant value="11:53-11:90"/>
+		<constant value="11:3-11:91"/>
+		<constant value="10:3-11:91"/>
 		<constant value="station"/>
 		<constant value="places"/>
 		<constant value="generatePlace"/>
-		<constant value="MMM!Station;"/>
-		<constant value="ressource"/>
-		<constant value="J.size():J"/>
+		<constant value="MMM!Node;"/>
 		<constant value="pl "/>
 		<constant value="name"/>
-		<constant value="J.&lt;&gt;(J):J"/>
-		<constant value="14"/>
-		<constant value="20"/>
-		<constant value="("/>
-		<constant value="J.toString():J"/>
-		<constant value=")&#10;"/>
-		<constant value="9:28-9:32"/>
-		<constant value="9:28-9:42"/>
-		<constant value="9:28-9:49"/>
-		<constant value="10:14-10:19"/>
-		<constant value="10:20-10:24"/>
-		<constant value="10:20-10:29"/>
-		<constant value="10:14-10:29"/>
-		<constant value="11:12-11:20"/>
-		<constant value="11:22-11:23"/>
-		<constant value="11:12-11:23"/>
-		<constant value="13:23-13:27"/>
-		<constant value="12:20-12:23"/>
-		<constant value="12:24-12:32"/>
-		<constant value="12:24-12:43"/>
-		<constant value="12:20-12:43"/>
-		<constant value="12:44-12:49"/>
-		<constant value="12:20-12:49"/>
-		<constant value="11:9-13:33"/>
-		<constant value="10:14-13:33"/>
-		<constant value="9:3-13:33"/>
-		<constant value="nbrJeton"/>
+		<constant value="15:14-15:19"/>
+		<constant value="15:21-15:25"/>
+		<constant value="15:21-15:30"/>
+		<constant value="15:14-15:30"/>
+		<constant value="15:33-15:37"/>
+		<constant value="15:14-15:37"/>
 	</cp>
 	<operation name="1">
 		<context type="2"/>
@@ -155,53 +132,23 @@
 		<parameters>
 		</parameters>
 		<code>
+			<push arg="46"/>
 			<load arg="24"/>
-			<get arg="46"/>
-			<call arg="47"/>
-			<store arg="23"/>
-			<push arg="48"/>
-			<load arg="24"/>
-			<get arg="49"/>
+			<get arg="47"/>
 			<call arg="28"/>
-			<load arg="23"/>
-			<pushi arg="24"/>
-			<call arg="50"/>
-			<if arg="51"/>
 			<push arg="29"/>
-			<goto arg="52"/>
-			<push arg="53"/>
-			<load arg="23"/>
-			<call arg="54"/>
-			<call arg="28"/>
-			<push arg="55"/>
-			<call arg="28"/>
 			<call arg="28"/>
 		</code>
 		<linenumbertable>
-			<lne id="56" begin="0" end="0"/>
-			<lne id="57" begin="0" end="1"/>
-			<lne id="58" begin="0" end="2"/>
-			<lne id="59" begin="4" end="4"/>
-			<lne id="60" begin="5" end="5"/>
-			<lne id="61" begin="5" end="6"/>
-			<lne id="62" begin="4" end="7"/>
-			<lne id="63" begin="8" end="8"/>
-			<lne id="64" begin="9" end="9"/>
-			<lne id="65" begin="8" end="10"/>
-			<lne id="66" begin="12" end="12"/>
-			<lne id="67" begin="14" end="14"/>
-			<lne id="68" begin="15" end="15"/>
-			<lne id="69" begin="15" end="16"/>
-			<lne id="70" begin="14" end="17"/>
-			<lne id="71" begin="18" end="18"/>
-			<lne id="72" begin="14" end="19"/>
-			<lne id="73" begin="8" end="19"/>
-			<lne id="74" begin="4" end="20"/>
-			<lne id="75" begin="0" end="20"/>
+			<lne id="48" begin="0" end="0"/>
+			<lne id="49" begin="1" end="1"/>
+			<lne id="50" begin="1" end="2"/>
+			<lne id="51" begin="0" end="3"/>
+			<lne id="52" begin="4" end="4"/>
+			<lne id="53" begin="0" end="5"/>
 		</linenumbertable>
 		<localvariabletable>
-			<lve slot="1" name="76" begin="3" end="20"/>
-			<lve slot="0" name="18" begin="0" end="20"/>
+			<lve slot="0" name="18" begin="0" end="5"/>
 		</localvariabletable>
 	</operation>
 </asm>

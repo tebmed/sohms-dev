@@ -1,15 +1,17 @@
-net generatedPNFromTinaModelBE
-pl 1(1)
+net generatedPetriNet
+pl loop2
 
-pl 2
+pl loop1
 
-pl 3
+pl loop3
 
-pl 4(1)
+pl loop4
 
-pl 5(1)
+pl agv1
 
-pl 6(1)
+pl agv2
 
-pl 7(1)
+pl Post1
+
+pl poste2
 
