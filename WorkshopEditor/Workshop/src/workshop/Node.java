@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link workshop.Node#getPorts <em>Ports</em>}</li>
  *   <li>{@link workshop.Node#getDescription <em>Description</em>}</li>
  *   <li>{@link workshop.Node#getTechnology <em>Technology</em>}</li>
  *   <li>{@link workshop.Node#getCategory <em>Category</em>}</li>
  *   <li>{@link workshop.Node#getName <em>Name</em>}</li>
+ *   <li>{@link workshop.Node#getPorts <em>Ports</em>}</li>
  * </ul>
  *
  * @see workshop.WorkshopPackage#getNode()
@@ -27,22 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Node extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Ports</b></em>' containment reference list.
-	 * The list contents are of type {@link workshop.Ports}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ports</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ports</em>' containment reference list.
-	 * @see workshop.WorkshopPackage#getNode_Ports()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Ports> getPorts();
-
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -146,5 +130,21 @@ public interface Node extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Ports</b></em>' containment reference list.
+	 * The list contents are of type {@link workshop.Ports}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ports</em>' containment reference list.
+	 * @see workshop.WorkshopPackage#getNode_Ports()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Ports> getPorts();
 
 } // Node

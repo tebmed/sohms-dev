@@ -12,16 +12,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import workshop.Assembly;
 import workshop.AssemblyMachine;
 import workshop.Conveyor;
-import workshop.Edge;
 import workshop.EmptyNode;
 import workshop.Exchanger;
 import workshop.Feeder;
-import workshop.InputPort;
 import workshop.Layout;
 import workshop.LinkerMachine;
 import workshop.Machines;
 import workshop.Node;
-import workshop.OutputPorts;
 import workshop.Ports;
 import workshop.Storage;
 import workshop.StorageMachine;
@@ -48,35 +45,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass edgeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass nodeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass portsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass inputPortEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass outputPortsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,6 +132,13 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	private EClass feederEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass portsEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -237,44 +213,8 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLayout_Edges() {
-		return (EReference)layoutEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getLayout_Nodes() {
-		return (EReference)layoutEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEdge() {
-		return edgeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEdge_To() {
-		return (EReference)edgeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEdge_From() {
-		return (EReference)edgeEClass.getEStructuralFeatures().get(1);
+		return (EReference)layoutEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -291,17 +231,8 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNode_Ports() {
-		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getNode_Description() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)nodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -310,7 +241,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * @generated
 	 */
 	public EAttribute getNode_Technology() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)nodeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -319,7 +250,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * @generated
 	 */
 	public EAttribute getNode_Category() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)nodeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -328,7 +259,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * @generated
 	 */
 	public EAttribute getNode_Name() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)nodeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -336,35 +267,8 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPorts() {
-		return portsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPorts_Value() {
-		return (EAttribute)portsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInputPort() {
-		return inputPortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOutputPorts() {
-		return outputPortsEClass;
+	public EReference getNode_Ports() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -498,6 +402,42 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPorts() {
+		return portsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPorts_Value() {
+		return (EAttribute)portsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPorts_Target() {
+		return (EReference)portsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPorts_Source() {
+		return (EReference)portsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkshopFactory getWorkshopFactory() {
 		return (WorkshopFactory)getEFactoryInstance();
 	}
@@ -522,26 +462,14 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 
 		// Create classes and their features
 		layoutEClass = createEClass(LAYOUT);
-		createEReference(layoutEClass, LAYOUT__EDGES);
 		createEReference(layoutEClass, LAYOUT__NODES);
 
-		edgeEClass = createEClass(EDGE);
-		createEReference(edgeEClass, EDGE__TO);
-		createEReference(edgeEClass, EDGE__FROM);
-
 		nodeEClass = createEClass(NODE);
-		createEReference(nodeEClass, NODE__PORTS);
 		createEAttribute(nodeEClass, NODE__DESCRIPTION);
 		createEAttribute(nodeEClass, NODE__TECHNOLOGY);
 		createEAttribute(nodeEClass, NODE__CATEGORY);
 		createEAttribute(nodeEClass, NODE__NAME);
-
-		portsEClass = createEClass(PORTS);
-		createEAttribute(portsEClass, PORTS__VALUE);
-
-		inputPortEClass = createEClass(INPUT_PORT);
-
-		outputPortsEClass = createEClass(OUTPUT_PORTS);
+		createEReference(nodeEClass, NODE__PORTS);
 
 		workstationEClass = createEClass(WORKSTATION);
 
@@ -568,6 +496,11 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		exchangerEClass = createEClass(EXCHANGER);
 
 		feederEClass = createEClass(FEEDER);
+
+		portsEClass = createEClass(PORTS);
+		createEAttribute(portsEClass, PORTS__VALUE);
+		createEReference(portsEClass, PORTS__TARGET);
+		createEReference(portsEClass, PORTS__SOURCE);
 	}
 
 	/**
@@ -598,8 +531,6 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		inputPortEClass.getESuperTypes().add(this.getPorts());
-		outputPortsEClass.getESuperTypes().add(this.getPorts());
 		workstationEClass.getESuperTypes().add(this.getNode());
 		machinesEClass.getESuperTypes().add(this.getNode());
 		storageEClass.getESuperTypes().add(this.getWorkstation());
@@ -615,26 +546,14 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLayout_Edges(), this.getEdge(), null, "edges", null, 0, -1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLayout_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(edgeEClass, Edge.class, "Edge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEdge_To(), this.getNode(), null, "to", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEdge_From(), this.getNode(), null, "from", null, 1, 1, Edge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNode_Ports(), this.getPorts(), null, "ports", null, 1, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Description(), ecorePackage.getEString(), "description", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Technology(), ecorePackage.getEString(), "technology", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Category(), ecorePackage.getEString(), "category", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(portsEClass, Ports.class, "Ports", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPorts_Value(), ecorePackage.getEString(), "value", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(inputPortEClass, InputPort.class, "InputPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(outputPortsEClass, OutputPorts.class, "OutputPorts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNode_Ports(), this.getPorts(), null, "ports", null, 1, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workstationEClass, Workstation.class, "Workstation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -661,6 +580,11 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		initEClass(exchangerEClass, Exchanger.class, "Exchanger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(feederEClass, Feeder.class, "Feeder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(portsEClass, Ports.class, "Ports", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPorts_Value(), ecorePackage.getEString(), "value", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPorts_Target(), this.getPorts(), this.getPorts_Source(), "target", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPorts_Source(), this.getPorts(), this.getPorts_Target(), "source", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

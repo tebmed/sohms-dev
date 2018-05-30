@@ -77,7 +77,6 @@ public class LayoutItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(WorkshopPackage.Literals.LAYOUT__EDGES);
 			childrenFeatures.add(WorkshopPackage.Literals.LAYOUT__NODES);
 		}
 		return childrenFeatures;
@@ -131,7 +130,6 @@ public class LayoutItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Layout.class)) {
-			case WorkshopPackage.LAYOUT__EDGES:
 			case WorkshopPackage.LAYOUT__NODES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -149,11 +147,6 @@ public class LayoutItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WorkshopPackage.Literals.LAYOUT__EDGES,
-				 WorkshopFactory.eINSTANCE.createEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter

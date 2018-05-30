@@ -30,26 +30,16 @@ import workshop.WorkshopPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link workshop.impl.NodeImpl#getPorts <em>Ports</em>}</li>
  *   <li>{@link workshop.impl.NodeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link workshop.impl.NodeImpl#getTechnology <em>Technology</em>}</li>
  *   <li>{@link workshop.impl.NodeImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link workshop.impl.NodeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link workshop.impl.NodeImpl#getPorts <em>Ports</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
-	/**
-	 * The cached value of the '{@link #getPorts() <em>Ports</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPorts()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Ports> ports;
-
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -131,6 +121,16 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getPorts() <em>Ports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPorts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Ports> ports;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -147,18 +147,6 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	protected EClass eStaticClass() {
 		return WorkshopPackage.Literals.NODE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Ports> getPorts() {
-		if (ports == null) {
-			ports = new EObjectContainmentEList<Ports>(Ports.class, this, WorkshopPackage.NODE__PORTS);
-		}
-		return ports;
 	}
 
 	/**
@@ -250,6 +238,18 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Ports> getPorts() {
+		if (ports == null) {
+			ports = new EObjectContainmentEList<Ports>(Ports.class, this, WorkshopPackage.NODE__PORTS);
+		}
+		return ports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -267,8 +267,6 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WorkshopPackage.NODE__PORTS:
-				return getPorts();
 			case WorkshopPackage.NODE__DESCRIPTION:
 				return getDescription();
 			case WorkshopPackage.NODE__TECHNOLOGY:
@@ -277,6 +275,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return getCategory();
 			case WorkshopPackage.NODE__NAME:
 				return getName();
+			case WorkshopPackage.NODE__PORTS:
+				return getPorts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,10 +290,6 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WorkshopPackage.NODE__PORTS:
-				getPorts().clear();
-				getPorts().addAll((Collection<? extends Ports>)newValue);
-				return;
 			case WorkshopPackage.NODE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
@@ -305,6 +301,10 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return;
 			case WorkshopPackage.NODE__NAME:
 				setName((String)newValue);
+				return;
+			case WorkshopPackage.NODE__PORTS:
+				getPorts().clear();
+				getPorts().addAll((Collection<? extends Ports>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -318,9 +318,6 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WorkshopPackage.NODE__PORTS:
-				getPorts().clear();
-				return;
 			case WorkshopPackage.NODE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
@@ -332,6 +329,9 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return;
 			case WorkshopPackage.NODE__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case WorkshopPackage.NODE__PORTS:
+				getPorts().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -345,8 +345,6 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WorkshopPackage.NODE__PORTS:
-				return ports != null && !ports.isEmpty();
 			case WorkshopPackage.NODE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case WorkshopPackage.NODE__TECHNOLOGY:
@@ -355,6 +353,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 			case WorkshopPackage.NODE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case WorkshopPackage.NODE__PORTS:
+				return ports != null && !ports.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

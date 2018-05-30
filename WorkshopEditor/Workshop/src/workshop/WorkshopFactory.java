@@ -31,15 +31,6 @@ public interface WorkshopFactory extends EFactory {
 	Layout createLayout();
 
 	/**
-	 * Returns a new object of class '<em>Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Edge</em>'.
-	 * @generated
-	 */
-	Edge createEdge();
-
-	/**
 	 * Returns a new object of class '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,33 +38,6 @@ public interface WorkshopFactory extends EFactory {
 	 * @generated
 	 */
 	Node createNode();
-
-	/**
-	 * Returns a new object of class '<em>Ports</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ports</em>'.
-	 * @generated
-	 */
-	Ports createPorts();
-
-	/**
-	 * Returns a new object of class '<em>Input Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Input Port</em>'.
-	 * @generated
-	 */
-	InputPort createInputPort();
-
-	/**
-	 * Returns a new object of class '<em>Output Ports</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Output Ports</em>'.
-	 * @generated
-	 */
-	OutputPorts createOutputPorts();
 
 	/**
 	 * Returns a new object of class '<em>Workstation</em>'.
@@ -182,6 +146,15 @@ public interface WorkshopFactory extends EFactory {
 	 * @generated
 	 */
 	Feeder createFeeder();
+
+	/**
+	 * Returns a new object of class '<em>Ports</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ports</em>'.
+	 * @generated
+	 */
+	Ports createPorts();
 
 	/**
 	 * Returns the package supported by this factory.

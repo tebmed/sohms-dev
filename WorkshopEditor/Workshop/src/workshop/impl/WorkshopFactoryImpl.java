@@ -57,11 +57,7 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case WorkshopPackage.LAYOUT: return createLayout();
-			case WorkshopPackage.EDGE: return createEdge();
 			case WorkshopPackage.NODE: return createNode();
-			case WorkshopPackage.PORTS: return createPorts();
-			case WorkshopPackage.INPUT_PORT: return createInputPort();
-			case WorkshopPackage.OUTPUT_PORTS: return createOutputPorts();
 			case WorkshopPackage.WORKSTATION: return createWorkstation();
 			case WorkshopPackage.MACHINES: return createMachines();
 			case WorkshopPackage.STORAGE: return createStorage();
@@ -74,6 +70,7 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 			case WorkshopPackage.LINKER_MACHINE: return createLinkerMachine();
 			case WorkshopPackage.EXCHANGER: return createExchanger();
 			case WorkshopPackage.FEEDER: return createFeeder();
+			case WorkshopPackage.PORTS: return createPorts();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,49 +91,9 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Edge createEdge() {
-		EdgeImpl edge = new EdgeImpl();
-		return edge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Node createNode() {
 		NodeImpl node = new NodeImpl();
 		return node;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Ports createPorts() {
-		PortsImpl ports = new PortsImpl();
-		return ports;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InputPort createInputPort() {
-		InputPortImpl inputPort = new InputPortImpl();
-		return inputPort;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OutputPorts createOutputPorts() {
-		OutputPortsImpl outputPorts = new OutputPortsImpl();
-		return outputPorts;
 	}
 
 	/**
@@ -257,6 +214,16 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	public Feeder createFeeder() {
 		FeederImpl feeder = new FeederImpl();
 		return feeder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Ports createPorts() {
+		PortsImpl ports = new PortsImpl();
+		return ports;
 	}
 
 	/**

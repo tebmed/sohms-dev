@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link workshop.Layout#getEdges <em>Edges</em>}</li>
  *   <li>{@link workshop.Layout#getNodes <em>Nodes</em>}</li>
  * </ul>
  *
@@ -24,22 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Layout extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Edges</b></em>' containment reference list.
-	 * The list contents are of type {@link workshop.Edge}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Edges</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edges</em>' containment reference list.
-	 * @see workshop.WorkshopPackage#getLayout_Edges()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Edge> getEdges();
-
 	/**
 	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list.
 	 * The list contents are of type {@link workshop.Node}.

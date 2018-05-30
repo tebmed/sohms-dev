@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import workshop.Edge;
 import workshop.Layout;
 import workshop.Node;
 import workshop.WorkshopPackage;
@@ -29,23 +28,12 @@ import workshop.WorkshopPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link workshop.impl.LayoutImpl#getEdges <em>Edges</em>}</li>
  *   <li>{@link workshop.impl.LayoutImpl#getNodes <em>Nodes</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
-	/**
-	 * The cached value of the '{@link #getEdges() <em>Edges</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEdges()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Edge> edges;
-
 	/**
 	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -80,18 +68,6 @@ public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Edge> getEdges() {
-		if (edges == null) {
-			edges = new EObjectContainmentEList<Edge>(Edge.class, this, WorkshopPackage.LAYOUT__EDGES);
-		}
-		return edges;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Node> getNodes() {
 		if (nodes == null) {
 			nodes = new EObjectContainmentEList<Node>(Node.class, this, WorkshopPackage.LAYOUT__NODES);
@@ -107,8 +83,6 @@ public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case WorkshopPackage.LAYOUT__EDGES:
-				return ((InternalEList<?>)getEdges()).basicRemove(otherEnd, msgs);
 			case WorkshopPackage.LAYOUT__NODES:
 				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
 		}
@@ -123,8 +97,6 @@ public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case WorkshopPackage.LAYOUT__EDGES:
-				return getEdges();
 			case WorkshopPackage.LAYOUT__NODES:
 				return getNodes();
 		}
@@ -140,10 +112,6 @@ public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case WorkshopPackage.LAYOUT__EDGES:
-				getEdges().clear();
-				getEdges().addAll((Collection<? extends Edge>)newValue);
-				return;
 			case WorkshopPackage.LAYOUT__NODES:
 				getNodes().clear();
 				getNodes().addAll((Collection<? extends Node>)newValue);
@@ -160,9 +128,6 @@ public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case WorkshopPackage.LAYOUT__EDGES:
-				getEdges().clear();
-				return;
 			case WorkshopPackage.LAYOUT__NODES:
 				getNodes().clear();
 				return;
@@ -178,8 +143,6 @@ public class LayoutImpl extends MinimalEObjectImpl.Container implements Layout {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case WorkshopPackage.LAYOUT__EDGES:
-				return edges != null && !edges.isEmpty();
 			case WorkshopPackage.LAYOUT__NODES:
 				return nodes != null && !nodes.isEmpty();
 		}

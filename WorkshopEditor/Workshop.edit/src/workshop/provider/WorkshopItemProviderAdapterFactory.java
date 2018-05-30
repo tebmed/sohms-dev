@@ -95,29 +95,6 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link workshop.Edge} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EdgeItemProvider edgeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.Edge}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEdgeAdapter() {
-		if (edgeItemProvider == null) {
-			edgeItemProvider = new EdgeItemProvider(this);
-		}
-
-		return edgeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link workshop.Node} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,75 +115,6 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 		}
 
 		return nodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link workshop.Ports} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PortsItemProvider portsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.Ports}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPortsAdapter() {
-		if (portsItemProvider == null) {
-			portsItemProvider = new PortsItemProvider(this);
-		}
-
-		return portsItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link workshop.InputPort} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InputPortItemProvider inputPortItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.InputPort}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInputPortAdapter() {
-		if (inputPortItemProvider == null) {
-			inputPortItemProvider = new InputPortItemProvider(this);
-		}
-
-		return inputPortItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link workshop.OutputPorts} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OutputPortsItemProvider outputPortsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.OutputPorts}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOutputPortsAdapter() {
-		if (outputPortsItemProvider == null) {
-			outputPortsItemProvider = new OutputPortsItemProvider(this);
-		}
-
-		return outputPortsItemProvider;
 	}
 
 	/**
@@ -486,6 +394,29 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Ports} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PortsItemProvider portsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Ports}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPortsAdapter() {
+		if (portsItemProvider == null) {
+			portsItemProvider = new PortsItemProvider(this);
+		}
+
+		return portsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -585,11 +516,7 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	 */
 	public void dispose() {
 		if (layoutItemProvider != null) layoutItemProvider.dispose();
-		if (edgeItemProvider != null) edgeItemProvider.dispose();
 		if (nodeItemProvider != null) nodeItemProvider.dispose();
-		if (portsItemProvider != null) portsItemProvider.dispose();
-		if (inputPortItemProvider != null) inputPortItemProvider.dispose();
-		if (outputPortsItemProvider != null) outputPortsItemProvider.dispose();
 		if (workstationItemProvider != null) workstationItemProvider.dispose();
 		if (machinesItemProvider != null) machinesItemProvider.dispose();
 		if (storageItemProvider != null) storageItemProvider.dispose();
@@ -602,6 +529,7 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 		if (linkerMachineItemProvider != null) linkerMachineItemProvider.dispose();
 		if (exchangerItemProvider != null) exchangerItemProvider.dispose();
 		if (feederItemProvider != null) feederItemProvider.dispose();
+		if (portsItemProvider != null) portsItemProvider.dispose();
 	}
 
 }

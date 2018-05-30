@@ -255,16 +255,6 @@ public class NodeItemProvider
 			(createChildParameter
 				(WorkshopPackage.Literals.NODE__PORTS,
 				 WorkshopFactory.eINSTANCE.createPorts()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WorkshopPackage.Literals.NODE__PORTS,
-				 WorkshopFactory.eINSTANCE.createInputPort()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WorkshopPackage.Literals.NODE__PORTS,
-				 WorkshopFactory.eINSTANCE.createOutputPorts()));
 	}
 
 	/**

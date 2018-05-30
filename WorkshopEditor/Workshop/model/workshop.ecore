@@ -6,18 +6,13 @@
         eType="#//Node" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" lowerBound="1" upperBound="-1"
-        eType="#//Ports" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="technology" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" lowerBound="1" upperBound="-1"
+        eType="#//Ports" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ports">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InputPort" eSuperTypes="#//Ports"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputPorts" eSuperTypes="#//Ports"/>
   <eClassifiers xsi:type="ecore:EClass" name="Workstation" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Machines" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Storage" eSuperTypes="#//Workstation">
@@ -36,4 +31,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="LinkerMachine" eSuperTypes="#//Machines"/>
   <eClassifiers xsi:type="ecore:EClass" name="Exchanger" eSuperTypes="#//LinkerMachine"/>
   <eClassifiers xsi:type="ecore:EClass" name="Feeder" eSuperTypes="#//LinkerMachine"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ports">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Ports"
+        eOpposite="#//Ports/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Ports"
+        eOpposite="#//Ports/target"/>
+  </eClassifiers>
 </ecore:EPackage>

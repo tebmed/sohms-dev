@@ -61,6 +61,8 @@ public class PortsItemProvider
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,6 +85,50 @@ public class PortsItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ports_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ports_target_feature", "_UI_Ports_type"),
+				 WorkshopPackage.Literals.PORTS__TARGET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ports_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ports_source_feature", "_UI_Ports_type"),
+				 WorkshopPackage.Literals.PORTS__SOURCE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

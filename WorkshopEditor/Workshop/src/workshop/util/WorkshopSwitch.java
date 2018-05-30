@@ -72,35 +72,9 @@ public class WorkshopSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WorkshopPackage.EDGE: {
-				Edge edge = (Edge)theEObject;
-				T result = caseEdge(edge);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case WorkshopPackage.NODE: {
 				Node node = (Node)theEObject;
 				T result = caseNode(node);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case WorkshopPackage.PORTS: {
-				Ports ports = (Ports)theEObject;
-				T result = casePorts(ports);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case WorkshopPackage.INPUT_PORT: {
-				InputPort inputPort = (InputPort)theEObject;
-				T result = caseInputPort(inputPort);
-				if (result == null) result = casePorts(inputPort);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case WorkshopPackage.OUTPUT_PORTS: {
-				OutputPorts outputPorts = (OutputPorts)theEObject;
-				T result = caseOutputPorts(outputPorts);
-				if (result == null) result = casePorts(outputPorts);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,6 +173,12 @@ public class WorkshopSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WorkshopPackage.PORTS: {
+				Ports ports = (Ports)theEObject;
+				T result = casePorts(ports);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -219,21 +199,6 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Edge</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEdge(Edge object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -245,51 +210,6 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNode(Node object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ports</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ports</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePorts(Ports object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Input Port</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Input Port</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInputPort(InputPort object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Output Ports</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Output Ports</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOutputPorts(OutputPorts object) {
 		return null;
 	}
 
@@ -470,6 +390,21 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFeeder(Feeder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ports</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ports</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePorts(Ports object) {
 		return null;
 	}
 
