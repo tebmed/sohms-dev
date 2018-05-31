@@ -1,4 +1,4 @@
-net generatedPetriNet
+net generatedPetriNetFromManifacturringEditor
 pl loop2
 
 pl loop1
@@ -7,11 +7,27 @@ pl loop3
 
 pl loop4
 
-pl agv1
+pl agv1(1)
 
-pl agv2
+pl agv2(1)
 
 pl Post1
 
 pl poste2
 
+tr  t1  poste2*1  -> loop2*1
+tr  t2  loop2*1  -> agv1*1
+tr  t3  loop1*1  -> poste2*1
+tr  t4  agv2*1  -> loop1*1
+tr  t5  Post1*1  -> loop3*1
+tr  t6  loop3*1  -> agv2*1
+tr  t7  loop4*1  -> Post1*1
+tr  t8  agv1*1  -> loop4*1
+tr  t9  loop2*1  -> agv1*1
+tr  t19  agv1*1  -> loop4*1
+tr  t11  agv2*1  -> loop1*1
+tr  t12  loop3*1  -> agv2*1
+tr  t13  loop4*1  -> Post1*1
+tr  t14  Post1*1  -> loop3*1
+tr  t15  loop1*1  -> poste2*1
+tr  t16  poste2*1  -> loop2*1

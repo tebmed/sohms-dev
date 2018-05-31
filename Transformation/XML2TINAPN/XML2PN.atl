@@ -7,12 +7,38 @@ query XML2PN = MM!Layout->allInstances()->asSequence()->
 
 
 helper context MM!Layout def: generatePN() : String =
-	 'net generatedPetriNet\n'+
-	 self.nodes->iterate(station; places : String =''| places + station.generatePlace()+'\n');
+      let ports : Sequence(MM!Ports) = MM!Ports.allInstances() in 
+	 'net generatedPetriNetFromManifacturringEditor\n'+
+	 self.nodes->iterate(station; places : String =''| places + station.generatePlace()+'\n')+
+	 ports->iterate(port; chain: String = '' | chain + port.generateTransition()+'\n');
 
 helper context MM!Node def : generatePlace() : String =
-	-- let nbrJeton : Integer = self.ressource.size() in
-	            'pl '+ self.name  +'\n';
+       let nbrJeton : Integer = 0 in
+	   'pl '+ self.name +
+	   if(self.oclIsTypeOf(MM!AGV))then
+	        ('(1)\n')
+	   else '\n' endif
+	   ;
              
+helper context MM!Ports def : generateTransition() : String =
+  'tr  t' + self.value +  '  '+
+   self.getPortContainer_source()+'*1 '
+  + ' -> '
+  + self.getPortContainer_target()+'*1'
+;
 
+helper context MM!Ports def : getPortContainer_source() : String =
+     let nodes : Sequence(MM!Node) = MM!Node->allInstances() in
+	 let sources1 : Sequence(MM!Node) = nodes->select(it | it.ports.includes(self.source)) in
+	 let sources2 : Sequence(MM!Node) = nodes->select(it | it.ports.includes(self)) in
+	 if(sources1.isEmpty()) then sources2.first().toString().substring(4, sources2.first().toString().size())
+	 else sources1.first().toString().substring(4, sources1.first().toString().size()) endif
+;
 
+helper context MM!Ports def : getPortContainer_target() : String =
+     let nodes : Sequence(MM!Node) = MM!Node->allInstances() in
+	  let sources1 : Sequence(MM!Node) = nodes->select(it | it.ports.includes(self.target)) in
+	 let sources2 : Sequence(MM!Node) = nodes->select(it | it.ports.includes(self)) in
+	 if(sources1.isEmpty()) then sources2.first().toString().substring(4, sources2.first().toString().size())
+	 else sources1.first().toString().substring(4, sources1.first().toString().size()) endif
+;
