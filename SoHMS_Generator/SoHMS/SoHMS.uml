@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_g2CEQGfxEeiszYcosYc9Cg" name="SoHMS">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_hC5bkGfxEeiszYcosYc9Cg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_g4bQ8GfxEeiszYcosYc9Cg" name="Interaction1">
+    <ownedBehavior xmi:type="uml:Interaction" xmi:id="_4lAeYGgaEeiszYcosYc9Cg" specification="_lR7fcGf_EeiszYcosYc9Cg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_iJLHIGfxEeiszYcosYc9Cg" name="ReactiveBuffer_ROH_Behavior">
+    <generalization xmi:type="uml:Generalization" xmi:id="_xuBGUGf3EeiszYcosYc9Cg" general="_o9Bx0Gf3EeiszYcosYc9Cg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Oi4LEGfzEeiszYcosYc9Cg" name="linkedOutputRH" visibility="public" type="_npFagGfzEeiszYcosYc9Cg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VKgw8Gf0EeiszYcosYc9Cg" name="x" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_nyyIEGf-EeiszYcosYc9Cg" name="requestServiceExe">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4QJ5cGf-EeiszYcosYc9Cg" type="_dzRK8Gf-EeiszYcosYc9Cg" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4N4zIGf_EeiszYcosYc9Cg" name="client" type="_z0uagGf_EeiszYcosYc9Cg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-McKUGgBEeiszYcosYc9Cg" name="prodTask" type="_gunhwGf-EeiszYcosYc9Cg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_OhY_gGgCEeiszYcosYc9Cg" name="roh" type="_jsBHAGf-EeiszYcosYc9Cg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Scp7MGgCEeiszYcosYc9Cg" name="df" type="_cWtQ4Gf_EeiszYcosYc9Cg"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_lR7fcGf_EeiszYcosYc9Cg" name="requestPortPermition" concurrency="concurrent" method="_4lAeYGgaEeiszYcosYc9Cg">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_sNQUAGgZEeiszYcosYc9Cg" name="client" type="_z0uagGf_EeiszYcosYc9Cg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_2bm-YGgZEeiszYcosYc9Cg" name="finalPort">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_83fcsGgZEeiszYcosYc9Cg" name="timeFromNow">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="__VDEQGgZEeiszYcosYc9Cg" name="roh" type="_jsBHAGf-EeiszYcosYc9Cg"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_p-YngGf_EeiszYcosYc9Cg" name="requestDefaultTransfer"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_npFagGfzEeiszYcosYc9Cg" name="ResourceHolon"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_o9Bx0Gf3EeiszYcosYc9Cg" name="ROH_Behavior"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_dzRK8Gf-EeiszYcosYc9Cg" name="MServiceSpecification"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gunhwGf-EeiszYcosYc9Cg" name="PathState"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jsBHAGf-EeiszYcosYc9Cg" name="ROH"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_cWtQ4Gf_EeiszYcosYc9Cg" name="DirectoryFacilitator"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_z0uagGf_EeiszYcosYc9Cg" name="ProductHolon"/>
+</uml:Model>
