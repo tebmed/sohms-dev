@@ -9,22 +9,27 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import workshop.Assembly;
-import workshop.AssemblyMachine;
+import workshop.Assembler;
+import workshop.Box;
+import workshop.Combiner;
 import workshop.Conveyor;
-import workshop.EmptyNode;
+import workshop.Elevator;
 import workshop.Exchanger;
 import workshop.Feeder;
+import workshop.FlowItem;
 import workshop.Layout;
-import workshop.LinkerMachine;
 import workshop.Machines;
 import workshop.Node;
+import workshop.Operator;
+import workshop.Pallet;
 import workshop.Ports;
-import workshop.Storage;
+import workshop.Processor;
+import workshop.Robot;
 import workshop.StorageMachine;
+import workshop.Tote;
+import workshop.Transporter;
 import workshop.WorkshopFactory;
 import workshop.WorkshopPackage;
-import workshop.Workstation;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,13 +57,6 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass workstationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass machinesEClass = null;
 
 	/**
@@ -66,28 +64,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass storageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass assemblyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass emptyNodeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass assemblyMachineEClass = null;
+	private EClass robotEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,7 +92,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass linkerMachineEClass = null;
+	private EClass combinerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +114,69 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * @generated
 	 */
 	private EClass portsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assemblerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transporterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flowItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass palletEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elevatorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -276,15 +316,6 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getWorkstation() {
-		return workstationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMachines() {
 		return machinesEClass;
 	}
@@ -294,53 +325,8 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStorage() {
-		return storageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStorage_Storagemachine() {
-		return (EReference)storageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAssembly() {
-		return assemblyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssembly_Assemblymachine() {
-		return (EReference)assemblyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEmptyNode() {
-		return emptyNodeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAssemblyMachine() {
-		return assemblyMachineEClass;
+	public EClass getRobot() {
+		return robotEClass;
 	}
 
 	/**
@@ -375,8 +361,17 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLinkerMachine() {
-		return linkerMachineEClass;
+	public EReference getConveyor_Items() {
+		return (EReference)conveyorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCombiner() {
+		return combinerEClass;
 	}
 
 	/**
@@ -438,6 +433,87 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAssembler() {
+		return assemblerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTransporter() {
+		return transporterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFlowItem() {
+		return flowItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperator() {
+		return operatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPallet() {
+		return palletEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBox() {
+		return boxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTote() {
+		return toteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcessor() {
+		return processorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getElevator() {
+		return elevatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkshopFactory getWorkshopFactory() {
 		return (WorkshopFactory)getEFactoryInstance();
 	}
@@ -471,27 +547,18 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		createEAttribute(nodeEClass, NODE__NAME);
 		createEReference(nodeEClass, NODE__PORTS);
 
-		workstationEClass = createEClass(WORKSTATION);
-
 		machinesEClass = createEClass(MACHINES);
 
-		storageEClass = createEClass(STORAGE);
-		createEReference(storageEClass, STORAGE__STORAGEMACHINE);
-
-		assemblyEClass = createEClass(ASSEMBLY);
-		createEReference(assemblyEClass, ASSEMBLY__ASSEMBLYMACHINE);
-
-		emptyNodeEClass = createEClass(EMPTY_NODE);
-
-		assemblyMachineEClass = createEClass(ASSEMBLY_MACHINE);
+		robotEClass = createEClass(ROBOT);
 
 		storageMachineEClass = createEClass(STORAGE_MACHINE);
 
 		agvEClass = createEClass(AGV);
 
 		conveyorEClass = createEClass(CONVEYOR);
+		createEReference(conveyorEClass, CONVEYOR__ITEMS);
 
-		linkerMachineEClass = createEClass(LINKER_MACHINE);
+		combinerEClass = createEClass(COMBINER);
 
 		exchangerEClass = createEClass(EXCHANGER);
 
@@ -501,6 +568,24 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		createEAttribute(portsEClass, PORTS__VALUE);
 		createEReference(portsEClass, PORTS__TARGET);
 		createEReference(portsEClass, PORTS__SOURCE);
+
+		assemblerEClass = createEClass(ASSEMBLER);
+
+		transporterEClass = createEClass(TRANSPORTER);
+
+		flowItemEClass = createEClass(FLOW_ITEM);
+
+		operatorEClass = createEClass(OPERATOR);
+
+		palletEClass = createEClass(PALLET);
+
+		boxEClass = createEClass(BOX);
+
+		toteEClass = createEClass(TOTE);
+
+		processorEClass = createEClass(PROCESSOR);
+
+		elevatorEClass = createEClass(ELEVATOR);
 	}
 
 	/**
@@ -531,18 +616,22 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		workstationEClass.getESuperTypes().add(this.getNode());
 		machinesEClass.getESuperTypes().add(this.getNode());
-		storageEClass.getESuperTypes().add(this.getWorkstation());
-		assemblyEClass.getESuperTypes().add(this.getWorkstation());
-		emptyNodeEClass.getESuperTypes().add(this.getNode());
-		assemblyMachineEClass.getESuperTypes().add(this.getMachines());
-		storageMachineEClass.getESuperTypes().add(this.getMachines());
-		agvEClass.getESuperTypes().add(this.getMachines());
-		conveyorEClass.getESuperTypes().add(this.getMachines());
-		linkerMachineEClass.getESuperTypes().add(this.getMachines());
-		exchangerEClass.getESuperTypes().add(this.getLinkerMachine());
-		feederEClass.getESuperTypes().add(this.getLinkerMachine());
+		robotEClass.getESuperTypes().add(this.getAssembler());
+		storageMachineEClass.getESuperTypes().add(this.getAssembler());
+		agvEClass.getESuperTypes().add(this.getTransporter());
+		conveyorEClass.getESuperTypes().add(this.getTransporter());
+		combinerEClass.getESuperTypes().add(this.getMachines());
+		exchangerEClass.getESuperTypes().add(this.getCombiner());
+		feederEClass.getESuperTypes().add(this.getCombiner());
+		assemblerEClass.getESuperTypes().add(this.getMachines());
+		transporterEClass.getESuperTypes().add(this.getMachines());
+		operatorEClass.getESuperTypes().add(this.getTransporter());
+		palletEClass.getESuperTypes().add(this.getFlowItem());
+		boxEClass.getESuperTypes().add(this.getFlowItem());
+		toteEClass.getESuperTypes().add(this.getFlowItem());
+		processorEClass.getESuperTypes().add(this.getAssembler());
+		elevatorEClass.getESuperTypes().add(this.getTransporter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -555,27 +644,18 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Ports(), this.getPorts(), null, "ports", null, 1, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(workstationEClass, Workstation.class, "Workstation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(machinesEClass, Machines.class, "Machines", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(storageEClass, Storage.class, "Storage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStorage_Storagemachine(), this.getStorageMachine(), null, "storagemachine", null, 0, -1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(assemblyEClass, Assembly.class, "Assembly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssembly_Assemblymachine(), this.getAssemblyMachine(), null, "assemblymachine", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(emptyNodeEClass, EmptyNode.class, "EmptyNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(assemblyMachineEClass, AssemblyMachine.class, "AssemblyMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(storageMachineEClass, StorageMachine.class, "StorageMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(agvEClass, workshop.AGV.class, "AGV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conveyorEClass, Conveyor.class, "Conveyor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConveyor_Items(), this.getFlowItem(), null, "items", null, 0, -1, Conveyor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(linkerMachineEClass, LinkerMachine.class, "LinkerMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(combinerEClass, Combiner.class, "Combiner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(exchangerEClass, Exchanger.class, "Exchanger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -585,6 +665,24 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		initEAttribute(getPorts_Value(), ecorePackage.getEString(), "value", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPorts_Target(), this.getPorts(), this.getPorts_Source(), "target", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPorts_Source(), this.getPorts(), this.getPorts_Target(), "source", null, 0, 1, Ports.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(assemblerEClass, Assembler.class, "Assembler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(transporterEClass, Transporter.class, "Transporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(flowItemEClass, FlowItem.class, "FlowItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(operatorEClass, Operator.class, "Operator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(palletEClass, Pallet.class, "Pallet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boxEClass, Box.class, "Box", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(toteEClass, Tote.class, "Tote", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(processorEClass, Processor.class, "Processor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(elevatorEClass, Elevator.class, "Elevator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

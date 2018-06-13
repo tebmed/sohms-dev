@@ -19,7 +19,7 @@ import workshop.StorageMachine;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StorageMachineItemProvider extends MachinesItemProvider {
+public class StorageMachineItemProvider extends AssemblerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

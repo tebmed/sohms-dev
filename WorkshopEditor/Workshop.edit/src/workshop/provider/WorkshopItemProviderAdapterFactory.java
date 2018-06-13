@@ -118,29 +118,6 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link workshop.Workstation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WorkstationItemProvider workstationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.Workstation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWorkstationAdapter() {
-		if (workstationItemProvider == null) {
-			workstationItemProvider = new WorkstationItemProvider(this);
-		}
-
-		return workstationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link workshop.Machines} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,95 +141,26 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link workshop.Storage} instances.
+	 * This keeps track of the one adapter used for all {@link workshop.Robot} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StorageItemProvider storageItemProvider;
+	protected RobotItemProvider robotItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link workshop.Storage}.
+	 * This creates an adapter for a {@link workshop.Robot}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStorageAdapter() {
-		if (storageItemProvider == null) {
-			storageItemProvider = new StorageItemProvider(this);
+	public Adapter createRobotAdapter() {
+		if (robotItemProvider == null) {
+			robotItemProvider = new RobotItemProvider(this);
 		}
 
-		return storageItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link workshop.Assembly} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AssemblyItemProvider assemblyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.Assembly}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAssemblyAdapter() {
-		if (assemblyItemProvider == null) {
-			assemblyItemProvider = new AssemblyItemProvider(this);
-		}
-
-		return assemblyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link workshop.EmptyNode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EmptyNodeItemProvider emptyNodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.EmptyNode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEmptyNodeAdapter() {
-		if (emptyNodeItemProvider == null) {
-			emptyNodeItemProvider = new EmptyNodeItemProvider(this);
-		}
-
-		return emptyNodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link workshop.AssemblyMachine} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AssemblyMachineItemProvider assemblyMachineItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link workshop.AssemblyMachine}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAssemblyMachineAdapter() {
-		if (assemblyMachineItemProvider == null) {
-			assemblyMachineItemProvider = new AssemblyMachineItemProvider(this);
-		}
-
-		return assemblyMachineItemProvider;
+		return robotItemProvider;
 	}
 
 	/**
@@ -325,26 +233,26 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link workshop.LinkerMachine} instances.
+	 * This keeps track of the one adapter used for all {@link workshop.Combiner} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LinkerMachineItemProvider linkerMachineItemProvider;
+	protected CombinerItemProvider combinerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link workshop.LinkerMachine}.
+	 * This creates an adapter for a {@link workshop.Combiner}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLinkerMachineAdapter() {
-		if (linkerMachineItemProvider == null) {
-			linkerMachineItemProvider = new LinkerMachineItemProvider(this);
+	public Adapter createCombinerAdapter() {
+		if (combinerItemProvider == null) {
+			combinerItemProvider = new CombinerItemProvider(this);
 		}
 
-		return linkerMachineItemProvider;
+		return combinerItemProvider;
 	}
 
 	/**
@@ -414,6 +322,213 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 		}
 
 		return portsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Assembler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssemblerItemProvider assemblerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Assembler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssemblerAdapter() {
+		if (assemblerItemProvider == null) {
+			assemblerItemProvider = new AssemblerItemProvider(this);
+		}
+
+		return assemblerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Transporter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TransporterItemProvider transporterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Transporter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTransporterAdapter() {
+		if (transporterItemProvider == null) {
+			transporterItemProvider = new TransporterItemProvider(this);
+		}
+
+		return transporterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.FlowItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FlowItemItemProvider flowItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.FlowItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFlowItemAdapter() {
+		if (flowItemItemProvider == null) {
+			flowItemItemProvider = new FlowItemItemProvider(this);
+		}
+
+		return flowItemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Operator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperatorItemProvider operatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Operator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperatorAdapter() {
+		if (operatorItemProvider == null) {
+			operatorItemProvider = new OperatorItemProvider(this);
+		}
+
+		return operatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Pallet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PalletItemProvider palletItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Pallet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPalletAdapter() {
+		if (palletItemProvider == null) {
+			palletItemProvider = new PalletItemProvider(this);
+		}
+
+		return palletItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Box} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoxItemProvider boxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Box}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoxAdapter() {
+		if (boxItemProvider == null) {
+			boxItemProvider = new BoxItemProvider(this);
+		}
+
+		return boxItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Tote} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToteItemProvider toteItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Tote}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToteAdapter() {
+		if (toteItemProvider == null) {
+			toteItemProvider = new ToteItemProvider(this);
+		}
+
+		return toteItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Processor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProcessorItemProvider processorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Processor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProcessorAdapter() {
+		if (processorItemProvider == null) {
+			processorItemProvider = new ProcessorItemProvider(this);
+		}
+
+		return processorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Elevator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ElevatorItemProvider elevatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Elevator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createElevatorAdapter() {
+		if (elevatorItemProvider == null) {
+			elevatorItemProvider = new ElevatorItemProvider(this);
+		}
+
+		return elevatorItemProvider;
 	}
 
 	/**
@@ -517,19 +632,24 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	public void dispose() {
 		if (layoutItemProvider != null) layoutItemProvider.dispose();
 		if (nodeItemProvider != null) nodeItemProvider.dispose();
-		if (workstationItemProvider != null) workstationItemProvider.dispose();
 		if (machinesItemProvider != null) machinesItemProvider.dispose();
-		if (storageItemProvider != null) storageItemProvider.dispose();
-		if (assemblyItemProvider != null) assemblyItemProvider.dispose();
-		if (emptyNodeItemProvider != null) emptyNodeItemProvider.dispose();
-		if (assemblyMachineItemProvider != null) assemblyMachineItemProvider.dispose();
+		if (robotItemProvider != null) robotItemProvider.dispose();
 		if (storageMachineItemProvider != null) storageMachineItemProvider.dispose();
 		if (agvItemProvider != null) agvItemProvider.dispose();
 		if (conveyorItemProvider != null) conveyorItemProvider.dispose();
-		if (linkerMachineItemProvider != null) linkerMachineItemProvider.dispose();
+		if (combinerItemProvider != null) combinerItemProvider.dispose();
 		if (exchangerItemProvider != null) exchangerItemProvider.dispose();
 		if (feederItemProvider != null) feederItemProvider.dispose();
 		if (portsItemProvider != null) portsItemProvider.dispose();
+		if (assemblerItemProvider != null) assemblerItemProvider.dispose();
+		if (transporterItemProvider != null) transporterItemProvider.dispose();
+		if (flowItemItemProvider != null) flowItemItemProvider.dispose();
+		if (operatorItemProvider != null) operatorItemProvider.dispose();
+		if (palletItemProvider != null) palletItemProvider.dispose();
+		if (boxItemProvider != null) boxItemProvider.dispose();
+		if (toteItemProvider != null) toteItemProvider.dispose();
+		if (processorItemProvider != null) processorItemProvider.dispose();
+		if (elevatorItemProvider != null) elevatorItemProvider.dispose();
 	}
 
 }

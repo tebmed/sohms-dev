@@ -156,37 +156,27 @@ public class LayoutItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
-				 WorkshopFactory.eINSTANCE.createWorkstation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WorkshopPackage.Literals.LAYOUT__NODES,
 				 WorkshopFactory.eINSTANCE.createMachines()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
-				 WorkshopFactory.eINSTANCE.createStorage()));
+				 WorkshopFactory.eINSTANCE.createAssembler()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
-				 WorkshopFactory.eINSTANCE.createAssembly()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WorkshopPackage.Literals.LAYOUT__NODES,
-				 WorkshopFactory.eINSTANCE.createEmptyNode()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(WorkshopPackage.Literals.LAYOUT__NODES,
-				 WorkshopFactory.eINSTANCE.createAssemblyMachine()));
+				 WorkshopFactory.eINSTANCE.createRobot()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
 				 WorkshopFactory.eINSTANCE.createStorageMachine()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkshopPackage.Literals.LAYOUT__NODES,
+				 WorkshopFactory.eINSTANCE.createTransporter()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -201,7 +191,7 @@ public class LayoutItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
-				 WorkshopFactory.eINSTANCE.createLinkerMachine()));
+				 WorkshopFactory.eINSTANCE.createCombiner()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -212,6 +202,21 @@ public class LayoutItemProvider
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
 				 WorkshopFactory.eINSTANCE.createFeeder()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkshopPackage.Literals.LAYOUT__NODES,
+				 WorkshopFactory.eINSTANCE.createOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkshopPackage.Literals.LAYOUT__NODES,
+				 WorkshopFactory.eINSTANCE.createProcessor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkshopPackage.Literals.LAYOUT__NODES,
+				 WorkshopFactory.eINSTANCE.createElevator()));
 	}
 
 	/**

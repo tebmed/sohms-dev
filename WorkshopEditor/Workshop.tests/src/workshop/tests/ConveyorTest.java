@@ -13,7 +13,7 @@ import workshop.WorkshopFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConveyorTest extends MachinesTest {
+public class ConveyorTest extends TransporterTest {
 
 	/**
 	 * <!-- begin-user-doc -->

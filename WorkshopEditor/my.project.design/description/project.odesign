@@ -2,22 +2,8 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="project" version="12.0.0.2017041100">
   <ownedViewpoints name="MyViewpoint" modelFileExtension="workshop">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="layout" initialisation="true" domainClass="Layout" enablePopupBars="true">
-      <metamodel href="../../Workshop/model/workshop.ecore#/"/>
+      <metamodel href="../../WorkshopEditor/Workshop/model/workshop.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="emptyNode" semanticCandidatesExpression="feature:nodes" domainClass="workshop::EmptyNode">
-          <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
-            <style xsi:type="style:LozengeNodeDescription" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-            </style>
-          </borderedNodeMappings>
-          <style xsi:type="style:EllipseNodeDescription" labelExpression="feature:value" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="exchangerNode" semanticCandidatesExpression="feature:nodes" domainClass="workshop::Exchanger">
           <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
             <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:value" sizeComputationExpression="2" resizeKind="NSEW">
@@ -65,17 +51,25 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </borderedNodeMappings>
+          <borderedNodeMappings name="box" semanticCandidatesExpression="feature:eAllContents" domainClass="workshop::Box">
+            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/box.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="tote" semanticCandidatesExpression="feature:eAllContents" domainClass="workshop::Tote">
+            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/tote.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="pallet" semanticCandidatesExpression="feature:eAllContents" domainClass="workshop::Pallet"/>
           <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="EAST_WEST" workspacePath="/my.project.design/icons/conveyor2.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="edgePorts" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='agvNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='emptyNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='exchangerNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='feederNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='storageContainer']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='AssemblyContainer']/@borderedNodeMappings[name='port']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='agvNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='AssemblyContainer']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='emptyNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='exchangerNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='feederNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='storageContainer']/@borderedNodeMappings[name='port']" targetFinderExpression="[target/]">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </edgeMappings>
-        <containerMappings name="AssemblyContainer" semanticCandidatesExpression="feature:nodes" domainClass="workshop::Assembly">
+        <nodeMappings name="OperatorNode" semanticCandidatesExpression="feature:nodes" domainClass="workshop::Operator">
           <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
             <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:value" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -83,14 +77,51 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </borderedNodeMappings>
-          <subNodeMappings name="assMachineNode" semanticCandidatesExpression="feature:assemblymachine" domainClass="workshop::AssemblyMachine">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="4" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/assmachine.png">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/operator.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ElevatorNode" semanticCandidatesExpression="feature:nodes" domainClass="workshop::Elevator">
+          <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
+            <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:value" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
-          </subNodeMappings>
-        </containerMappings>
-        <containerMappings name="storageContainer" domainClass="workshop::Storage">
+          </borderedNodeMappings>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/elevator.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ProcessorNode" semanticCandidatesExpression="feature:nodes" domainClass="workshop::Processor">
+          <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
+            <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:value" sizeComputationExpression="2" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/processor.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RobotNode" semanticCandidatesExpression="feature:nodes" domainClass="workshop::AssemblyMachine">
+          <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
+            <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:value" sizeComputationExpression="2" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="4" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/assmachine.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="storageMachine" semanticCandidatesExpression="feature:nodes" domainClass="workshop::StorageMachine">
           <borderedNodeMappings name="port" semanticCandidatesExpression="feature:ports" domainClass="workshop::Ports">
             <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:value" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -98,13 +129,16 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </borderedNodeMappings>
-          <subNodeMappings name="storageMachine" semanticCandidatesExpression="feature:storagemachine" domainClass="workshop::StorageMachine">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="4" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/a(1).png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </subNodeMappings>
-        </containerMappings>
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="4" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/my.project.design/icons/a(1).png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="edgePorts" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='agvNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='exchangerNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='feederNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='storageMachine']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='RobotNode']/@borderedNodeMappings[name='port']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='agvNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='RobotNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='exchangerNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='feederNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='storageMachine']/@borderedNodeMappings[name='port']" targetFinderExpression="[target/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
         <toolSections name="manufacturing">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Conveyor" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']" iconPath="/my.project.design/Palette/conveyor2.png">
             <variable name="container"/>
@@ -121,24 +155,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="workshop::AGV" referenceName="nodes"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="StorageWorkstation" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='storageContainer']" iconPath="/my.project.design/Palette/a(1)(1).png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="workshop::Storage" referenceName="nodes"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="AssemblyWorksation" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='AssemblyContainer']" iconPath="/my.project.design/Palette/assmachine.png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="workshop::Assembly" referenceName="nodes"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -160,7 +176,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="AssemblyMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='AssemblyContainer']/@subNodeMappings[name='assMachineNode']" iconPath="/my.project.design/Palette/assmachine.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RobotMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='RobotNode']" iconPath="/my.project.design/Palette/assmachine.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -169,7 +185,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StorageMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='storageContainer']/@subNodeMappings[name='storageMachine']" iconPath="/my.project.design/Palette/a(1)(1).png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StorageMachine" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='storageMachine']" iconPath="/my.project.design/Palette/a(1)(1).png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -178,7 +194,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Port" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='agvNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='AssemblyContainer']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='emptyNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='exchangerNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='feederNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@containerMappings[name='storageContainer']/@borderedNodeMappings[name='port']" iconPath="/my.project.design/Palette/port.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Port" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='agvNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='RobotNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='conveyorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='exchangerNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='feederNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='storageMachine']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='ProcessorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='OperatorNode']/@borderedNodeMappings[name='port'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='layout']/@defaultLayer/@nodeMappings[name='ElevatorNode']/@borderedNodeMappings[name='port']" iconPath="/my.project.design/Palette/port.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -186,6 +202,11 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="workshop::Ports" referenceName="ports"/>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
           </ownedTools>
         </toolSections>
       </defaultLayer>

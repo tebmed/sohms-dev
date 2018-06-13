@@ -78,13 +78,6 @@ public class WorkshopSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WorkshopPackage.WORKSTATION: {
-				Workstation workstation = (Workstation)theEObject;
-				T result = caseWorkstation(workstation);
-				if (result == null) result = caseNode(workstation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case WorkshopPackage.MACHINES: {
 				Machines machines = (Machines)theEObject;
 				T result = caseMachines(machines);
@@ -92,40 +85,19 @@ public class WorkshopSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WorkshopPackage.STORAGE: {
-				Storage storage = (Storage)theEObject;
-				T result = caseStorage(storage);
-				if (result == null) result = caseWorkstation(storage);
-				if (result == null) result = caseNode(storage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case WorkshopPackage.ASSEMBLY: {
-				Assembly assembly = (Assembly)theEObject;
-				T result = caseAssembly(assembly);
-				if (result == null) result = caseWorkstation(assembly);
-				if (result == null) result = caseNode(assembly);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case WorkshopPackage.EMPTY_NODE: {
-				EmptyNode emptyNode = (EmptyNode)theEObject;
-				T result = caseEmptyNode(emptyNode);
-				if (result == null) result = caseNode(emptyNode);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case WorkshopPackage.ASSEMBLY_MACHINE: {
-				AssemblyMachine assemblyMachine = (AssemblyMachine)theEObject;
-				T result = caseAssemblyMachine(assemblyMachine);
-				if (result == null) result = caseMachines(assemblyMachine);
-				if (result == null) result = caseNode(assemblyMachine);
+			case WorkshopPackage.ROBOT: {
+				Robot robot = (Robot)theEObject;
+				T result = caseRobot(robot);
+				if (result == null) result = caseAssembler(robot);
+				if (result == null) result = caseMachines(robot);
+				if (result == null) result = caseNode(robot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case WorkshopPackage.STORAGE_MACHINE: {
 				StorageMachine storageMachine = (StorageMachine)theEObject;
 				T result = caseStorageMachine(storageMachine);
+				if (result == null) result = caseAssembler(storageMachine);
 				if (result == null) result = caseMachines(storageMachine);
 				if (result == null) result = caseNode(storageMachine);
 				if (result == null) result = defaultCase(theEObject);
@@ -134,6 +106,7 @@ public class WorkshopSwitch<T> extends Switch<T> {
 			case WorkshopPackage.AGV: {
 				AGV agv = (AGV)theEObject;
 				T result = caseAGV(agv);
+				if (result == null) result = caseTransporter(agv);
 				if (result == null) result = caseMachines(agv);
 				if (result == null) result = caseNode(agv);
 				if (result == null) result = defaultCase(theEObject);
@@ -142,23 +115,24 @@ public class WorkshopSwitch<T> extends Switch<T> {
 			case WorkshopPackage.CONVEYOR: {
 				Conveyor conveyor = (Conveyor)theEObject;
 				T result = caseConveyor(conveyor);
+				if (result == null) result = caseTransporter(conveyor);
 				if (result == null) result = caseMachines(conveyor);
 				if (result == null) result = caseNode(conveyor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case WorkshopPackage.LINKER_MACHINE: {
-				LinkerMachine linkerMachine = (LinkerMachine)theEObject;
-				T result = caseLinkerMachine(linkerMachine);
-				if (result == null) result = caseMachines(linkerMachine);
-				if (result == null) result = caseNode(linkerMachine);
+			case WorkshopPackage.COMBINER: {
+				Combiner combiner = (Combiner)theEObject;
+				T result = caseCombiner(combiner);
+				if (result == null) result = caseMachines(combiner);
+				if (result == null) result = caseNode(combiner);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case WorkshopPackage.EXCHANGER: {
 				Exchanger exchanger = (Exchanger)theEObject;
 				T result = caseExchanger(exchanger);
-				if (result == null) result = caseLinkerMachine(exchanger);
+				if (result == null) result = caseCombiner(exchanger);
 				if (result == null) result = caseMachines(exchanger);
 				if (result == null) result = caseNode(exchanger);
 				if (result == null) result = defaultCase(theEObject);
@@ -167,7 +141,7 @@ public class WorkshopSwitch<T> extends Switch<T> {
 			case WorkshopPackage.FEEDER: {
 				Feeder feeder = (Feeder)theEObject;
 				T result = caseFeeder(feeder);
-				if (result == null) result = caseLinkerMachine(feeder);
+				if (result == null) result = caseCombiner(feeder);
 				if (result == null) result = caseMachines(feeder);
 				if (result == null) result = caseNode(feeder);
 				if (result == null) result = defaultCase(theEObject);
@@ -176,6 +150,76 @@ public class WorkshopSwitch<T> extends Switch<T> {
 			case WorkshopPackage.PORTS: {
 				Ports ports = (Ports)theEObject;
 				T result = casePorts(ports);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.ASSEMBLER: {
+				Assembler assembler = (Assembler)theEObject;
+				T result = caseAssembler(assembler);
+				if (result == null) result = caseMachines(assembler);
+				if (result == null) result = caseNode(assembler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.TRANSPORTER: {
+				Transporter transporter = (Transporter)theEObject;
+				T result = caseTransporter(transporter);
+				if (result == null) result = caseMachines(transporter);
+				if (result == null) result = caseNode(transporter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.FLOW_ITEM: {
+				FlowItem flowItem = (FlowItem)theEObject;
+				T result = caseFlowItem(flowItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.OPERATOR: {
+				Operator operator = (Operator)theEObject;
+				T result = caseOperator(operator);
+				if (result == null) result = caseTransporter(operator);
+				if (result == null) result = caseMachines(operator);
+				if (result == null) result = caseNode(operator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.PALLET: {
+				Pallet pallet = (Pallet)theEObject;
+				T result = casePallet(pallet);
+				if (result == null) result = caseFlowItem(pallet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.BOX: {
+				Box box = (Box)theEObject;
+				T result = caseBox(box);
+				if (result == null) result = caseFlowItem(box);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.TOTE: {
+				Tote tote = (Tote)theEObject;
+				T result = caseTote(tote);
+				if (result == null) result = caseFlowItem(tote);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.PROCESSOR: {
+				Processor processor = (Processor)theEObject;
+				T result = caseProcessor(processor);
+				if (result == null) result = caseAssembler(processor);
+				if (result == null) result = caseMachines(processor);
+				if (result == null) result = caseNode(processor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case WorkshopPackage.ELEVATOR: {
+				Elevator elevator = (Elevator)theEObject;
+				T result = caseElevator(elevator);
+				if (result == null) result = caseTransporter(elevator);
+				if (result == null) result = caseMachines(elevator);
+				if (result == null) result = caseNode(elevator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,21 +258,6 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Workstation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Workstation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseWorkstation(Workstation object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Machines</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -244,62 +273,17 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Storage</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Robot</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Storage</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Robot</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStorage(Storage object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assembly</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assembly</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAssembly(Assembly object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Empty Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Empty Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEmptyNode(EmptyNode object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assembly Machine</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assembly Machine</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAssemblyMachine(AssemblyMachine object) {
+	public T caseRobot(Robot object) {
 		return null;
 	}
 
@@ -349,17 +333,17 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Linker Machine</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Combiner</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Linker Machine</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Combiner</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLinkerMachine(LinkerMachine object) {
+	public T caseCombiner(Combiner object) {
 		return null;
 	}
 
@@ -405,6 +389,141 @@ public class WorkshopSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePorts(Ports object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assembler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assembler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssembler(Assembler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transporter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transporter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransporter(Transporter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flow Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flow Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlowItem(FlowItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperator(Operator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pallet</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pallet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePallet(Pallet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBox(Box object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tote</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tote</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTote(Tote object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Processor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcessor(Processor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Elevator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Elevator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElevator(Elevator object) {
 		return null;
 	}
 

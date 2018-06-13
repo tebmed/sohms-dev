@@ -40,15 +40,6 @@ public interface WorkshopFactory extends EFactory {
 	Node createNode();
 
 	/**
-	 * Returns a new object of class '<em>Workstation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Workstation</em>'.
-	 * @generated
-	 */
-	Workstation createWorkstation();
-
-	/**
 	 * Returns a new object of class '<em>Machines</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,40 +49,13 @@ public interface WorkshopFactory extends EFactory {
 	Machines createMachines();
 
 	/**
-	 * Returns a new object of class '<em>Storage</em>'.
+	 * Returns a new object of class '<em>Robot</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Storage</em>'.
+	 * @return a new object of class '<em>Robot</em>'.
 	 * @generated
 	 */
-	Storage createStorage();
-
-	/**
-	 * Returns a new object of class '<em>Assembly</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembly</em>'.
-	 * @generated
-	 */
-	Assembly createAssembly();
-
-	/**
-	 * Returns a new object of class '<em>Empty Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Empty Node</em>'.
-	 * @generated
-	 */
-	EmptyNode createEmptyNode();
-
-	/**
-	 * Returns a new object of class '<em>Assembly Machine</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembly Machine</em>'.
-	 * @generated
-	 */
-	AssemblyMachine createAssemblyMachine();
+	Robot createRobot();
 
 	/**
 	 * Returns a new object of class '<em>Storage Machine</em>'.
@@ -121,13 +85,13 @@ public interface WorkshopFactory extends EFactory {
 	Conveyor createConveyor();
 
 	/**
-	 * Returns a new object of class '<em>Linker Machine</em>'.
+	 * Returns a new object of class '<em>Combiner</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Linker Machine</em>'.
+	 * @return a new object of class '<em>Combiner</em>'.
 	 * @generated
 	 */
-	LinkerMachine createLinkerMachine();
+	Combiner createCombiner();
 
 	/**
 	 * Returns a new object of class '<em>Exchanger</em>'.
@@ -155,6 +119,87 @@ public interface WorkshopFactory extends EFactory {
 	 * @generated
 	 */
 	Ports createPorts();
+
+	/**
+	 * Returns a new object of class '<em>Assembler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assembler</em>'.
+	 * @generated
+	 */
+	Assembler createAssembler();
+
+	/**
+	 * Returns a new object of class '<em>Transporter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transporter</em>'.
+	 * @generated
+	 */
+	Transporter createTransporter();
+
+	/**
+	 * Returns a new object of class '<em>Flow Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flow Item</em>'.
+	 * @generated
+	 */
+	FlowItem createFlowItem();
+
+	/**
+	 * Returns a new object of class '<em>Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operator</em>'.
+	 * @generated
+	 */
+	Operator createOperator();
+
+	/**
+	 * Returns a new object of class '<em>Pallet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pallet</em>'.
+	 * @generated
+	 */
+	Pallet createPallet();
+
+	/**
+	 * Returns a new object of class '<em>Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Box</em>'.
+	 * @generated
+	 */
+	Box createBox();
+
+	/**
+	 * Returns a new object of class '<em>Tote</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tote</em>'.
+	 * @generated
+	 */
+	Tote createTote();
+
+	/**
+	 * Returns a new object of class '<em>Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Processor</em>'.
+	 * @generated
+	 */
+	Processor createProcessor();
+
+	/**
+	 * Returns a new object of class '<em>Elevator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Elevator</em>'.
+	 * @generated
+	 */
+	Elevator createElevator();
 
 	/**
 	 * Returns the package supported by this factory.

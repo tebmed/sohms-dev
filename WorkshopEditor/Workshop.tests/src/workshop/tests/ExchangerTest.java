@@ -13,7 +13,7 @@ import workshop.WorkshopFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExchangerTest extends LinkerMachineTest {
+public class ExchangerTest extends CombinerTest {
 
 	/**
 	 * <!-- begin-user-doc -->

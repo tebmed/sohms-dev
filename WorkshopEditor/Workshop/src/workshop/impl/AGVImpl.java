@@ -14,7 +14,7 @@ import workshop.WorkshopPackage;
  *
  * @generated
  */
-public class AGVImpl extends MachinesImpl implements AGV {
+public class AGVImpl extends TransporterImpl implements AGV {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

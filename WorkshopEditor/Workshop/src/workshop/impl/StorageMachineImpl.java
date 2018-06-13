@@ -14,7 +14,7 @@ import workshop.WorkshopPackage;
  *
  * @generated
  */
-public class StorageMachineImpl extends MachinesImpl implements StorageMachine {
+public class StorageMachineImpl extends AssemblerImpl implements StorageMachine {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

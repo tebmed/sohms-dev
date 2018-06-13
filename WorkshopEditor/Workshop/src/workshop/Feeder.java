@@ -13,5 +13,5 @@ package workshop;
  * @model
  * @generated
  */
-public interface Feeder extends LinkerMachine {
+public interface Feeder extends Combiner {
 } // Feeder

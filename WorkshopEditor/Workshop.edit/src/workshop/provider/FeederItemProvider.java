@@ -19,7 +19,7 @@ import workshop.Feeder;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FeederItemProvider extends LinkerMachineItemProvider {
+public class FeederItemProvider extends CombinerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

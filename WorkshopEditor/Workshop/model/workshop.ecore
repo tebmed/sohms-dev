@@ -12,30 +12,38 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ports" lowerBound="1" upperBound="-1"
         eType="#//Ports" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" upperBound="-1"
+        eType="#//Product" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Workstation" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Machines" eSuperTypes="#//Node"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Storage" eSuperTypes="#//Workstation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="storagemachine" upperBound="-1"
-        eType="#//StorageMachine" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Robot" eSuperTypes="#//Assembler"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageMachine" eSuperTypes="#//Assembler"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AGV" eSuperTypes="#//Transporter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conveyor" eSuperTypes="#//Transporter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//FlowItem" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Assembly" eSuperTypes="#//Workstation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblymachine" upperBound="-1"
-        eType="#//AssemblyMachine" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EmptyNode" eSuperTypes="#//Node"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AssemblyMachine" eSuperTypes="#//Machines"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StorageMachine" eSuperTypes="#//Machines"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AGV" eSuperTypes="#//Machines"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Conveyor" eSuperTypes="#//Machines"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkerMachine" eSuperTypes="#//Machines"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Exchanger" eSuperTypes="#//LinkerMachine"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Feeder" eSuperTypes="#//LinkerMachine"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Combiner" eSuperTypes="#//Machines"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Exchanger" eSuperTypes="#//Combiner"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Feeder" eSuperTypes="#//Combiner"/>
   <eClassifiers xsi:type="ecore:EClass" name="Ports">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Ports"
         eOpposite="#//Ports/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Ports"
         eOpposite="#//Ports/target"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assembler" eSuperTypes="#//Machines"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transporter" eSuperTypes="#//Machines"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//Transporter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pallet" eSuperTypes="#//FlowItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Box" eSuperTypes="#//FlowItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tote" eSuperTypes="#//FlowItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Processor" eSuperTypes="#//Assembler"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Elevator" eSuperTypes="#//Transporter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Product">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

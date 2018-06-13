@@ -14,7 +14,7 @@ import workshop.WorkshopPackage;
  *
  * @generated
  */
-public class FeederImpl extends LinkerMachineImpl implements Feeder {
+public class FeederImpl extends CombinerImpl implements Feeder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

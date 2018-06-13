@@ -13,5 +13,5 @@ package workshop;
  * @model
  * @generated
  */
-public interface StorageMachine extends Machines {
+public interface StorageMachine extends Assembler {
 } // StorageMachine

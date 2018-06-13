@@ -58,19 +58,24 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 		switch (eClass.getClassifierID()) {
 			case WorkshopPackage.LAYOUT: return createLayout();
 			case WorkshopPackage.NODE: return createNode();
-			case WorkshopPackage.WORKSTATION: return createWorkstation();
 			case WorkshopPackage.MACHINES: return createMachines();
-			case WorkshopPackage.STORAGE: return createStorage();
-			case WorkshopPackage.ASSEMBLY: return createAssembly();
-			case WorkshopPackage.EMPTY_NODE: return createEmptyNode();
-			case WorkshopPackage.ASSEMBLY_MACHINE: return createAssemblyMachine();
+			case WorkshopPackage.ROBOT: return createRobot();
 			case WorkshopPackage.STORAGE_MACHINE: return createStorageMachine();
 			case WorkshopPackage.AGV: return createAGV();
 			case WorkshopPackage.CONVEYOR: return createConveyor();
-			case WorkshopPackage.LINKER_MACHINE: return createLinkerMachine();
+			case WorkshopPackage.COMBINER: return createCombiner();
 			case WorkshopPackage.EXCHANGER: return createExchanger();
 			case WorkshopPackage.FEEDER: return createFeeder();
 			case WorkshopPackage.PORTS: return createPorts();
+			case WorkshopPackage.ASSEMBLER: return createAssembler();
+			case WorkshopPackage.TRANSPORTER: return createTransporter();
+			case WorkshopPackage.FLOW_ITEM: return createFlowItem();
+			case WorkshopPackage.OPERATOR: return createOperator();
+			case WorkshopPackage.PALLET: return createPallet();
+			case WorkshopPackage.BOX: return createBox();
+			case WorkshopPackage.TOTE: return createTote();
+			case WorkshopPackage.PROCESSOR: return createProcessor();
+			case WorkshopPackage.ELEVATOR: return createElevator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -101,16 +106,6 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Workstation createWorkstation() {
-		WorkstationImpl workstation = new WorkstationImpl();
-		return workstation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Machines createMachines() {
 		MachinesImpl machines = new MachinesImpl();
 		return machines;
@@ -121,39 +116,9 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Storage createStorage() {
-		StorageImpl storage = new StorageImpl();
-		return storage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Assembly createAssembly() {
-		AssemblyImpl assembly = new AssemblyImpl();
-		return assembly;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EmptyNode createEmptyNode() {
-		EmptyNodeImpl emptyNode = new EmptyNodeImpl();
-		return emptyNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyMachine createAssemblyMachine() {
-		AssemblyMachineImpl assemblyMachine = new AssemblyMachineImpl();
-		return assemblyMachine;
+	public Robot createRobot() {
+		RobotImpl robot = new RobotImpl();
+		return robot;
 	}
 
 	/**
@@ -191,9 +156,9 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LinkerMachine createLinkerMachine() {
-		LinkerMachineImpl linkerMachine = new LinkerMachineImpl();
-		return linkerMachine;
+	public Combiner createCombiner() {
+		CombinerImpl combiner = new CombinerImpl();
+		return combiner;
 	}
 
 	/**
@@ -224,6 +189,96 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	public Ports createPorts() {
 		PortsImpl ports = new PortsImpl();
 		return ports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Assembler createAssembler() {
+		AssemblerImpl assembler = new AssemblerImpl();
+		return assembler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transporter createTransporter() {
+		TransporterImpl transporter = new TransporterImpl();
+		return transporter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlowItem createFlowItem() {
+		FlowItemImpl flowItem = new FlowItemImpl();
+		return flowItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operator createOperator() {
+		OperatorImpl operator = new OperatorImpl();
+		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Pallet createPallet() {
+		PalletImpl pallet = new PalletImpl();
+		return pallet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Box createBox() {
+		BoxImpl box = new BoxImpl();
+		return box;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Tote createTote() {
+		ToteImpl tote = new ToteImpl();
+		return tote;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Processor createProcessor() {
+		ProcessorImpl processor = new ProcessorImpl();
+		return processor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Elevator createElevator() {
+		ElevatorImpl elevator = new ElevatorImpl();
+		return elevator;
 	}
 
 	/**

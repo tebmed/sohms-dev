@@ -19,7 +19,7 @@ import workshop.Exchanger;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExchangerItemProvider extends LinkerMachineItemProvider {
+public class ExchangerItemProvider extends CombinerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

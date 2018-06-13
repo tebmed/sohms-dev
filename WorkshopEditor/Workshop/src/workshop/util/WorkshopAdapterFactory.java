@@ -76,28 +76,12 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 				return createNodeAdapter();
 			}
 			@Override
-			public Adapter caseWorkstation(Workstation object) {
-				return createWorkstationAdapter();
-			}
-			@Override
 			public Adapter caseMachines(Machines object) {
 				return createMachinesAdapter();
 			}
 			@Override
-			public Adapter caseStorage(Storage object) {
-				return createStorageAdapter();
-			}
-			@Override
-			public Adapter caseAssembly(Assembly object) {
-				return createAssemblyAdapter();
-			}
-			@Override
-			public Adapter caseEmptyNode(EmptyNode object) {
-				return createEmptyNodeAdapter();
-			}
-			@Override
-			public Adapter caseAssemblyMachine(AssemblyMachine object) {
-				return createAssemblyMachineAdapter();
+			public Adapter caseRobot(Robot object) {
+				return createRobotAdapter();
 			}
 			@Override
 			public Adapter caseStorageMachine(StorageMachine object) {
@@ -112,8 +96,8 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 				return createConveyorAdapter();
 			}
 			@Override
-			public Adapter caseLinkerMachine(LinkerMachine object) {
-				return createLinkerMachineAdapter();
+			public Adapter caseCombiner(Combiner object) {
+				return createCombinerAdapter();
 			}
 			@Override
 			public Adapter caseExchanger(Exchanger object) {
@@ -126,6 +110,42 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePorts(Ports object) {
 				return createPortsAdapter();
+			}
+			@Override
+			public Adapter caseAssembler(Assembler object) {
+				return createAssemblerAdapter();
+			}
+			@Override
+			public Adapter caseTransporter(Transporter object) {
+				return createTransporterAdapter();
+			}
+			@Override
+			public Adapter caseFlowItem(FlowItem object) {
+				return createFlowItemAdapter();
+			}
+			@Override
+			public Adapter caseOperator(Operator object) {
+				return createOperatorAdapter();
+			}
+			@Override
+			public Adapter casePallet(Pallet object) {
+				return createPalletAdapter();
+			}
+			@Override
+			public Adapter caseBox(Box object) {
+				return createBoxAdapter();
+			}
+			@Override
+			public Adapter caseTote(Tote object) {
+				return createToteAdapter();
+			}
+			@Override
+			public Adapter caseProcessor(Processor object) {
+				return createProcessorAdapter();
+			}
+			@Override
+			public Adapter caseElevator(Elevator object) {
+				return createElevatorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -176,20 +196,6 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link workshop.Workstation <em>Workstation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see workshop.Workstation
-	 * @generated
-	 */
-	public Adapter createWorkstationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link workshop.Machines <em>Machines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -204,58 +210,16 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link workshop.Storage <em>Storage</em>}'.
+	 * Creates a new adapter for an object of class '{@link workshop.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see workshop.Storage
+	 * @see workshop.Robot
 	 * @generated
 	 */
-	public Adapter createStorageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link workshop.Assembly <em>Assembly</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see workshop.Assembly
-	 * @generated
-	 */
-	public Adapter createAssemblyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link workshop.EmptyNode <em>Empty Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see workshop.EmptyNode
-	 * @generated
-	 */
-	public Adapter createEmptyNodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link workshop.AssemblyMachine <em>Assembly Machine</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see workshop.AssemblyMachine
-	 * @generated
-	 */
-	public Adapter createAssemblyMachineAdapter() {
+	public Adapter createRobotAdapter() {
 		return null;
 	}
 
@@ -302,16 +266,16 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link workshop.LinkerMachine <em>Linker Machine</em>}'.
+	 * Creates a new adapter for an object of class '{@link workshop.Combiner <em>Combiner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see workshop.LinkerMachine
+	 * @see workshop.Combiner
 	 * @generated
 	 */
-	public Adapter createLinkerMachineAdapter() {
+	public Adapter createCombinerAdapter() {
 		return null;
 	}
 
@@ -354,6 +318,132 @@ public class WorkshopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPortsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Assembler <em>Assembler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Assembler
+	 * @generated
+	 */
+	public Adapter createAssemblerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Transporter <em>Transporter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Transporter
+	 * @generated
+	 */
+	public Adapter createTransporterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.FlowItem <em>Flow Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.FlowItem
+	 * @generated
+	 */
+	public Adapter createFlowItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Operator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Operator
+	 * @generated
+	 */
+	public Adapter createOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Pallet <em>Pallet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Pallet
+	 * @generated
+	 */
+	public Adapter createPalletAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Box <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Box
+	 * @generated
+	 */
+	public Adapter createBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Tote <em>Tote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Tote
+	 * @generated
+	 */
+	public Adapter createToteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Processor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Processor
+	 * @generated
+	 */
+	public Adapter createProcessorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workshop.Elevator <em>Elevator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workshop.Elevator
+	 * @generated
+	 */
+	public Adapter createElevatorAdapter() {
 		return null;
 	}
 

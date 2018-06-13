@@ -19,7 +19,7 @@ import workshop.AGV;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AGVItemProvider extends MachinesItemProvider {
+public class AGVItemProvider extends TransporterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

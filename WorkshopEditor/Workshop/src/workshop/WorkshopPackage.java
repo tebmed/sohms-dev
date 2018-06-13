@@ -167,79 +167,6 @@ public interface WorkshopPackage extends EPackage {
 	int NODE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link workshop.impl.WorkstationImpl <em>Workstation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see workshop.impl.WorkstationImpl
-	 * @see workshop.impl.WorkshopPackageImpl#getWorkstation()
-	 * @generated
-	 */
-	int WORKSTATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION__DESCRIPTION = NODE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Technology</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION__TECHNOLOGY = NODE__TECHNOLOGY;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION__CATEGORY = NODE__CATEGORY;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION__NAME = NODE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION__PORTS = NODE__PORTS;
-
-	/**
-	 * The number of structural features of the '<em>Workstation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Workstation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORKSTATION_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link workshop.impl.MachinesImpl <em>Machines</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,7 +174,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getMachines()
 	 * @generated
 	 */
-	int MACHINES = 3;
+	int MACHINES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -313,14 +240,14 @@ public interface WorkshopPackage extends EPackage {
 	int MACHINES_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link workshop.impl.StorageImpl <em>Storage</em>}' class.
+	 * The meta object id for the '{@link workshop.impl.AssemblerImpl <em>Assembler</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see workshop.impl.StorageImpl
-	 * @see workshop.impl.WorkshopPackageImpl#getStorage()
+	 * @see workshop.impl.AssemblerImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getAssembler()
 	 * @generated
 	 */
-	int STORAGE = 4;
+	int ASSEMBLER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -329,7 +256,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE__DESCRIPTION = WORKSTATION__DESCRIPTION;
+	int ASSEMBLER__DESCRIPTION = MACHINES__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -338,7 +265,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE__TECHNOLOGY = WORKSTATION__TECHNOLOGY;
+	int ASSEMBLER__TECHNOLOGY = MACHINES__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -347,7 +274,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE__CATEGORY = WORKSTATION__CATEGORY;
+	int ASSEMBLER__CATEGORY = MACHINES__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -356,7 +283,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE__NAME = WORKSTATION__NAME;
+	int ASSEMBLER__NAME = MACHINES__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -365,44 +292,35 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE__PORTS = WORKSTATION__PORTS;
+	int ASSEMBLER__PORTS = MACHINES__PORTS;
 
 	/**
-	 * The feature id for the '<em><b>Storagemachine</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Assembler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE__STORAGEMACHINE = WORKSTATION_FEATURE_COUNT + 0;
+	int ASSEMBLER_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Storage</em>' class.
+	 * The number of operations of the '<em>Assembler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_FEATURE_COUNT = WORKSTATION_FEATURE_COUNT + 1;
+	int ASSEMBLER_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Storage</em>' class.
+	 * The meta object id for the '{@link workshop.impl.RobotImpl <em>Robot</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORAGE_OPERATION_COUNT = WORKSTATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link workshop.impl.AssemblyImpl <em>Assembly</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see workshop.impl.AssemblyImpl
-	 * @see workshop.impl.WorkshopPackageImpl#getAssembly()
+	 * @see workshop.impl.RobotImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getRobot()
 	 * @generated
 	 */
-	int ASSEMBLY = 5;
+	int ROBOT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -411,7 +329,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__DESCRIPTION = WORKSTATION__DESCRIPTION;
+	int ROBOT__DESCRIPTION = ASSEMBLER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -420,7 +338,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__TECHNOLOGY = WORKSTATION__TECHNOLOGY;
+	int ROBOT__TECHNOLOGY = ASSEMBLER__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -429,7 +347,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__CATEGORY = WORKSTATION__CATEGORY;
+	int ROBOT__CATEGORY = ASSEMBLER__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -438,7 +356,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__NAME = WORKSTATION__NAME;
+	int ROBOT__NAME = ASSEMBLER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -447,180 +365,25 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__PORTS = WORKSTATION__PORTS;
+	int ROBOT__PORTS = ASSEMBLER__PORTS;
 
 	/**
-	 * The feature id for the '<em><b>Assemblymachine</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__ASSEMBLYMACHINE = WORKSTATION_FEATURE_COUNT + 0;
+	int ROBOT_FEATURE_COUNT = ASSEMBLER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Assembly</em>' class.
+	 * The number of operations of the '<em>Robot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY_FEATURE_COUNT = WORKSTATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Assembly</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_OPERATION_COUNT = WORKSTATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link workshop.impl.EmptyNodeImpl <em>Empty Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see workshop.impl.EmptyNodeImpl
-	 * @see workshop.impl.WorkshopPackageImpl#getEmptyNode()
-	 * @generated
-	 */
-	int EMPTY_NODE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE__DESCRIPTION = NODE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Technology</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE__TECHNOLOGY = NODE__TECHNOLOGY;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE__CATEGORY = NODE__CATEGORY;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE__NAME = NODE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE__PORTS = NODE__PORTS;
-
-	/**
-	 * The number of structural features of the '<em>Empty Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Empty Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMPTY_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link workshop.impl.AssemblyMachineImpl <em>Assembly Machine</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see workshop.impl.AssemblyMachineImpl
-	 * @see workshop.impl.WorkshopPackageImpl#getAssemblyMachine()
-	 * @generated
-	 */
-	int ASSEMBLY_MACHINE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE__DESCRIPTION = MACHINES__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Technology</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE__TECHNOLOGY = MACHINES__TECHNOLOGY;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE__CATEGORY = MACHINES__CATEGORY;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE__NAME = MACHINES__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE__PORTS = MACHINES__PORTS;
-
-	/**
-	 * The number of structural features of the '<em>Assembly Machine</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Assembly Machine</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSEMBLY_MACHINE_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
+	int ROBOT_OPERATION_COUNT = ASSEMBLER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link workshop.impl.StorageMachineImpl <em>Storage Machine</em>}' class.
@@ -630,7 +393,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getStorageMachine()
 	 * @generated
 	 */
-	int STORAGE_MACHINE = 8;
+	int STORAGE_MACHINE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -639,7 +402,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE__DESCRIPTION = MACHINES__DESCRIPTION;
+	int STORAGE_MACHINE__DESCRIPTION = ASSEMBLER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -648,7 +411,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE__TECHNOLOGY = MACHINES__TECHNOLOGY;
+	int STORAGE_MACHINE__TECHNOLOGY = ASSEMBLER__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -657,7 +420,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE__CATEGORY = MACHINES__CATEGORY;
+	int STORAGE_MACHINE__CATEGORY = ASSEMBLER__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -666,7 +429,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE__NAME = MACHINES__NAME;
+	int STORAGE_MACHINE__NAME = ASSEMBLER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -675,7 +438,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE__PORTS = MACHINES__PORTS;
+	int STORAGE_MACHINE__PORTS = ASSEMBLER__PORTS;
 
 	/**
 	 * The number of structural features of the '<em>Storage Machine</em>' class.
@@ -684,7 +447,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
+	int STORAGE_MACHINE_FEATURE_COUNT = ASSEMBLER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Storage Machine</em>' class.
@@ -693,7 +456,80 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_MACHINE_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
+	int STORAGE_MACHINE_OPERATION_COUNT = ASSEMBLER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.TransporterImpl <em>Transporter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.TransporterImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getTransporter()
+	 * @generated
+	 */
+	int TRANSPORTER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__DESCRIPTION = MACHINES__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Technology</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__TECHNOLOGY = MACHINES__TECHNOLOGY;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__CATEGORY = MACHINES__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__NAME = MACHINES__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__PORTS = MACHINES__PORTS;
+
+	/**
+	 * The number of structural features of the '<em>Transporter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Transporter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link workshop.impl.AGVImpl <em>AGV</em>}' class.
@@ -703,7 +539,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getAGV()
 	 * @generated
 	 */
-	int AGV = 9;
+	int AGV = 5;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -712,7 +548,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV__DESCRIPTION = MACHINES__DESCRIPTION;
+	int AGV__DESCRIPTION = TRANSPORTER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -721,7 +557,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV__TECHNOLOGY = MACHINES__TECHNOLOGY;
+	int AGV__TECHNOLOGY = TRANSPORTER__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -730,7 +566,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV__CATEGORY = MACHINES__CATEGORY;
+	int AGV__CATEGORY = TRANSPORTER__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -739,7 +575,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV__NAME = MACHINES__NAME;
+	int AGV__NAME = TRANSPORTER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -748,7 +584,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV__PORTS = MACHINES__PORTS;
+	int AGV__PORTS = TRANSPORTER__PORTS;
 
 	/**
 	 * The number of structural features of the '<em>AGV</em>' class.
@@ -757,7 +593,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
+	int AGV_FEATURE_COUNT = TRANSPORTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>AGV</em>' class.
@@ -766,7 +602,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGV_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
+	int AGV_OPERATION_COUNT = TRANSPORTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link workshop.impl.ConveyorImpl <em>Conveyor</em>}' class.
@@ -776,7 +612,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getConveyor()
 	 * @generated
 	 */
-	int CONVEYOR = 10;
+	int CONVEYOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -785,7 +621,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR__DESCRIPTION = MACHINES__DESCRIPTION;
+	int CONVEYOR__DESCRIPTION = TRANSPORTER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -794,7 +630,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR__TECHNOLOGY = MACHINES__TECHNOLOGY;
+	int CONVEYOR__TECHNOLOGY = TRANSPORTER__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -803,7 +639,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR__CATEGORY = MACHINES__CATEGORY;
+	int CONVEYOR__CATEGORY = TRANSPORTER__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -812,7 +648,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR__NAME = MACHINES__NAME;
+	int CONVEYOR__NAME = TRANSPORTER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -821,7 +657,16 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR__PORTS = MACHINES__PORTS;
+	int CONVEYOR__PORTS = TRANSPORTER__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR__ITEMS = TRANSPORTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Conveyor</em>' class.
@@ -830,7 +675,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
+	int CONVEYOR_FEATURE_COUNT = TRANSPORTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Conveyor</em>' class.
@@ -839,17 +684,17 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
+	int CONVEYOR_OPERATION_COUNT = TRANSPORTER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link workshop.impl.LinkerMachineImpl <em>Linker Machine</em>}' class.
+	 * The meta object id for the '{@link workshop.impl.CombinerImpl <em>Combiner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see workshop.impl.LinkerMachineImpl
-	 * @see workshop.impl.WorkshopPackageImpl#getLinkerMachine()
+	 * @see workshop.impl.CombinerImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getCombiner()
 	 * @generated
 	 */
-	int LINKER_MACHINE = 11;
+	int COMBINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -858,7 +703,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE__DESCRIPTION = MACHINES__DESCRIPTION;
+	int COMBINER__DESCRIPTION = MACHINES__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -867,7 +712,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE__TECHNOLOGY = MACHINES__TECHNOLOGY;
+	int COMBINER__TECHNOLOGY = MACHINES__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -876,7 +721,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE__CATEGORY = MACHINES__CATEGORY;
+	int COMBINER__CATEGORY = MACHINES__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -885,7 +730,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE__NAME = MACHINES__NAME;
+	int COMBINER__NAME = MACHINES__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -894,25 +739,25 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE__PORTS = MACHINES__PORTS;
+	int COMBINER__PORTS = MACHINES__PORTS;
 
 	/**
-	 * The number of structural features of the '<em>Linker Machine</em>' class.
+	 * The number of structural features of the '<em>Combiner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
+	int COMBINER_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Linker Machine</em>' class.
+	 * The number of operations of the '<em>Combiner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINKER_MACHINE_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
+	int COMBINER_OPERATION_COUNT = MACHINES_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link workshop.impl.ExchangerImpl <em>Exchanger</em>}' class.
@@ -922,7 +767,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getExchanger()
 	 * @generated
 	 */
-	int EXCHANGER = 12;
+	int EXCHANGER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -931,7 +776,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER__DESCRIPTION = LINKER_MACHINE__DESCRIPTION;
+	int EXCHANGER__DESCRIPTION = COMBINER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -940,7 +785,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER__TECHNOLOGY = LINKER_MACHINE__TECHNOLOGY;
+	int EXCHANGER__TECHNOLOGY = COMBINER__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -949,7 +794,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER__CATEGORY = LINKER_MACHINE__CATEGORY;
+	int EXCHANGER__CATEGORY = COMBINER__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -958,7 +803,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER__NAME = LINKER_MACHINE__NAME;
+	int EXCHANGER__NAME = COMBINER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -967,7 +812,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER__PORTS = LINKER_MACHINE__PORTS;
+	int EXCHANGER__PORTS = COMBINER__PORTS;
 
 	/**
 	 * The number of structural features of the '<em>Exchanger</em>' class.
@@ -976,7 +821,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER_FEATURE_COUNT = LINKER_MACHINE_FEATURE_COUNT + 0;
+	int EXCHANGER_FEATURE_COUNT = COMBINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Exchanger</em>' class.
@@ -985,7 +830,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCHANGER_OPERATION_COUNT = LINKER_MACHINE_OPERATION_COUNT + 0;
+	int EXCHANGER_OPERATION_COUNT = COMBINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link workshop.impl.FeederImpl <em>Feeder</em>}' class.
@@ -995,7 +840,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getFeeder()
 	 * @generated
 	 */
-	int FEEDER = 13;
+	int FEEDER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1004,7 +849,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER__DESCRIPTION = LINKER_MACHINE__DESCRIPTION;
+	int FEEDER__DESCRIPTION = COMBINER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Technology</b></em>' attribute.
@@ -1013,7 +858,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER__TECHNOLOGY = LINKER_MACHINE__TECHNOLOGY;
+	int FEEDER__TECHNOLOGY = COMBINER__TECHNOLOGY;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -1022,7 +867,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER__CATEGORY = LINKER_MACHINE__CATEGORY;
+	int FEEDER__CATEGORY = COMBINER__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1031,7 +876,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER__NAME = LINKER_MACHINE__NAME;
+	int FEEDER__NAME = COMBINER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
@@ -1040,7 +885,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER__PORTS = LINKER_MACHINE__PORTS;
+	int FEEDER__PORTS = COMBINER__PORTS;
 
 	/**
 	 * The number of structural features of the '<em>Feeder</em>' class.
@@ -1049,7 +894,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER_FEATURE_COUNT = LINKER_MACHINE_FEATURE_COUNT + 0;
+	int FEEDER_FEATURE_COUNT = COMBINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Feeder</em>' class.
@@ -1058,7 +903,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEEDER_OPERATION_COUNT = LINKER_MACHINE_OPERATION_COUNT + 0;
+	int FEEDER_OPERATION_COUNT = COMBINER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link workshop.impl.PortsImpl <em>Ports</em>}' class.
@@ -1068,7 +913,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @see workshop.impl.WorkshopPackageImpl#getPorts()
 	 * @generated
 	 */
-	int PORTS = 14;
+	int PORTS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1114,6 +959,337 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int PORTS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.FlowItemImpl <em>Flow Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.FlowItemImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getFlowItem()
+	 * @generated
+	 */
+	int FLOW_ITEM = 13;
+
+	/**
+	 * The number of structural features of the '<em>Flow Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_ITEM_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Flow Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_ITEM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.OperatorImpl <em>Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.OperatorImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getOperator()
+	 * @generated
+	 */
+	int OPERATOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__DESCRIPTION = TRANSPORTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Technology</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__TECHNOLOGY = TRANSPORTER__TECHNOLOGY;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__CATEGORY = TRANSPORTER__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__NAME = TRANSPORTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__PORTS = TRANSPORTER__PORTS;
+
+	/**
+	 * The number of structural features of the '<em>Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_FEATURE_COUNT = TRANSPORTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_OPERATION_COUNT = TRANSPORTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.PalletImpl <em>Pallet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.PalletImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getPallet()
+	 * @generated
+	 */
+	int PALLET = 15;
+
+	/**
+	 * The number of structural features of the '<em>Pallet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PALLET_FEATURE_COUNT = FLOW_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Pallet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PALLET_OPERATION_COUNT = FLOW_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.BoxImpl <em>Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.BoxImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getBox()
+	 * @generated
+	 */
+	int BOX = 16;
+
+	/**
+	 * The number of structural features of the '<em>Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_FEATURE_COUNT = FLOW_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOX_OPERATION_COUNT = FLOW_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.ToteImpl <em>Tote</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.ToteImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getTote()
+	 * @generated
+	 */
+	int TOTE = 17;
+
+	/**
+	 * The number of structural features of the '<em>Tote</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOTE_FEATURE_COUNT = FLOW_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Tote</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOTE_OPERATION_COUNT = FLOW_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.ProcessorImpl <em>Processor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.ProcessorImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getProcessor()
+	 * @generated
+	 */
+	int PROCESSOR = 18;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__DESCRIPTION = ASSEMBLER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Technology</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__TECHNOLOGY = ASSEMBLER__TECHNOLOGY;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__CATEGORY = ASSEMBLER__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__NAME = ASSEMBLER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__PORTS = ASSEMBLER__PORTS;
+
+	/**
+	 * The number of structural features of the '<em>Processor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR_FEATURE_COUNT = ASSEMBLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Processor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR_OPERATION_COUNT = ASSEMBLER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.ElevatorImpl <em>Elevator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.ElevatorImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getElevator()
+	 * @generated
+	 */
+	int ELEVATOR = 19;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__DESCRIPTION = TRANSPORTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Technology</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__TECHNOLOGY = TRANSPORTER__TECHNOLOGY;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__CATEGORY = TRANSPORTER__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__NAME = TRANSPORTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__PORTS = TRANSPORTER__PORTS;
+
+	/**
+	 * The number of structural features of the '<em>Elevator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR_FEATURE_COUNT = TRANSPORTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Elevator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR_OPERATION_COUNT = TRANSPORTER_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1203,16 +1379,6 @@ public interface WorkshopPackage extends EPackage {
 	EReference getNode_Ports();
 
 	/**
-	 * Returns the meta object for class '{@link workshop.Workstation <em>Workstation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Workstation</em>'.
-	 * @see workshop.Workstation
-	 * @generated
-	 */
-	EClass getWorkstation();
-
-	/**
 	 * Returns the meta object for class '{@link workshop.Machines <em>Machines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,66 +1389,14 @@ public interface WorkshopPackage extends EPackage {
 	EClass getMachines();
 
 	/**
-	 * Returns the meta object for class '{@link workshop.Storage <em>Storage</em>}'.
+	 * Returns the meta object for class '{@link workshop.Robot <em>Robot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Storage</em>'.
-	 * @see workshop.Storage
+	 * @return the meta object for class '<em>Robot</em>'.
+	 * @see workshop.Robot
 	 * @generated
 	 */
-	EClass getStorage();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link workshop.Storage#getStoragemachine <em>Storagemachine</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Storagemachine</em>'.
-	 * @see workshop.Storage#getStoragemachine()
-	 * @see #getStorage()
-	 * @generated
-	 */
-	EReference getStorage_Storagemachine();
-
-	/**
-	 * Returns the meta object for class '{@link workshop.Assembly <em>Assembly</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Assembly</em>'.
-	 * @see workshop.Assembly
-	 * @generated
-	 */
-	EClass getAssembly();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link workshop.Assembly#getAssemblymachine <em>Assemblymachine</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Assemblymachine</em>'.
-	 * @see workshop.Assembly#getAssemblymachine()
-	 * @see #getAssembly()
-	 * @generated
-	 */
-	EReference getAssembly_Assemblymachine();
-
-	/**
-	 * Returns the meta object for class '{@link workshop.EmptyNode <em>Empty Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Empty Node</em>'.
-	 * @see workshop.EmptyNode
-	 * @generated
-	 */
-	EClass getEmptyNode();
-
-	/**
-	 * Returns the meta object for class '{@link workshop.AssemblyMachine <em>Assembly Machine</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Assembly Machine</em>'.
-	 * @see workshop.AssemblyMachine
-	 * @generated
-	 */
-	EClass getAssemblyMachine();
+	EClass getRobot();
 
 	/**
 	 * Returns the meta object for class '{@link workshop.StorageMachine <em>Storage Machine</em>}'.
@@ -1315,14 +1429,25 @@ public interface WorkshopPackage extends EPackage {
 	EClass getConveyor();
 
 	/**
-	 * Returns the meta object for class '{@link workshop.LinkerMachine <em>Linker Machine</em>}'.
+	 * Returns the meta object for the containment reference list '{@link workshop.Conveyor#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Linker Machine</em>'.
-	 * @see workshop.LinkerMachine
+	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @see workshop.Conveyor#getItems()
+	 * @see #getConveyor()
 	 * @generated
 	 */
-	EClass getLinkerMachine();
+	EReference getConveyor_Items();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Combiner <em>Combiner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Combiner</em>'.
+	 * @see workshop.Combiner
+	 * @generated
+	 */
+	EClass getCombiner();
 
 	/**
 	 * Returns the meta object for class '{@link workshop.Exchanger <em>Exchanger</em>}'.
@@ -1386,6 +1511,96 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPorts_Source();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Assembler <em>Assembler</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assembler</em>'.
+	 * @see workshop.Assembler
+	 * @generated
+	 */
+	EClass getAssembler();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Transporter <em>Transporter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Transporter</em>'.
+	 * @see workshop.Transporter
+	 * @generated
+	 */
+	EClass getTransporter();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.FlowItem <em>Flow Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flow Item</em>'.
+	 * @see workshop.FlowItem
+	 * @generated
+	 */
+	EClass getFlowItem();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Operator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operator</em>'.
+	 * @see workshop.Operator
+	 * @generated
+	 */
+	EClass getOperator();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Pallet <em>Pallet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pallet</em>'.
+	 * @see workshop.Pallet
+	 * @generated
+	 */
+	EClass getPallet();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Box <em>Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Box</em>'.
+	 * @see workshop.Box
+	 * @generated
+	 */
+	EClass getBox();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Tote <em>Tote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tote</em>'.
+	 * @see workshop.Tote
+	 * @generated
+	 */
+	EClass getTote();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Processor <em>Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Processor</em>'.
+	 * @see workshop.Processor
+	 * @generated
+	 */
+	EClass getProcessor();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Elevator <em>Elevator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Elevator</em>'.
+	 * @see workshop.Elevator
+	 * @generated
+	 */
+	EClass getElevator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1479,16 +1694,6 @@ public interface WorkshopPackage extends EPackage {
 		EReference NODE__PORTS = eINSTANCE.getNode_Ports();
 
 		/**
-		 * The meta object literal for the '{@link workshop.impl.WorkstationImpl <em>Workstation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see workshop.impl.WorkstationImpl
-		 * @see workshop.impl.WorkshopPackageImpl#getWorkstation()
-		 * @generated
-		 */
-		EClass WORKSTATION = eINSTANCE.getWorkstation();
-
-		/**
 		 * The meta object literal for the '{@link workshop.impl.MachinesImpl <em>Machines</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1499,60 +1704,14 @@ public interface WorkshopPackage extends EPackage {
 		EClass MACHINES = eINSTANCE.getMachines();
 
 		/**
-		 * The meta object literal for the '{@link workshop.impl.StorageImpl <em>Storage</em>}' class.
+		 * The meta object literal for the '{@link workshop.impl.RobotImpl <em>Robot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see workshop.impl.StorageImpl
-		 * @see workshop.impl.WorkshopPackageImpl#getStorage()
+		 * @see workshop.impl.RobotImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getRobot()
 		 * @generated
 		 */
-		EClass STORAGE = eINSTANCE.getStorage();
-
-		/**
-		 * The meta object literal for the '<em><b>Storagemachine</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STORAGE__STORAGEMACHINE = eINSTANCE.getStorage_Storagemachine();
-
-		/**
-		 * The meta object literal for the '{@link workshop.impl.AssemblyImpl <em>Assembly</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see workshop.impl.AssemblyImpl
-		 * @see workshop.impl.WorkshopPackageImpl#getAssembly()
-		 * @generated
-		 */
-		EClass ASSEMBLY = eINSTANCE.getAssembly();
-
-		/**
-		 * The meta object literal for the '<em><b>Assemblymachine</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSEMBLY__ASSEMBLYMACHINE = eINSTANCE.getAssembly_Assemblymachine();
-
-		/**
-		 * The meta object literal for the '{@link workshop.impl.EmptyNodeImpl <em>Empty Node</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see workshop.impl.EmptyNodeImpl
-		 * @see workshop.impl.WorkshopPackageImpl#getEmptyNode()
-		 * @generated
-		 */
-		EClass EMPTY_NODE = eINSTANCE.getEmptyNode();
-
-		/**
-		 * The meta object literal for the '{@link workshop.impl.AssemblyMachineImpl <em>Assembly Machine</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see workshop.impl.AssemblyMachineImpl
-		 * @see workshop.impl.WorkshopPackageImpl#getAssemblyMachine()
-		 * @generated
-		 */
-		EClass ASSEMBLY_MACHINE = eINSTANCE.getAssemblyMachine();
+		EClass ROBOT = eINSTANCE.getRobot();
 
 		/**
 		 * The meta object literal for the '{@link workshop.impl.StorageMachineImpl <em>Storage Machine</em>}' class.
@@ -1585,14 +1744,22 @@ public interface WorkshopPackage extends EPackage {
 		EClass CONVEYOR = eINSTANCE.getConveyor();
 
 		/**
-		 * The meta object literal for the '{@link workshop.impl.LinkerMachineImpl <em>Linker Machine</em>}' class.
+		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see workshop.impl.LinkerMachineImpl
-		 * @see workshop.impl.WorkshopPackageImpl#getLinkerMachine()
 		 * @generated
 		 */
-		EClass LINKER_MACHINE = eINSTANCE.getLinkerMachine();
+		EReference CONVEYOR__ITEMS = eINSTANCE.getConveyor_Items();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.CombinerImpl <em>Combiner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.CombinerImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getCombiner()
+		 * @generated
+		 */
+		EClass COMBINER = eINSTANCE.getCombiner();
 
 		/**
 		 * The meta object literal for the '{@link workshop.impl.ExchangerImpl <em>Exchanger</em>}' class.
@@ -1647,6 +1814,96 @@ public interface WorkshopPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PORTS__SOURCE = eINSTANCE.getPorts_Source();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.AssemblerImpl <em>Assembler</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.AssemblerImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getAssembler()
+		 * @generated
+		 */
+		EClass ASSEMBLER = eINSTANCE.getAssembler();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.TransporterImpl <em>Transporter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.TransporterImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getTransporter()
+		 * @generated
+		 */
+		EClass TRANSPORTER = eINSTANCE.getTransporter();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.FlowItemImpl <em>Flow Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.FlowItemImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getFlowItem()
+		 * @generated
+		 */
+		EClass FLOW_ITEM = eINSTANCE.getFlowItem();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.OperatorImpl <em>Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.OperatorImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getOperator()
+		 * @generated
+		 */
+		EClass OPERATOR = eINSTANCE.getOperator();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.PalletImpl <em>Pallet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.PalletImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getPallet()
+		 * @generated
+		 */
+		EClass PALLET = eINSTANCE.getPallet();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.BoxImpl <em>Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.BoxImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getBox()
+		 * @generated
+		 */
+		EClass BOX = eINSTANCE.getBox();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.ToteImpl <em>Tote</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.ToteImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getTote()
+		 * @generated
+		 */
+		EClass TOTE = eINSTANCE.getTote();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.ProcessorImpl <em>Processor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.ProcessorImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getProcessor()
+		 * @generated
+		 */
+		EClass PROCESSOR = eINSTANCE.getProcessor();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.ElevatorImpl <em>Elevator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.ElevatorImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getElevator()
+		 * @generated
+		 */
+		EClass ELEVATOR = eINSTANCE.getElevator();
 
 	}
 

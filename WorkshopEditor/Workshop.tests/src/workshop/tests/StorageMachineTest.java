@@ -13,7 +13,7 @@ import workshop.WorkshopFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StorageMachineTest extends MachinesTest {
+public class StorageMachineTest extends AssemblerTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -13,5 +13,5 @@ package workshop;
  * @model
  * @generated
  */
-public interface Exchanger extends LinkerMachine {
+public interface Exchanger extends Combiner {
 } // Exchanger

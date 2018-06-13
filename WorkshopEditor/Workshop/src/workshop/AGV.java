@@ -13,5 +13,5 @@ package workshop;
  * @model
  * @generated
  */
-public interface AGV extends Machines {
+public interface AGV extends Transporter {
 } // AGV

@@ -14,7 +14,7 @@ import workshop.WorkshopPackage;
  *
  * @generated
  */
-public class ExchangerImpl extends LinkerMachineImpl implements Exchanger {
+public class ExchangerImpl extends CombinerImpl implements Exchanger {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
