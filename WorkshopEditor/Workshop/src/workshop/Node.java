@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link workshop.Node#getCategory <em>Category</em>}</li>
  *   <li>{@link workshop.Node#getName <em>Name</em>}</li>
  *   <li>{@link workshop.Node#getPorts <em>Ports</em>}</li>
+ *   <li>{@link workshop.Node#getProduct <em>Product</em>}</li>
  * </ul>
  *
  * @see workshop.WorkshopPackage#getNode()
@@ -146,5 +147,21 @@ public interface Node extends EObject {
 	 * @generated
 	 */
 	EList<Ports> getPorts();
+
+	/**
+	 * Returns the value of the '<em><b>Product</b></em>' containment reference list.
+	 * The list contents are of type {@link workshop.Product}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Product</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Product</em>' containment reference list.
+	 * @see workshop.WorkshopPackage#getNode_Product()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Product> getProduct();
 
 } // Node

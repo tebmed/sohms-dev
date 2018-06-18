@@ -3,23 +3,24 @@
 package workshop.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import workshop.Conveyor;
+
+import workshop.EmptyNode;
 import workshop.WorkshopPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Conveyor</b></em>'.
+ * An implementation of the model object '<em><b>Empty Node</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ConveyorImpl extends TransporterImpl implements Conveyor {
+public class EmptyNodeImpl extends NodeImpl implements EmptyNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConveyorImpl() {
+	protected EmptyNodeImpl() {
 		super();
 	}
 
@@ -30,7 +31,7 @@ public class ConveyorImpl extends TransporterImpl implements Conveyor {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return WorkshopPackage.Literals.CONVEYOR;
+		return WorkshopPackage.Literals.EMPTY_NODE;
 	}
 
-} //ConveyorImpl
+} //EmptyNodeImpl

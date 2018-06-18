@@ -172,6 +172,7 @@ public class NodeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(WorkshopPackage.Literals.NODE__PORTS);
+			childrenFeatures.add(WorkshopPackage.Literals.NODE__PRODUCT);
 		}
 		return childrenFeatures;
 	}
@@ -234,6 +235,7 @@ public class NodeItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case WorkshopPackage.NODE__PORTS:
+			case WorkshopPackage.NODE__PRODUCT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -255,6 +257,11 @@ public class NodeItemProvider
 			(createChildParameter
 				(WorkshopPackage.Literals.NODE__PORTS,
 				 WorkshopFactory.eINSTANCE.createPorts()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkshopPackage.Literals.NODE__PRODUCT,
+				 WorkshopFactory.eINSTANCE.createProduct()));
 	}
 
 	/**

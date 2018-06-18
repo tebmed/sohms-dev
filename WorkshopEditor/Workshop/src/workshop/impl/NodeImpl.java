@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import workshop.Node;
 import workshop.Ports;
+import workshop.Product;
 import workshop.WorkshopPackage;
 
 /**
@@ -35,6 +36,7 @@ import workshop.WorkshopPackage;
  *   <li>{@link workshop.impl.NodeImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link workshop.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link workshop.impl.NodeImpl#getPorts <em>Ports</em>}</li>
+ *   <li>{@link workshop.impl.NodeImpl#getProduct <em>Product</em>}</li>
  * </ul>
  *
  * @generated
@@ -129,6 +131,16 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * @ordered
 	 */
 	protected EList<Ports> ports;
+
+	/**
+	 * The cached value of the '{@link #getProduct() <em>Product</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProduct()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Product> product;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,11 +262,25 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Product> getProduct() {
+		if (product == null) {
+			product = new EObjectContainmentEList<Product>(Product.class, this, WorkshopPackage.NODE__PRODUCT);
+		}
+		return product;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case WorkshopPackage.NODE__PORTS:
 				return ((InternalEList<?>)getPorts()).basicRemove(otherEnd, msgs);
+			case WorkshopPackage.NODE__PRODUCT:
+				return ((InternalEList<?>)getProduct()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -277,6 +303,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return getName();
 			case WorkshopPackage.NODE__PORTS:
 				return getPorts();
+			case WorkshopPackage.NODE__PRODUCT:
+				return getProduct();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,6 +334,10 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				getPorts().clear();
 				getPorts().addAll((Collection<? extends Ports>)newValue);
 				return;
+			case WorkshopPackage.NODE__PRODUCT:
+				getProduct().clear();
+				getProduct().addAll((Collection<? extends Product>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -333,6 +365,9 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 			case WorkshopPackage.NODE__PORTS:
 				getPorts().clear();
 				return;
+			case WorkshopPackage.NODE__PRODUCT:
+				getProduct().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -355,6 +390,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case WorkshopPackage.NODE__PORTS:
 				return ports != null && !ports.isEmpty();
+			case WorkshopPackage.NODE__PRODUCT:
+				return product != null && !product.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

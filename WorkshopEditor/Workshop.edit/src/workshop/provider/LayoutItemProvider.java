@@ -217,6 +217,11 @@ public class LayoutItemProvider
 			(createChildParameter
 				(WorkshopPackage.Literals.LAYOUT__NODES,
 				 WorkshopFactory.eINSTANCE.createElevator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkshopPackage.Literals.LAYOUT__NODES,
+				 WorkshopFactory.eINSTANCE.createEmptyNode()));
 	}
 
 	/**

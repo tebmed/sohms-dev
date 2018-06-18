@@ -8,23 +8,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import workshop.Conveyor;
+
+import workshop.EmptyNode;
 
 /**
- * This is the item provider adapter for a {@link workshop.Conveyor} object.
+ * This is the item provider adapter for a {@link workshop.EmptyNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConveyorItemProvider extends TransporterItemProvider {
+public class EmptyNodeItemProvider extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConveyorItemProvider(AdapterFactory adapterFactory) {
+	public EmptyNodeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +46,14 @@ public class ConveyorItemProvider extends TransporterItemProvider {
 	}
 
 	/**
-	 * This returns Conveyor.gif.
+	 * This returns EmptyNode.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Conveyor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EmptyNode"));
 	}
 
 	/**
@@ -62,10 +64,10 @@ public class ConveyorItemProvider extends TransporterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Conveyor)object).getName();
+		String label = ((EmptyNode)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Conveyor_type") :
-			getString("_UI_Conveyor_type") + " " + label;
+			getString("_UI_EmptyNode_type") :
+			getString("_UI_EmptyNode_type") + " " + label;
 	}
 	
 

@@ -76,6 +76,8 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 			case WorkshopPackage.TOTE: return createTote();
 			case WorkshopPackage.PROCESSOR: return createProcessor();
 			case WorkshopPackage.ELEVATOR: return createElevator();
+			case WorkshopPackage.PRODUCT: return createProduct();
+			case WorkshopPackage.EMPTY_NODE: return createEmptyNode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -279,6 +281,26 @@ public class WorkshopFactoryImpl extends EFactoryImpl implements WorkshopFactory
 	public Elevator createElevator() {
 		ElevatorImpl elevator = new ElevatorImpl();
 		return elevator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Product createProduct() {
+		ProductImpl product = new ProductImpl();
+		return product;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EmptyNode createEmptyNode() {
+		EmptyNodeImpl emptyNode = new EmptyNodeImpl();
+		return emptyNode;
 	}
 
 	/**

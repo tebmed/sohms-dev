@@ -532,6 +532,52 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link workshop.Product} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProductItemProvider productItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.Product}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProductAdapter() {
+		if (productItemProvider == null) {
+			productItemProvider = new ProductItemProvider(this);
+		}
+
+		return productItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link workshop.EmptyNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EmptyNodeItemProvider emptyNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workshop.EmptyNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEmptyNodeAdapter() {
+		if (emptyNodeItemProvider == null) {
+			emptyNodeItemProvider = new EmptyNodeItemProvider(this);
+		}
+
+		return emptyNodeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -650,6 +696,8 @@ public class WorkshopItemProviderAdapterFactory extends WorkshopAdapterFactory i
 		if (toteItemProvider != null) toteItemProvider.dispose();
 		if (processorItemProvider != null) processorItemProvider.dispose();
 		if (elevatorItemProvider != null) elevatorItemProvider.dispose();
+		if (productItemProvider != null) productItemProvider.dispose();
+		if (emptyNodeItemProvider != null) emptyNodeItemProvider.dispose();
 	}
 
 }

@@ -202,6 +202,24 @@ public interface WorkshopFactory extends EFactory {
 	Elevator createElevator();
 
 	/**
+	 * Returns a new object of class '<em>Product</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Product</em>'.
+	 * @generated
+	 */
+	Product createProduct();
+
+	/**
+	 * Returns a new object of class '<em>Empty Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Empty Node</em>'.
+	 * @generated
+	 */
+	EmptyNode createEmptyNode();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

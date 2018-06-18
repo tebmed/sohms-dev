@@ -149,13 +149,22 @@ public interface WorkshopPackage extends EPackage {
 	int NODE__PORTS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__PRODUCT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = 5;
+	int NODE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -220,6 +229,15 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int MACHINES__PORTS = NODE__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACHINES__PRODUCT = NODE__PRODUCT;
 
 	/**
 	 * The number of structural features of the '<em>Machines</em>' class.
@@ -295,6 +313,15 @@ public interface WorkshopPackage extends EPackage {
 	int ASSEMBLER__PORTS = MACHINES__PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSEMBLER__PRODUCT = MACHINES__PRODUCT;
+
+	/**
 	 * The number of structural features of the '<em>Assembler</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +393,15 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROBOT__PORTS = ASSEMBLER__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT__PRODUCT = ASSEMBLER__PRODUCT;
 
 	/**
 	 * The number of structural features of the '<em>Robot</em>' class.
@@ -441,6 +477,15 @@ public interface WorkshopPackage extends EPackage {
 	int STORAGE_MACHINE__PORTS = ASSEMBLER__PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORAGE_MACHINE__PRODUCT = ASSEMBLER__PRODUCT;
+
+	/**
 	 * The number of structural features of the '<em>Storage Machine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -514,13 +559,31 @@ public interface WorkshopPackage extends EPackage {
 	int TRANSPORTER__PORTS = MACHINES__PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__PRODUCT = MACHINES__PRODUCT;
+
+	/**
+	 * The feature id for the '<em><b>Flowitem</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSPORTER__FLOWITEM = MACHINES_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Transporter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSPORTER_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 0;
+	int TRANSPORTER_FEATURE_COUNT = MACHINES_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Transporter</em>' class.
@@ -585,6 +648,24 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int AGV__PORTS = TRANSPORTER__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGV__PRODUCT = TRANSPORTER__PRODUCT;
+
+	/**
+	 * The feature id for the '<em><b>Flowitem</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGV__FLOWITEM = TRANSPORTER__FLOWITEM;
 
 	/**
 	 * The number of structural features of the '<em>AGV</em>' class.
@@ -660,13 +741,22 @@ public interface WorkshopPackage extends EPackage {
 	int CONVEYOR__PORTS = TRANSPORTER__PORTS;
 
 	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR__ITEMS = TRANSPORTER_FEATURE_COUNT + 0;
+	int CONVEYOR__PRODUCT = TRANSPORTER__PRODUCT;
+
+	/**
+	 * The feature id for the '<em><b>Flowitem</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR__FLOWITEM = TRANSPORTER__FLOWITEM;
 
 	/**
 	 * The number of structural features of the '<em>Conveyor</em>' class.
@@ -675,7 +765,7 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONVEYOR_FEATURE_COUNT = TRANSPORTER_FEATURE_COUNT + 1;
+	int CONVEYOR_FEATURE_COUNT = TRANSPORTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Conveyor</em>' class.
@@ -740,6 +830,15 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMBINER__PORTS = MACHINES__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINER__PRODUCT = MACHINES__PRODUCT;
 
 	/**
 	 * The number of structural features of the '<em>Combiner</em>' class.
@@ -815,6 +914,15 @@ public interface WorkshopPackage extends EPackage {
 	int EXCHANGER__PORTS = COMBINER__PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCHANGER__PRODUCT = COMBINER__PRODUCT;
+
+	/**
 	 * The number of structural features of the '<em>Exchanger</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -886,6 +994,15 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int FEEDER__PORTS = COMBINER__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDER__PRODUCT = COMBINER__PRODUCT;
 
 	/**
 	 * The number of structural features of the '<em>Feeder</em>' class.
@@ -1042,6 +1159,24 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR__PORTS = TRANSPORTER__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__PRODUCT = TRANSPORTER__PRODUCT;
+
+	/**
+	 * The feature id for the '<em><b>Flowitem</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__FLOWITEM = TRANSPORTER__FLOWITEM;
 
 	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
@@ -1201,6 +1336,15 @@ public interface WorkshopPackage extends EPackage {
 	int PROCESSOR__PORTS = ASSEMBLER__PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSOR__PRODUCT = ASSEMBLER__PRODUCT;
+
+	/**
 	 * The number of structural features of the '<em>Processor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1274,6 +1418,24 @@ public interface WorkshopPackage extends EPackage {
 	int ELEVATOR__PORTS = TRANSPORTER__PORTS;
 
 	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__PRODUCT = TRANSPORTER__PRODUCT;
+
+	/**
+	 * The feature id for the '<em><b>Flowitem</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEVATOR__FLOWITEM = TRANSPORTER__FLOWITEM;
+
+	/**
 	 * The number of structural features of the '<em>Elevator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1290,6 +1452,135 @@ public interface WorkshopPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEVATOR_OPERATION_COUNT = TRANSPORTER_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.ProductImpl <em>Product</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.ProductImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getProduct()
+	 * @generated
+	 */
+	int PRODUCT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Product</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Product</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link workshop.impl.EmptyNodeImpl <em>Empty Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workshop.impl.EmptyNodeImpl
+	 * @see workshop.impl.WorkshopPackageImpl#getEmptyNode()
+	 * @generated
+	 */
+	int EMPTY_NODE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE__DESCRIPTION = NODE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Technology</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE__TECHNOLOGY = NODE__TECHNOLOGY;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE__CATEGORY = NODE__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE__NAME = NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE__PORTS = NODE__PORTS;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE__PRODUCT = NODE__PRODUCT;
+
+	/**
+	 * The number of structural features of the '<em>Empty Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Empty Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1379,6 +1670,17 @@ public interface WorkshopPackage extends EPackage {
 	EReference getNode_Ports();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link workshop.Node#getProduct <em>Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Product</em>'.
+	 * @see workshop.Node#getProduct()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EReference getNode_Product();
+
+	/**
 	 * Returns the meta object for class '{@link workshop.Machines <em>Machines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1427,17 +1729,6 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConveyor();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link workshop.Conveyor#getItems <em>Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Items</em>'.
-	 * @see workshop.Conveyor#getItems()
-	 * @see #getConveyor()
-	 * @generated
-	 */
-	EReference getConveyor_Items();
 
 	/**
 	 * Returns the meta object for class '{@link workshop.Combiner <em>Combiner</em>}'.
@@ -1533,6 +1824,17 @@ public interface WorkshopPackage extends EPackage {
 	EClass getTransporter();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link workshop.Transporter#getFlowitem <em>Flowitem</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Flowitem</em>'.
+	 * @see workshop.Transporter#getFlowitem()
+	 * @see #getTransporter()
+	 * @generated
+	 */
+	EReference getTransporter_Flowitem();
+
+	/**
 	 * Returns the meta object for class '{@link workshop.FlowItem <em>Flow Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1601,6 +1903,48 @@ public interface WorkshopPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getElevator();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.Product <em>Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Product</em>'.
+	 * @see workshop.Product
+	 * @generated
+	 */
+	EClass getProduct();
+
+	/**
+	 * Returns the meta object for the attribute '{@link workshop.Product#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see workshop.Product#getId()
+	 * @see #getProduct()
+	 * @generated
+	 */
+	EAttribute getProduct_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link workshop.Product#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see workshop.Product#getDescription()
+	 * @see #getProduct()
+	 * @generated
+	 */
+	EAttribute getProduct_Description();
+
+	/**
+	 * Returns the meta object for class '{@link workshop.EmptyNode <em>Empty Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Empty Node</em>'.
+	 * @see workshop.EmptyNode
+	 * @generated
+	 */
+	EClass getEmptyNode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1694,6 +2038,14 @@ public interface WorkshopPackage extends EPackage {
 		EReference NODE__PORTS = eINSTANCE.getNode_Ports();
 
 		/**
+		 * The meta object literal for the '<em><b>Product</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NODE__PRODUCT = eINSTANCE.getNode_Product();
+
+		/**
 		 * The meta object literal for the '{@link workshop.impl.MachinesImpl <em>Machines</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1742,14 +2094,6 @@ public interface WorkshopPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONVEYOR = eINSTANCE.getConveyor();
-
-		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONVEYOR__ITEMS = eINSTANCE.getConveyor_Items();
 
 		/**
 		 * The meta object literal for the '{@link workshop.impl.CombinerImpl <em>Combiner</em>}' class.
@@ -1836,6 +2180,14 @@ public interface WorkshopPackage extends EPackage {
 		EClass TRANSPORTER = eINSTANCE.getTransporter();
 
 		/**
+		 * The meta object literal for the '<em><b>Flowitem</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSPORTER__FLOWITEM = eINSTANCE.getTransporter_Flowitem();
+
+		/**
 		 * The meta object literal for the '{@link workshop.impl.FlowItemImpl <em>Flow Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1904,6 +2256,42 @@ public interface WorkshopPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ELEVATOR = eINSTANCE.getElevator();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.ProductImpl <em>Product</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.ProductImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getProduct()
+		 * @generated
+		 */
+		EClass PRODUCT = eINSTANCE.getProduct();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRODUCT__ID = eINSTANCE.getProduct_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRODUCT__DESCRIPTION = eINSTANCE.getProduct_Description();
+
+		/**
+		 * The meta object literal for the '{@link workshop.impl.EmptyNodeImpl <em>Empty Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workshop.impl.EmptyNodeImpl
+		 * @see workshop.impl.WorkshopPackageImpl#getEmptyNode()
+		 * @generated
+		 */
+		EClass EMPTY_NODE = eINSTANCE.getEmptyNode();
 
 	}
 

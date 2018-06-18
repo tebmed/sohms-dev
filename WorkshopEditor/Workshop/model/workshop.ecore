@@ -19,10 +19,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Robot" eSuperTypes="#//Assembler"/>
   <eClassifiers xsi:type="ecore:EClass" name="StorageMachine" eSuperTypes="#//Assembler"/>
   <eClassifiers xsi:type="ecore:EClass" name="AGV" eSuperTypes="#//Transporter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Conveyor" eSuperTypes="#//Transporter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//FlowItem" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conveyor" eSuperTypes="#//Transporter"/>
   <eClassifiers xsi:type="ecore:EClass" name="Combiner" eSuperTypes="#//Machines"/>
   <eClassifiers xsi:type="ecore:EClass" name="Exchanger" eSuperTypes="#//Combiner"/>
   <eClassifiers xsi:type="ecore:EClass" name="Feeder" eSuperTypes="#//Combiner"/>
@@ -34,7 +31,10 @@
         eOpposite="#//Ports/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assembler" eSuperTypes="#//Machines"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Transporter" eSuperTypes="#//Machines"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transporter" eSuperTypes="#//Machines">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowitem" upperBound="-1"
+        eType="#//FlowItem" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowItem"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//Transporter"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pallet" eSuperTypes="#//FlowItem"/>
@@ -45,5 +45,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Product">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmptyNode" eSuperTypes="#//Node">
+    <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
+      <details key="archetype" value="Role"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

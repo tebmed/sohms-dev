@@ -14,6 +14,7 @@ import workshop.Box;
 import workshop.Combiner;
 import workshop.Conveyor;
 import workshop.Elevator;
+import workshop.EmptyNode;
 import workshop.Exchanger;
 import workshop.Feeder;
 import workshop.FlowItem;
@@ -24,6 +25,7 @@ import workshop.Operator;
 import workshop.Pallet;
 import workshop.Ports;
 import workshop.Processor;
+import workshop.Product;
 import workshop.Robot;
 import workshop.StorageMachine;
 import workshop.Tote;
@@ -179,6 +181,20 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	private EClass elevatorEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass productEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass emptyNodeEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -316,6 +332,15 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getNode_Product() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMachines() {
 		return machinesEClass;
 	}
@@ -354,15 +379,6 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 */
 	public EClass getConveyor() {
 		return conveyorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConveyor_Items() {
-		return (EReference)conveyorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -451,6 +467,15 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTransporter_Flowitem() {
+		return (EReference)transporterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFlowItem() {
 		return flowItemEClass;
 	}
@@ -514,6 +539,42 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProduct() {
+		return productEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduct_Id() {
+		return (EAttribute)productEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduct_Description() {
+		return (EAttribute)productEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEmptyNode() {
+		return emptyNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkshopFactory getWorkshopFactory() {
 		return (WorkshopFactory)getEFactoryInstance();
 	}
@@ -546,6 +607,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		createEAttribute(nodeEClass, NODE__CATEGORY);
 		createEAttribute(nodeEClass, NODE__NAME);
 		createEReference(nodeEClass, NODE__PORTS);
+		createEReference(nodeEClass, NODE__PRODUCT);
 
 		machinesEClass = createEClass(MACHINES);
 
@@ -556,7 +618,6 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		agvEClass = createEClass(AGV);
 
 		conveyorEClass = createEClass(CONVEYOR);
-		createEReference(conveyorEClass, CONVEYOR__ITEMS);
 
 		combinerEClass = createEClass(COMBINER);
 
@@ -572,6 +633,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		assemblerEClass = createEClass(ASSEMBLER);
 
 		transporterEClass = createEClass(TRANSPORTER);
+		createEReference(transporterEClass, TRANSPORTER__FLOWITEM);
 
 		flowItemEClass = createEClass(FLOW_ITEM);
 
@@ -586,6 +648,12 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		processorEClass = createEClass(PROCESSOR);
 
 		elevatorEClass = createEClass(ELEVATOR);
+
+		productEClass = createEClass(PRODUCT);
+		createEAttribute(productEClass, PRODUCT__ID);
+		createEAttribute(productEClass, PRODUCT__DESCRIPTION);
+
+		emptyNodeEClass = createEClass(EMPTY_NODE);
 	}
 
 	/**
@@ -632,6 +700,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		toteEClass.getESuperTypes().add(this.getFlowItem());
 		processorEClass.getESuperTypes().add(this.getAssembler());
 		elevatorEClass.getESuperTypes().add(this.getTransporter());
+		emptyNodeEClass.getESuperTypes().add(this.getNode());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -643,6 +712,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		initEAttribute(getNode_Category(), ecorePackage.getEString(), "category", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Ports(), this.getPorts(), null, "ports", null, 1, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_Product(), this.getProduct(), null, "product", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(machinesEClass, Machines.class, "Machines", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -653,7 +723,6 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		initEClass(agvEClass, workshop.AGV.class, "AGV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conveyorEClass, Conveyor.class, "Conveyor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConveyor_Items(), this.getFlowItem(), null, "items", null, 0, -1, Conveyor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(combinerEClass, Combiner.class, "Combiner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -669,6 +738,7 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 		initEClass(assemblerEClass, Assembler.class, "Assembler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(transporterEClass, Transporter.class, "Transporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTransporter_Flowitem(), this.getFlowItem(), null, "flowitem", null, 0, -1, Transporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowItemEClass, FlowItem.class, "FlowItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -684,8 +754,34 @@ public class WorkshopPackageImpl extends EPackageImpl implements WorkshopPackage
 
 		initEClass(elevatorEClass, Elevator.class, "Elevator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProduct_Id(), ecorePackage.getEString(), "id", null, 0, 1, Product.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProduct_Description(), ecorePackage.getEString(), "description", null, 0, 1, Product.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(emptyNodeEClass, EmptyNode.class, "EmptyNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.obeo.fr/dsl/dnc/archetype
+		createArchetypeAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.obeo.fr/dsl/dnc/archetype</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createArchetypeAnnotations() {
+		String source = "http://www.obeo.fr/dsl/dnc/archetype";	
+		addAnnotation
+		  (emptyNodeEClass, 
+		   source, 
+		   new String[] {
+			 "archetype", "Role"
+		   });
 	}
 
 } //WorkshopPackageImpl
